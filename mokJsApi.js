@@ -40,8 +40,8 @@ function 去admin頁(){
 }
 
 
-
-function 防止複製及禁用滑鼠右鍵(){
+$(document).ready(function 防止複製及禁用滑鼠右鍵() {
+//function 防止複製及禁用滑鼠右鍵(){
         // 防止複製功能
         document.addEventListener('copy', function(e) {
           e.preventDefault();
@@ -53,4 +53,4 @@ function 防止複製及禁用滑鼠右鍵(){
                   return false;
               });
           });
-}
+})
