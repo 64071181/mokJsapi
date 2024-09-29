@@ -39,3 +39,18 @@ function 去admin頁(){
   if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
 }
 
+
+
+function 防止複製及禁用滑鼠右鍵(){
+        // 防止複製功能
+        document.addEventListener('copy', function(e) {
+          e.preventDefault();
+          });
+      
+          // 禁用滑鼠右鍵
+          $(document).ready(function() {
+              $("body").on("contextmenu", function(e) {
+                  return false;
+              });
+          });
+}
