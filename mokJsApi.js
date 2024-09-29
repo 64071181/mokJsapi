@@ -38,5 +38,4 @@ function mokJsApi_客戶追蹤(){
 function 去admin頁(){
   if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
 }
-const 龜龜 = '053cd5774228cdacbea2595d4155ae92f832a957343e361290f9402071860dcf'; 
-  
+
