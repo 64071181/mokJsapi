@@ -53,3 +53,14 @@ $(document).ready(function 防止複製及禁用滑鼠右鍵() {
               });
           });
 })
+
+
+
+
+
+/** 加密/解密處理 */
+
+  // 轉換 SHA256
+  function sha256(text) {
+    return CryptoJS.SHA256(text).toString();
+  }
