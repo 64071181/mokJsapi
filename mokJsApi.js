@@ -69,6 +69,25 @@ function sha256(text) {
 
 // 帳號事宜
 
+
+function 帳戶名稱() {
+  // <a id="登入Btn" onclick="登入莫氏VIP('莫氏倉庫管理系統')" href='../login.html'>登入</a>
+  const 帳戶名 = localStorage.getItem('帳戶名稱')
+  if (帳戶名) {
+    console.log('帳戶名=',帳戶名) 
+        // 獲取原始的 <a> 標籤
+        , loginBtn = document.getElementById('登入Btn')
+        // 創建新的 <p> 標籤
+        , newParagraph = document.createElement('p');
+    newParagraph.textContent = 帳戶名; // 設置文本內容
+    // 替換原有的 <a> 標籤
+    loginBtn.parentNode.replaceChild(newParagraph, loginBtn);
+  }
+}
+
+
+
+
 // 由主網入 onclick="登入莫氏VIP('倉庫管理系統')" localStorage記錄由網
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
 function 登入莫氏VIP(分流){localStorage.setItem('莫氏VIP分流', 分流);}
