@@ -39,7 +39,7 @@ function 去admin頁(){
   if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
 }
 
-
+// $(document).ready(防止複製及禁用滑鼠右鍵())
 function 防止複製及禁用滑鼠右鍵() {
         // 防止複製功能
         document.addEventListener('copy', function(e) {
@@ -74,15 +74,22 @@ function sha256(text) {
 function 登入莫氏VIP(分流){localStorage.setItem('莫氏VIP分流', 分流);}
 
 
+
+
+
 // 上傳文到GitHub
-const token="\u0051\u0050\u0035\u0039\u0042\u0057\u0070\u0032\u0059\u0033\u0050\u0042\u0050\u0055\u0048\u0053\u0066\u0077\u0055\u0063\u0062\u0068\u0050\u0033\u0062\u0041\u0076\u0041\u004d\u0048\u0075\u0045\u0053\u0058\u0057\u0066\u0044\u0074\u0074\u0032\u006e\u0057\u0038\u0036\u004a\u0045\u0074\u0051\u0057\u0070\u0076\u0030\u0035\u006b\u0072\u006e\u006e\u006f\u004f\u005f\u0044\u006c\u0059\u007a\u0034\u004b\u0044\u007a\u0047\u0039\u0070\u004a\u0030\u0041\u0034\u004b\u0054\u004d\u0043\u0042\u0031\u0031\u005f\u0074\u0061\u0070\u005f\u0062\u0075\u0068\u0074\u0069\u0067"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join(""))
-//  Jan 9 2025 d0
-  , repoOwner="\u0031\u0038\u0031\u0031\u0037\u0030\u0034\u0036"["\u0073\u0070\u006c\u0069\u0074"]("")["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join(""))
-  
+async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
 
-async function _upTxtToGitHub(fileName,fileContent) {
+  let repoOwner="\u0031\u0038\u0031\u0031\u0037\u0030\u0034\u0036"["\u0073\u0070\u006c\u0069\u0074"]("")["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join(""))
+    , repoNameB="\u0030\u0064"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"](""))
+    //  20250109d0
+    , token0="\u0051\u0050\u0035\u0039\u0042\u0057\u0070\u0032\u0059\u0033\u0050\u0042\u0050\u0055\u0048\u0053\u0066\u0077\u0055\u0063\u0062\u0068\u0050\u0033\u0062\u0041\u0076\u0041\u004d\u0048\u0075\u0045\u0053\u0058\u0057\u0066\u0044\u0074\u0074\u0032\u006e\u0057\u0038\u0036\u004a\u0045\u0074\u0051\u0057\u0070\u0076\u0030\u0035\u006b\u0072\u006e\u006e\u006f\u004f\u005f\u0044\u006c\u0059\u007a\u0034\u004b\u0044\u007a\u0047\u0039\u0070\u004a\u0030\u0041\u0034\u004b\u0054\u004d\u0043\u0042\u0031\u0031\u005f\u0074\u0061\u0070\u005f\u0062\u0075\u0068\u0074\u0069\u0067"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join(""));
 
-  let G_Url     = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/`
+  // 設定參數
+  if (repoName != '') repoNameB = repoName
+  if (token != '') token0 = token
+
+  let G_Url     = `https://api.github.com/repos/${repoOwner}/${repoNameB}/contents/`
   // fine-grained personal access token > only repositories > Contents  
   // https://chat.openai.com/share/0013f2d3-9ca1-45c0-b0dc-5b1ad79a24aa
   // https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-token-%E7%9A%84%E7%B1%BB%E5%9E%8B
@@ -92,7 +99,7 @@ async function _upTxtToGitHub(fileName,fileContent) {
   // 檢查文件是否存在
   , existingFileResponse = await fetch(apiUrl, {
       headers: {
-  'Authorization': `token ${token}`,
+  'Authorization': `token ${token0}`,
       }
   })
   , existingFileData = await existingFileResponse.json();
@@ -102,7 +109,7 @@ async function _upTxtToGitHub(fileName,fileContent) {
       let createFileResponse = await fetch(apiUrl, {
   method: 'PUT',
   headers: {
-      'Authorization': `token ${token}`,
+      'Authorization': `token ${token0}`,
       'Content-Type': 'application/json'
   },
   body: JSON.stringify({
@@ -116,7 +123,7 @@ async function _upTxtToGitHub(fileName,fileContent) {
       let updateFileResponse = await fetch(apiUrl, {
   method: 'PUT',
   headers: {
-      'Authorization': `token ${token}`,
+      'Authorization': `token ${token0}`,
       'Content-Type': 'application/json'
   },
   body: JSON.stringify({
