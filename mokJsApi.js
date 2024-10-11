@@ -76,7 +76,9 @@ function 帳戶名稱() {
   if (帳戶名) {
     console.log('帳戶名=',帳戶名) 
         // qqqqqqqqqq
-        $('#登入Btn').html(`<a href="javascrip:history.go(0)" onclick="localStorage.removeItem('帳戶名稱');">${帳戶名.slice(0, 3)} 登出</a>`)
+        $('#登入Btn').html(`<a href="javascript:void(0);" onclick="localStorage.removeItem('帳戶名稱'); window.location.reload();">${帳戶名.slice(0, 3)}登出</a>`)
+
+        
         // 創建新的 <p> 標籤
   }
 }
