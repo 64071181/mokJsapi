@@ -70,7 +70,7 @@ function sha256(text) {
 // 帳號事宜
 function 登入莫氏VIP(分流){
   localStorage.setItem('莫氏VIP分流', 分流);
-  window.location.href = '.../login.html';
+  //window.location.href = '../login.html';
 
 }
 
