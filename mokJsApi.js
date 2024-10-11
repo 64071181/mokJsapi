@@ -40,7 +40,7 @@ function 去admin頁(){
 }
 
 
-$(document).ready(function 防止複製及禁用滑鼠右鍵() {
+function 防止複製及禁用滑鼠右鍵() {
         // 防止複製功能
         document.addEventListener('copy', function(e) {
           e.preventDefault();
@@ -52,7 +52,7 @@ $(document).ready(function 防止複製及禁用滑鼠右鍵() {
                   return false;
               });
           });
-})
+}
 
 
 
@@ -68,11 +68,10 @@ function sha256(text) {
 
 
 // 帳號事宜
-function 登入莫氏VIP(分流){
-  localStorage.setItem('莫氏VIP分流', 分流);
-  //window.location.href = '../login.html';
 
-}
+// 由主網入 onclick="登入莫氏VIP('倉庫管理系統')" localStorage記錄由網
+// 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
+function 登入莫氏VIP(分流){localStorage.setItem('莫氏VIP分流', 分流);}
 
 
 // 上傳文到GitHub
