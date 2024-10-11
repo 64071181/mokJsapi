@@ -75,16 +75,9 @@ function 帳戶名稱() {
   const 帳戶名 = localStorage.getItem('帳戶名稱')
   if (帳戶名) {
     console.log('帳戶名=',帳戶名) 
-        // 獲取原始的 <a> 標籤
-        , loginBtn = document.getElementById('登入Btn')
-
         // qqqqqqqqqq
         $('#登入Btn').html(`<a href="javascrip:history.go(0)" onclick="localStorage.removeItem('帳戶名稱');">${帳戶名.slice(0, 3)} 登出</a>`)
         // 創建新的 <p> 標籤
-        , newParagraph = document.createElement('p');
-    newParagraph.textContent = 帳戶名; // 設置文本內容
-    // 替換原有的 <a> 標籤
-    loginBtn.parentNode.replaceChild(newParagraph, loginBtn);
   }
 }
 
