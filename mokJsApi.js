@@ -83,7 +83,7 @@ function 帳戶名稱() {
   if (帳戶名) {
     console.log('帳戶名=',帳戶名) 
     $('.dropdown').html(`    
-      <div class="dropdown" id="">
+      <div class="dropdown">
         <p id="dropdownToggle">${帳戶名}</p>
         <div class="dropdown-content">
           <a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP()">登出</a>
