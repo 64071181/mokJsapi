@@ -1,4 +1,8 @@
-
+/* $$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+基本功能：
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 function mokJsApi_說明(){
 
@@ -34,6 +38,7 @@ function mokJsApi_客戶追蹤(){
   };
 };
 
+
 // admin頁
 function 去admin頁(){
   if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
@@ -56,6 +61,18 @@ function 防止複製及禁用滑鼠右鍵() {
 
 
 
+  // 搜索功能實現
+  function _Aki搜尋(keyword,內容class,ai搜=false) {
+    // 選取所有符合條件的元素
+    $(內容class).each(function() {
+        $(this).toggle($(this).text().includes(keyword));
+        if(ai搜){
+          // 搜尋Perplexity
+          $('#搜尋Perplexity').html(`<a href="https://www.perplexity.ai/search?q=${keyword}" target="_blank">在 Perplexity 上搜尋 ${keyword}</a>`);
+          $('#搜尋Perplexity').show();
+        }
+    });
+}
 
 
 
@@ -65,9 +82,31 @@ function sha256(text) {
   return CryptoJS.SHA256(text).toString();
 }
 
+//获取当前时间
+function nowTime() {
+  let now= new Date();
+  let _month = ( 10 > (now.getMonth()+1) ) ? '0' + (now.getMonth()+1) : now.getMonth()+1;
+  let _day = ( 10 > now.getDate() ) ? '0' + now.getDate() : now.getDate();
+  let _hour = ( 10 > now.getHours() ) ? '0' + now.getHours() : now.getHours();
+  let _minute = ( 10 > now.getMinutes() ) ? '0' + now.getMinutes() : now.getMinutes();
+  let _second = ( 10 > now.getSeconds() ) ? '0' + now.getSeconds() : now.getSeconds();
+  return now.getFullYear() + '-' + _month + '-' + _day + '_' + _hour  + _minute + _second;
+}
 
 
-// 帳號事宜
+
+
+
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+帳號事宜
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 function 帳戶名稱() {
   //const 帳戶名 = localStorage.getItem('帳戶名稱')
   return localStorage.getItem('帳戶名稱')
@@ -84,6 +123,12 @@ function 登出莫氏VIP(){
   window.location.reload();
 }
 
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+GitHub
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
 // 上傳文到GitHub
@@ -149,12 +194,3 @@ async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
 
 
 
-function nowTime() {//获取当前时间
-  let now= new Date();
-  let _month = ( 10 > (now.getMonth()+1) ) ? '0' + (now.getMonth()+1) : now.getMonth()+1;
-  let _day = ( 10 > now.getDate() ) ? '0' + now.getDate() : now.getDate();
-  let _hour = ( 10 > now.getHours() ) ? '0' + now.getHours() : now.getHours();
-  let _minute = ( 10 > now.getMinutes() ) ? '0' + now.getMinutes() : now.getMinutes();
-  let _second = ( 10 > now.getSeconds() ) ? '0' + now.getSeconds() : now.getSeconds();
-  return now.getFullYear() + '-' + _month + '-' + _day + '_' + _hour  + _minute + _second;
-}
