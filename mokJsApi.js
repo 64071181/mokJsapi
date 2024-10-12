@@ -69,8 +69,8 @@ function sha256(text) {
 
 // 帳號事宜
 function 帳戶名稱() {
-  const 帳戶名 = localStorage.getItem('帳戶名稱')
-  if (帳戶名) return 帳戶名
+  //const 帳戶名 = localStorage.getItem('帳戶名稱')
+  return localStorage.getItem('帳戶名稱')
 }
 
 
