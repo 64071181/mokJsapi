@@ -87,8 +87,6 @@ function 登入莫氏VIP(分流){localStorage.setItem('莫氏VIP分流', 分流)
 
 function 登出莫氏VIP(){
   localStorage.removeItem('帳戶名稱'); 
-  //$('#登入Btn').html(`<a id="登入Btn" onclick="登入莫氏VIP(${localStorage.getItem('莫氏VIP分流')})" href='../login.html'>登入</a>`);
-  
   window.location.reload();
 }
 
