@@ -71,12 +71,11 @@ function sha256(text) {
 
 
 function 帳戶名稱() {
-  // <a id="登入Btn" onclick="登入莫氏VIP('莫氏倉庫管理系統')" href='../login.html'>登入</a>
   const 帳戶名 = localStorage.getItem('帳戶名稱')
   if (帳戶名) {
     console.log('帳戶名=',帳戶名) 
         // qqqqqqqqqq
-        $('#登入Btn').html(`<a href="javascript:void(0);" onclick="localStorage.removeItem('帳戶名稱'); window.location.reload();">${帳戶名.slice(0, 3)}登出</a>`)
+        $('#登入Btn').html(`<a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP()">${帳戶名.slice(0, 3)}登出</a>`)
 
         
         // 創建新的 <p> 標籤
@@ -90,7 +89,13 @@ function 帳戶名稱() {
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
 function 登入莫氏VIP(分流){localStorage.setItem('莫氏VIP分流', 分流);}
 
-
+function 登出莫氏VIP(){
+  // qqqqqqqqqq
+  localStorage.removeItem('帳戶名稱'); 
+  //$('#登入Btn').html(`<a id="登入Btn" onclick="登入莫氏VIP(${localStorage.getItem('莫氏VIP分流')})" href='../login.html'>登入</a>`);
+  localStorage.removeItem('莫氏VIP分流');
+  window.location.reload();
+}
 
 
 
