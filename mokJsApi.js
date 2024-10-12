@@ -70,14 +70,30 @@ function sha256(text) {
 // 帳號事宜
 
 
+function 帳戶00名稱() {
+  const 帳戶名 = localStorage.getItem('帳戶名稱')
+  if (帳戶名) {
+    console.log('帳戶名=',帳戶名) 
+    $('#登入Btn').html(`<a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP()">${帳戶名}登出</a>`)
+  }
+}
+
 function 帳戶名稱() {
   const 帳戶名 = localStorage.getItem('帳戶名稱')
   if (帳戶名) {
     console.log('帳戶名=',帳戶名) 
-    $('#登入Btn').html(`<a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP()">${帳戶名.slice(0, 3)}登出</a>`)
+    $('.dropdown').html(`    
+      <div class="dropdown" id="">
+        <p id="dropdownToggle">${帳戶名}</p>
+        <div class="dropdown-content">
+          <a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP()">登出</a>
+          <a href="#">新增成員</a>
+          <a href="#">設置</a>
+        </div>
+      </div>
+    `)
   }
 }
-
 
 
 
