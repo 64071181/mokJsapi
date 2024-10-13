@@ -4,6 +4,10 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
+
+const \u0064\u0030\u0037 ="\u0032\u0064\u0032\u0063\u0038\u0062\u0037\u0063\u0036\u0037\u0064\u0030\u0037\u0034\u0061\u0030\u0063\u0032\u0061\u0062\u0035\u0034\u0038\u0037\u0063\u0064\u0034\u0033\u0063\u0032\u0062\u0032\u0035\u0035\u0039\u0061\u0066\u0039\u0034\u0066\u0036\u0039\u0036\u0030\u0035\u0038\u0032\u0064\u0037\u0032\u0039\u0030\u0033\u0037\u0066\u0062\u0034\u0065\u0034\u0066\u0030\u0036\u0037\u0065"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""['split']("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"]('')))['reverse']()['join'](''['split']("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''));
+
+
 function mokJsApi_說明(){
 
   console.log('\
@@ -29,6 +33,7 @@ $(document).ready(function() {
 
 
 function mokJsApi_客戶追蹤(){
+  // qqq 轉localStorage
   // 用網址中的?做客戶追蹤
   // 給客的url加上 ?客名
   // 再記到github
@@ -78,9 +83,7 @@ function 防止複製及禁用滑鼠右鍵() {
 
 // 轉換 SHA256
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-function sha256(text) {
-  return CryptoJS.SHA256(text).toString();
-}
+function sha256(text) { return CryptoJS.SHA256(text).toString(); }
 
 //获取当前时间
 function nowTime() {
@@ -107,19 +110,15 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$
 帳號事宜
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@ */
-function _帳戶名稱() {
-  //const 帳戶名 = localStorage.getItem('帳戶名稱')
-  return localStorage.getItem('帳戶名稱')
-}
+function _帳戶名稱() { return localStorage.getItem('帳戶名稱'); }
 
-function _數據文件() {
-  //const 帳戶名 = localStorage.getItem('帳戶名稱')
-  return localStorage.getItem('數據文件')
-}
+function _數據文件() { return localStorage.getItem('數據文件'); }
+
 
 // 由主網入 onclick="登入莫氏VIP('倉庫管理系統')" localStorage記錄由網
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
-function 登入莫氏VIP(分流){localStorage.setItem('莫氏VIP分流', 分流);}
+function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
+
 
 function 登出莫氏VIP(){
   localStorage.removeItem('帳戶名稱'); 
@@ -136,6 +135,7 @@ function _載入帳戶數據() {
   document.head.appendChild(script); // 將 script 標籤加入到 head 部分
 }
 
+
 // _更新數據(inventoryData).then(all數據 => { console.log(`_更新數據:${all數據}`);  });
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
 function _更新數據(新數據) {
@@ -148,13 +148,11 @@ function _更新數據(新數據) {
     })
     .then(原數據 => {
       console.log('原數據=', 原數據);
-
       // 将新数据转换为 JSON 字符串
       // https://chateverywhere.app?shareable_conversation_id=b7515e9b-d513-40c9-a5d6-7e68a2c1b11f
       let new數據 = JSON.stringify(新數據, null, 2) // 格式化为可读的 JSON 字符串
       // 加上新的數據
         , all數據 = `${原數據}\n${new數據}`;
-
       return all數據; // 返回所有數據
     })
     .catch(error => {
