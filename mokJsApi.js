@@ -127,14 +127,20 @@ function 登出莫氏VIP(){
 }
 
 
-// 用 fetch 來獲取 JavaScript 文件的內容，然後將其動態添加到網頁的 <head> 部分
-// https://chateverywhere.app?shareable_conversation_id=b11e96b4-0417-463d-a047-82b1a7e4f6c1
-function _載入帳戶數據(jsUlr) {
-  console.log('_載入帳戶數據=',jsUlr) 
+// https://chatgpt.com/share/670ba53c-6ce4-8002-a3d3-ecc41ad03932
+function _載入帳戶數據(jsUrl) {
+  console.log('_載入帳戶數據=', jsUrl);
   const script = document.createElement('script');
-  script.text = `\u003Cscript src="${jsUlr}">\u0027\u003E\u003C\u002F\u0073\u0063\u0072\u0069\u0070\u0074\u003E\u0027`; // 將獲取的內容放入 script 標籤中
+  script.src = jsUrl;
+  script.onerror = function () {
+    console.error('腳本加載失敗');
+  };
   document.head.appendChild(script); // 將 script 標籤加入到 head 部分
 }
+
+
+// 查看數據
+function _查看數據(數據id) { return eval(CryptoJS.AES.decrypt(數據id, 親老婆).toString(CryptoJS.enc.Utf8))}
 
 
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
