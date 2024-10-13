@@ -5,7 +5,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
-const \u0064\u0030\u0037 ="\u0032\u0064\u0032\u0063\u0038\u0062\u0037\u0063\u0036\u0037\u0064\u0030\u0037\u0034\u0061\u0030\u0063\u0032\u0061\u0062\u0035\u0034\u0038\u0037\u0063\u0064\u0034\u0033\u0063\u0032\u0062\u0032\u0035\u0035\u0039\u0061\u0066\u0039\u0034\u0066\u0036\u0039\u0036\u0030\u0035\u0038\u0032\u0064\u0037\u0032\u0039\u0030\u0033\u0037\u0066\u0062\u0034\u0065\u0034\u0066\u0030\u0036\u0037\u0065"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""['split']("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"]('')))['reverse']()['join'](''['split']("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''));
+const 親老婆 ="\u0032\u0064\u0032\u0063\u0038\u0062\u0037\u0063\u0036\u0037\u0064\u0030\u0037\u0034\u0061\u0030\u0063\u0032\u0061\u0062\u0035\u0034\u0038\u0037\u0063\u0064\u0034\u0033\u0063\u0032\u0062\u0032\u0035\u0035\u0039\u0061\u0066\u0039\u0034\u0066\u0036\u0039\u0036\u0030\u0035\u0038\u0032\u0064\u0037\u0032\u0039\u0030\u0033\u0037\u0066\u0062\u0034\u0065\u0034\u0066\u0030\u0036\u0037\u0065"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""['split']("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"]('')))['reverse']()['join'](''['split']("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''));
 
 
 function mokJsApi_說明(){
@@ -137,9 +137,9 @@ function _載入帳戶數據(jsUlr) {
 }
 
 
-// _更新數據(inventoryData).then(all數據 => { console.log(`_更新數據:${all數據}`);  });
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
 function _更新數據(新數據) {
+  // _更新數據([inventoryData,'d1']);
   return fetch(`${帳號數據庫}`)
     .then(response => {
         if (!response.ok) {
@@ -148,18 +148,40 @@ function _更新數據(新數據) {
         return response.text(); // 獲取文本內容
     })
     .then(原數據 => {
-      console.log('原數據=', 原數據);
-      // 将新数据转换为 JSON 字符串
-      // https://chateverywhere.app?shareable_conversation_id=b7515e9b-d513-40c9-a5d6-7e68a2c1b11f
-      let new數據 = JSON.stringify(新數據, null, 2) // 格式化为可读的 JSON 字符串
-      // 加上新的數據
-        , all數據 = `${原數據}\n${new數據}`;
+      // 分割原數據
+      // https://chateverywhere.app?shareable_conversation_id=2e66b13e-39b8-4bff-802d-ce29c0631a50
+
+      let 原數據頭 = 原數據.split(new RegExp(`const ${新數據[1]} = '`))[0].trim() 
+        , 原數據頭B = `${原數據頭}\nconst ${新數據[1]} = '`
+
+        , 原數據尾 = 原數據.split(new RegExp(`const ${新數據[1]} = '`))[1].split(/'\/\/\$\$.*?\n/)[1]
+        , 原數據尾B = `'//$$$$$$$$$$$$$$$$$$\n${原數據尾}'//$$$$$$$$$$$$$$$$$$\n`
+
+        // 将新数据转换为 JSON 字符串
+        // https://chateverywhere.app?shareable_conversation_id=b7515e9b-d513-40c9-a5d6-7e68a2c1b11f
+        , new數據 = JSON.stringify(新數據[0], null, 2) 
+        , new數據B = CryptoJS.AES.encrypt(new數據, 親老婆).toString()
+
+        // 加上新的數據
+        , all數據 = `${原數據頭B}${new數據B}${原數據尾B}`;
+
+      //console.log('原數據=', 原數據);
+      //console.log('原數據頭=', 原數據頭B);
+      //console.log('原數據尾=', 原數據尾B);
+      console.log('all數據=', all數據);
+
       return all數據; // 返回所有數據
     })
     .catch(error => {
         console.error('發生錯誤:', error);
     });
 }
+
+
+
+
+
+
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$
