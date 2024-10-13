@@ -128,6 +128,40 @@ function 登出莫氏VIP(){
 }
 
 
+// 用 fetch 來獲取 JavaScript 文件的內容，然後將其動態添加到網頁的 <head> 部分
+// https://chateverywhere.app?shareable_conversation_id=b11e96b4-0417-463d-a047-82b1a7e4f6c1
+function _載入帳戶數據() {
+  const script = document.createElement('script');
+  script.text = `<script src="${帳號數據庫}">\u0027\u003E\u003C\u002F\u0073\u0063\u0072\u0069\u0070\u0074\u003E\u0027`; // 將獲取的內容放入 script 標籤中
+  document.head.appendChild(script); // 將 script 標籤加入到 head 部分
+}
+
+// _更新數據(inventoryData).then(all數據 => { console.log(`_更新數據:${all數據}`);  });
+// https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
+function _更新數據(新數據) {
+  return fetch(`${帳號數據庫}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('網絡響應不正常');
+        }
+        return response.text(); // 獲取文本內容
+    })
+    .then(原數據 => {
+      console.log('原數據=', 原數據);
+
+      // 将新数据转换为 JSON 字符串
+      // https://chateverywhere.app?shareable_conversation_id=b7515e9b-d513-40c9-a5d6-7e68a2c1b11f
+      let new數據 = JSON.stringify(新數據, null, 2) // 格式化为可读的 JSON 字符串
+      // 加上新的數據
+        , all數據 = `${原數據}\n${new數據}`;
+
+      return all數據; // 返回所有數據
+    })
+    .catch(error => {
+        console.error('發生錯誤:', error);
+    });
+}
+
 /* $$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$
 GitHub
