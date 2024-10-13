@@ -138,8 +138,8 @@ function _載入帳戶數據(jsUlr) {
 
 
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
-function _更新數據(新數據) {
-  // _更新數據([inventoryData,'d1']);
+function _更新數據(新數據,數據id) {
+  // _更新數據(inventoryData,'d1');
   return fetch(`${帳號數據庫}`)
     .then(response => {
         if (!response.ok) {
@@ -151,15 +151,15 @@ function _更新數據(新數據) {
       // 分割原數據
       // https://chateverywhere.app?shareable_conversation_id=2e66b13e-39b8-4bff-802d-ce29c0631a50
 
-      let 原數據頭 = 原數據.split(new RegExp(`const ${新數據[1]} = '`))[0].trim() 
-        , 原數據頭B = `${原數據頭}\nconst ${新數據[1]} = '`
+      let 原數據頭 = 原數據.split(new RegExp(`const ${數據id} = '`))[0].trim() 
+        , 原數據頭B = `${原數據頭}\nconst ${數據id} = '`
 
-        , 原數據尾 = 原數據.split(new RegExp(`const ${新數據[1]} = '`))[1].split(/'\/\/\$\$.*?\n/)[1]
+        , 原數據尾 = 原數據.split(new RegExp(`const ${數據id} = '`))[1].split(/'\/\/\$\$.*?\n/)[1]
         , 原數據尾B = `'//$$$$$$$$$$$$$$$$$$\n${原數據尾}'//$$$$$$$$$$$$$$$$$$\n`
 
         // 将新数据转换为 JSON 字符串
         // https://chateverywhere.app?shareable_conversation_id=b7515e9b-d513-40c9-a5d6-7e68a2c1b11f
-        , new數據 = JSON.stringify(新數據[0], null, 2) 
+        , new數據 = JSON.stringify(新數據, null, 2) 
         , new數據B = CryptoJS.AES.encrypt(new數據, 親老婆).toString()
 
         // 加上新的數據
