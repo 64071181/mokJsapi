@@ -132,7 +132,7 @@ function 登出莫氏VIP(){
 // https://chateverywhere.app?shareable_conversation_id=b11e96b4-0417-463d-a047-82b1a7e4f6c1
 function _載入帳戶數據() {
   const script = document.createElement('script');
-  script.text = `<script src="${帳號數據庫}">\u0027\u003E\u003C\u002F\u0073\u0063\u0072\u0069\u0070\u0074\u003E\u0027`; // 將獲取的內容放入 script 標籤中
+  script.text = `\u003Cscript src="${帳號數據庫}">\u0027\u003E\u003C\u002F\u0073\u0063\u0072\u0069\u0070\u0074\u003E\u0027`; // 將獲取的內容放入 script 標籤中
   document.head.appendChild(script); // 將 script 標籤加入到 head 部分
 }
 
