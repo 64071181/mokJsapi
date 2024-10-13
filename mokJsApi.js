@@ -214,48 +214,47 @@ async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
   // https://chat.openai.com/share/0013f2d3-9ca1-45c0-b0dc-5b1ad79a24aa
   // https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-token-%E7%9A%84%E7%B1%BB%E5%9E%8B
 
-  , apiUrl = G_Url+fileName
+  , apiUrl = G_Url+fileName;
 
   // 檢查文件是否存在
-  , existingFileResponse = await fetch(apiUrl, {
+  let existingFileResponse = await fetch(apiUrl, {
       headers: {
   'Authorization': `token ${token0}`,
       }
-  })
-  , existingFileData = await existingFileResponse.json();
+  });
+  let existingFileData = await existingFileResponse.json();
 
   if (existingFileData.message === 'Not Found') {
       // 如果文件不存在，則創建新文件
       let createFileResponse = await fetch(apiUrl, {
-  method: 'PUT',
-  headers: {
-      'Authorization': `token ${token0}`,
-      'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-      message: nowTime()+'_上傳_'+fileName,
-      content: btoa(unescape(encodeURIComponent(fileContent))) // 將文字內容轉換為Base64格式
-  })
-      });
-      let createFileResult = await createFileResponse.json(); //QQQ
-      console.log(fileName,'已成功創建',createFileResult);
-  } else {
-      // 如果文件存在，則更新文件內容
-      let updateFileResponse = await fetch(apiUrl, {
-  method: 'PUT',
-  headers: {
-      'Authorization': `token ${token0}`,
-      'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-      message: nowTime()+'_更新_'+fileName,
-      content: btoa(unescape(encodeURIComponent(fileContent))), // 將文字內容轉換為Base64格式
-      sha: existingFileData.sha
-  })
+        method: 'PUT',
+        headers: {
+            'Authorization': `token ${token0}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            message: nowTime()+'_上傳_'+fileName,
+            content: btoa(unescape(encodeURIComponent(fileContent))) // 將文字內容轉換為Base64格式
+        })
       });
 
-      let updateFileResult = await updateFileResponse.json(); //QQQ
-      console.log(fileName, '已成功更新:', updateFileResult);
+      console.log(fileName,'已成功創建');
+    } else {
+        // 如果文件存在，則更新文件內容
+        let updateFileResponse = await fetch(apiUrl, {
+          method: 'PUT',
+          headers: {
+              'Authorization': `token ${token0}`,
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              message: nowTime()+'_更新_'+fileName,
+              content: btoa(unescape(encodeURIComponent(fileContent))), // 將文字內容轉換為Base64格式
+              sha: existingFileData.sha
+          })
+      });
+
+      console.log(fileName, '已成功更新');
   }
   return fileName
 }
