@@ -140,6 +140,7 @@ function _載入帳戶數據(jsUrl) {
 
 
 // 查看數據
+// console.log('_查看數據(數據id)=',_查看數據('d1')) 
 function _查看數據(數據id) { return eval(CryptoJS.AES.decrypt(數據id, 親老婆).toString(CryptoJS.enc.Utf8))}
 
 
@@ -236,7 +237,8 @@ async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
       content: btoa(unescape(encodeURIComponent(fileContent))) // 將文字內容轉換為Base64格式
   })
       });
-      console.log(fileName,'已成功創建');
+      let createFileResult = await createFileResponse.json(); //QQQ
+      console.log(fileName,'已成功創建',createFileResult);
   } else {
       // 如果文件存在，則更新文件內容
       let updateFileResponse = await fetch(apiUrl, {
@@ -251,7 +253,9 @@ async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
       sha: existingFileData.sha
   })
       });
-      console.log(fileName,'已成功更新');
+
+      let updateFileResult = await updateFileResponse.json(); //QQQ
+      console.log(fileName, '已成功更新:', updateFileResult);
   }
   return fileName
 }
