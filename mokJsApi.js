@@ -1,8 +1,17 @@
-/* $$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+      :::::::::           :::        ::::::::       ::::::::::
+     :+:    :+:        :+: :+:     :+:    :+:      :+:
+    +:+    +:+       +:+   +:+    +:+             +:+
+   +#++:++#+       +#++:++#++:   +#++:++#++      +#++:++#
+  +#+    +#+      +#+     +#+          +#+      +#+
+ #+#    #+#      #+#     #+#   #+#    #+#      #+#
+#########       ###     ###    ########       ##########
+
 基本功能：
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
 const 親老婆 ="\u0032\u0064\u0032\u0063\u0038\u0062\u0037\u0063\u0036\u0037\u0064\u0030\u0037\u0034\u0061\u0030\u0063\u0032\u0061\u0062\u0035\u0034\u0038\u0037\u0063\u0064\u0034\u0033\u0063\u0032\u0062\u0032\u0035\u0035\u0039\u0061\u0066\u0039\u0034\u0066\u0036\u0039\u0036\u0030\u0035\u0038\u0032\u0064\u0037\u0032\u0039\u0030\u0033\u0037\u0066\u0062\u0034\u0065\u0034\u0066\u0030\u0036\u0037\u0065"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""['split']("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"]('')))['reverse']()['join'](''['split']("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''));
@@ -32,56 +41,35 @@ $(document).ready(function() {
 
 
 
-function mokJsApi_客戶追蹤(){
-  // qqq 轉localStorage
-  // 用網址中的?做客戶追蹤
-  // 給客的url加上 ?客名
-  // 再記到github
-  if ((location.href).indexOf('?') != -1) {
-    // 顯示說明
-    mokJsApi_說明();
-  };
-};
-
-
-// admin頁
-
-function _aki睇錯(){ if ((location.href).indexOf('?mokaki') != -1) return true; }
-
-
-function 去admin頁(){
-  if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
-}
-
 // $(document).ready(防止複製及禁用滑鼠右鍵())
 function 防止複製及禁用滑鼠右鍵() {
-        // 防止複製功能
-        document.addEventListener('copy', function(e) {
-          e.preventDefault();
-          });
-      
-          // 禁用滑鼠右鍵
-          $(document).ready(function() {
-              $("body").on("contextmenu", function(e) {
-                  return false;
-              });
-          });
+  // 防止複製功能
+  document.addEventListener('copy', function(e) {
+    e.preventDefault();
+    });
+
+    // 禁用滑鼠右鍵
+    $(document).ready(function() {
+        $("body").on("contextmenu", function(e) {
+            return false;
+        });
+    });
 }
 
 
 
-  // 搜索功能實現
-  function _Aki搜尋(keyword,內容class,ai搜=false) {
-  // $('#searchInput').on('input', function() { _Aki搜尋($(this).val(),'.inventory-item'); });
-    // 選取所有符合條件的元素
-    $(內容class).each(function() {
-        $(this).toggle($(this).text().includes(keyword));
-        if(ai搜){
-          // 搜尋Perplexity
-          $('#搜尋Perplexity').html(`<a href="https://www.perplexity.ai/search?q=${keyword}" target="_blank">在 Perplexity 上搜尋 ${keyword}</a>`);
-          $('#搜尋Perplexity').show();
-        }
-    });
+// 搜索功能實現
+function _Aki搜尋(keyword,內容class,ai搜=false) {
+// $('#searchInput').on('input', function() { _Aki搜尋($(this).val(),'.inventory-item'); });
+// 選取所有符合條件的元素
+$(內容class).each(function() {
+  $(this).toggle($(this).text().includes(keyword));
+  if(ai搜){
+    // 搜尋Perplexity
+    $('#搜尋Perplexity').html(`<a href="https://www.perplexity.ai/search?q=${keyword}" target="_blank">在 Perplexity 上搜尋 ${keyword}</a>`);
+    $('#搜尋Perplexity').show();
+  }
+});
 }
 
 
@@ -94,13 +82,57 @@ function sha256(text) { return CryptoJS.SHA256(text).toString(); }
 
 //获取当前时间
 function nowTime() {
-  let now= new Date();
-  let _month = ( 10 > (now.getMonth()+1) ) ? '0' + (now.getMonth()+1) : now.getMonth()+1;
-  let _day = ( 10 > now.getDate() ) ? '0' + now.getDate() : now.getDate();
-  let _hour = ( 10 > now.getHours() ) ? '0' + now.getHours() : now.getHours();
-  let _minute = ( 10 > now.getMinutes() ) ? '0' + now.getMinutes() : now.getMinutes();
-  let _second = ( 10 > now.getSeconds() ) ? '0' + now.getSeconds() : now.getSeconds();
-  return now.getFullYear() + '-' + _month + '-' + _day + '_' + _hour  + _minute + _second;
+let now= new Date();
+let _month = ( 10 > (now.getMonth()+1) ) ? '0' + (now.getMonth()+1) : now.getMonth()+1;
+let _day = ( 10 > now.getDate() ) ? '0' + now.getDate() : now.getDate();
+let _hour = ( 10 > now.getHours() ) ? '0' + now.getHours() : now.getHours();
+let _minute = ( 10 > now.getMinutes() ) ? '0' + now.getMinutes() : now.getMinutes();
+let _second = ( 10 > now.getSeconds() ) ? '0' + now.getSeconds() : now.getSeconds();
+return now.getFullYear() + '-' + _month + '-' + _day + '_' + _hour  + _minute + _second;
+}
+
+
+
+
+
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+          :::        :::::::::         :::   :::       :::::::::::       ::::    :::
+       :+: :+:      :+:    :+:       :+:+: :+:+:          :+:           :+:+:   :+:
+     +:+   +:+     +:+    +:+      +:+ +:+:+ +:+         +:+           :+:+:+  +:+
+   +#++:++#++:    +#+    +:+      +#+  +:+  +#+         +#+           +#+ +:+ +#+
+  +#+     +#+    +#+    +#+      +#+       +#+         +#+           +#+  +#+#+#
+ #+#     #+#    #+#    #+#      #+#       #+#         #+#           #+#   #+#+#
+###     ###    #########       ###       ###     ###########       ###    ####
+
+admin：
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+
+function mokJsApi_客戶追蹤(){
+  // qqq 轉localStorage
+  // 用網址中的?做客戶追蹤
+  // 給客的url加上 ?客名
+  // 再記到github
+  if ((location.href).indexOf('?') != -1) {
+    // 顯示說明
+    mokJsApi_說明();
+  };
+};
+
+
+function _aki睇錯(){ if ((location.href).indexOf('?mokaki') == -1) return true; }
+
+
+function 去admin頁(){
+  if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
 }
 
 
@@ -125,13 +157,21 @@ function nowTime() {
 
 
 
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+     :::    :::       ::::::::       :::::::::       ::::::::::                           :::        ::::::::
+    :+:    :+:      :+:    :+:      :+:    :+:      :+:                                :+: :+:     :+:    :+:
+   +:+    +:+      +:+             +:+    +:+      +:+                               +:+   +:+    +:+
+  +#+    +:+      +#++:++#++      +#++:++#:       +#++:++#                         +#++:++#++:   +#+
+ +#+    +#+             +#+      +#+    +#+      +#+                              +#+     +#+   +#+
+#+#    #+#      #+#    #+#      #+#    #+#      #+#                              #+#     #+#   #+#    #+#
+########        ########       ###    ###      ##########       ##########      ###     ###    ########
 
 
-/* $$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 帳號事宜
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 function _帳戶名稱() { return localStorage.getItem('帳戶名稱'); }
 
 function _數據文件() { return localStorage.getItem('數據文件'); }
@@ -171,11 +211,20 @@ function 登出莫氏VIP(){
 
 
 
-/* $$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+      :::::::::           :::    :::::::::::           :::
+     :+:    :+:        :+: :+:      :+:             :+: :+:
+    +:+    +:+       +:+   +:+     +:+            +:+   +:+
+   +#+    +:+      +#++:++#++:    +#+           +#++:++#++:
+  +#+    +#+      +#+     +#+    +#+           +#+     +#+
+ #+#    #+#      #+#     #+#    #+#           #+#     #+#
+#########       ###     ###    ###           ###     ###
+
 取數據、更新數據
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 function _取本頁數據庫() {
   _更新數據( 本頁數據庫編號, '', '查看數據') // 從html 本頁數據庫編號 取得
