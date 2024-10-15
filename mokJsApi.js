@@ -85,6 +85,8 @@ function 防止複製及禁用滑鼠右鍵() {
 // <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 function sha256(text) { return CryptoJS.SHA256(text).toString(); }
 
+
+
 //获取当前时间
 function nowTime() {
   let now= new Date();
@@ -127,17 +129,32 @@ function 登出莫氏VIP(){
 }
 
 
-// https://chatgpt.com/share/670ba53c-6ce4-8002-a3d3-ecc41ad03932
-function _載入帳戶數據(jsUrl) {
-  console.log('_載入帳戶數據=', jsUrl);
-  const script = document.createElement('script');
-  script.src = jsUrl;
-  script.onerror = function () {
-    console.error('腳本加載失敗');
-  };
-  document.head.appendChild(script); // 將 script 標籤加入到 head 部分
-}
 
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+取數據、更新數據
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+function _取本頁數據庫() {
+  _更新數據( 本頁數據庫編號, '', '查看數據') // 從html 本頁數據庫編號 取得
+  .then(查看已加密數據 => { 
+    已解密數據 =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
+    
+    // 離線保存解密後的數據
+    localStorage.setItem('離線數據庫', 已解密數據)
+    //console.log('已解密數據',localStorage.getItem('離線數據庫'))
+    })
+    
+    .catch(error => {
+        console.error('發生錯誤:', error); 
+      });
+  }
 
 
 
@@ -146,14 +163,8 @@ function _載入帳戶數據(jsUrl) {
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
 function _更新數據(數據id, 新數據='',sel='') {
   // _更新數據(本頁數據庫, inventoryData).then(新all數據 => { _上傳文到GitHub(帳號數據庫.split('.io/d0/')[1],新all數據 ); }).catch(error => {  console.error('發生錯誤:', error); });
-  // _更新數據( 本頁數據庫, '', '查看數據').then(查看已加密數據 => { ddddd =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8)console.log('ddddd',ddddd)}).catch(error => {  console.error('發生錯誤:', error); });
-
-
-
-
-
-  
-  return fetch(`${帳號數據庫}`)//從那裡來?? qqq 
+  // _更新數據( 本頁數據庫, '', '查看數據').then(查看已加密數據 => { ddddd =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);console.log('ddddd',ddddd)}).catch(error => {  console.error('發生錯誤:', error); });
+  return fetch(`${帳號數據庫}`) // 從html 帳號數據庫 = _數據文件() 取得
     .then(response => {
         if (!response.ok) {
             throw new Error('網絡響應不正常');
@@ -202,18 +213,7 @@ function _更新數據(數據id, 新數據='',sel='') {
 
 
 
-
-
-
-
-
-
-
-/* $$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-GitHub
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/* $$$$$$$$$$ GitHub @@@@@@@@@@@@ */
 
 // 上傳文到GitHub
 async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
