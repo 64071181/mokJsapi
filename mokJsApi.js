@@ -130,7 +130,7 @@ function mokJsApi_客戶追蹤(){
 
 function _aki睇錯(){ 
   if ((location.href).indexOf('?mokaki') != -1) {
-    console.log('_aki睇錯')
+    console.log(' @@@@@@@@ _aki睇錯 @@@@@@@@ ');
     return true;
   } 
 }
