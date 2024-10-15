@@ -139,16 +139,21 @@ function _載入帳戶數據(jsUrl) {
 }
 
 
-// 查看數據
-// console.log('_查看數據(數據id)=',_查看數據('d1')) 
-function _查看數據(數據id) { return eval(CryptoJS.AES.decrypt(數據id, 親老婆).toString(CryptoJS.enc.Utf8))}
+
 
 
 
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
-function _更新數據(新數據,數據id) {
-  // _更新數據(inventoryData, 本頁數據庫).then(新all數據 => { _上傳文到GitHub(帳號數據庫.split('.io/d0/')[1],新all數據 ); }).catch(error => {  console.error('發生錯誤:', error); });
-  return fetch(`${帳號數據庫}`)
+function _更新數據(數據id, 新數據='',sel='') {
+  // _更新數據(本頁數據庫, inventoryData).then(新all數據 => { _上傳文到GitHub(帳號數據庫.split('.io/d0/')[1],新all數據 ); }).catch(error => {  console.error('發生錯誤:', error); });
+  // _更新數據( 本頁數據庫, '', '查看數據').then(查看已加密數據 => { ddddd =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8)console.log('ddddd',ddddd)}).catch(error => {  console.error('發生錯誤:', error); });
+
+
+
+
+
+  
+  return fetch(`${帳號數據庫}`)//從那裡來?? qqq 
     .then(response => {
         if (!response.ok) {
             throw new Error('網絡響應不正常');
@@ -176,14 +181,26 @@ function _更新數據(新數據,數據id) {
       //console.log('原數據=', 原數據);
       //console.log('原數據頭=', 原數據頭B);
       //console.log('原數據尾=', 原數據尾B);
-      console.log('all數據=', all數據);
+      //console.log('all數據=', all數據);
 
+
+      if (sel=='查看數據') {
+        查看已加密數據 = 原數據.split(原數據頭B)[1].split(原數據尾B)[0];
+        //console.log('查看已加密數據=', 查看已加密數據);
+        return 查看已加密數據; // 返回查看數據
+      }
+      
       return all數據; // 返回所有數據
     })
     .catch(error => {
         console.error('發生錯誤:', error);
     });
 }
+
+
+
+
+
 
 
 
