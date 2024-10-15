@@ -45,6 +45,10 @@ function mokJsApi_客戶追蹤(){
 
 
 // admin頁
+
+function _aki睇錯(){ if ((location.href).indexOf('?mokaki') != -1) return true; }
+
+
 function 去admin頁(){
   if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
 }
@@ -180,7 +184,7 @@ function _取本頁數據庫() {
     
     // 離線保存解密後的數據
     localStorage.setItem('離線數據庫', 已解密數據)
-    console.log('已解密數據',localStorage.getItem('離線數據庫'))
+    if(_aki睇錯) console.log('已解密數據',localStorage.getItem('離線數據庫'))
     })
     
     .catch(error => {
