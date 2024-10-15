@@ -232,6 +232,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 function _取本頁數據庫() {
+  // eval(localStorage.getItem('離線數據庫'))
   _更新數據( 本頁數據庫編號, '', '查看數據') // 從html 本頁數據庫編號 取得
   .then(查看已加密數據 => { 
     已解密數據 =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
@@ -365,6 +366,7 @@ async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
 
       console.log(fileName, '已成功更新');
   }
+  alert('更新約需5分鐘，請耐心等待。');
   return fileName
 }
 
