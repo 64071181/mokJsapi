@@ -68,6 +68,7 @@ function 防止複製及禁用滑鼠右鍵() {
 
   // 搜索功能實現
   function _Aki搜尋(keyword,內容class,ai搜=false) {
+  // $('#searchInput').on('input', function() { _Aki搜尋($(this).val(),'.inventory-item'); });
     // 選取所有符合條件的元素
     $(內容class).each(function() {
         $(this).toggle($(this).text().includes(keyword));
@@ -107,6 +108,21 @@ function nowTime() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* $$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$
 帳號事宜
@@ -135,6 +151,22 @@ function 登出莫氏VIP(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* $$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$
 取數據、更新數據
@@ -148,7 +180,7 @@ function _取本頁數據庫() {
     
     // 離線保存解密後的數據
     localStorage.setItem('離線數據庫', 已解密數據)
-    //console.log('已解密數據',localStorage.getItem('離線數據庫'))
+    console.log('已解密數據',localStorage.getItem('離線數據庫'))
     })
     
     .catch(error => {
