@@ -186,7 +186,6 @@ function _取本頁數據庫() {
     localStorage.setItem('離線數據庫', 已解密數據)
     if(_aki睇錯) console.log('已解密數據',localStorage.getItem('離線數據庫'))
     })
-    
     .catch(error => {
         console.error('發生錯誤:', error); 
       });
@@ -225,15 +224,17 @@ function _更新數據(數據id, 新數據='',sel='') {
         // 加上新的數據
         , all數據 = `${原數據頭B}${new數據B}${原數據尾B}`;
 
-      //console.log('原數據=', 原數據);
-      //console.log('原數據頭=', 原數據頭B);
-      //console.log('原數據尾=', 原數據尾B);
-      //console.log('all數據=', all數據);
+        if(_aki睇錯){
+          console.log('原數據=', 原數據);
+          console.log('原數據頭=', 原數據頭B);
+          console.log('原數據尾=', 原數據尾B);
+          console.log('all數據=', all數據);
+        }
 
 
       if (sel=='查看數據') {
         查看已加密數據 = 原數據.split(原數據頭B)[1].split(原數據尾B)[0];
-        //console.log('查看已加密數據=', 查看已加密數據);
+        if(_aki睇錯) console.log('查看已加密數據=', 查看已加密數據);
         return 查看已加密數據; // 返回查看數據
       }
       
