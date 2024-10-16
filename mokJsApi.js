@@ -249,54 +249,67 @@ function _取本頁數據庫() {
 
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
 function _更新數據(數據id, 新數據='',sel='') {
-  // _更新數據(本頁數據庫, inventoryData).then(新all數據 => { _上傳文到GitHub(帳號數據庫.split('.io/d0/')[1],新all數據 ); }).catch(error => {  console.error('發生錯誤:', error); });
-  // _更新數據( 本頁數據庫, '', '查看數據').then(查看已加密數據 => { ddddd =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);console.log('ddddd',ddddd)}).catch(error => {  console.error('發生錯誤:', error); });
-  return fetch(`${帳號數據庫}`) // 從html 帳號數據庫 = _數據文件() 取得
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('網絡響應不正常');
-        }
-        return response.text(); // 獲取文本內容
-    })
-    .then(原數據 => {
-      // 分割原數據
-      // https://chateverywhere.app?shareable_conversation_id=2e66b13e-39b8-4bff-802d-ce29c0631a50
 
-      let 原數據頭 = 原數據.split(new RegExp(`const ${數據id} = '`))[0].trim() 
-        , 原數據頭B = `${原數據頭}\nconst ${數據id} = '`
-
-        , 原數據尾 = 原數據.split(new RegExp(`const ${數據id} = '`))[1].split(/'\/\/\$\$.*?\n/)[1]
-        , 原數據尾B = `'//$$$$$$$$$$$$$$$$$$\n${原數據尾}'//$$$$$$$$$$$$$$$$$$\n`
-
+    console.log('_更新數據=');
+    // _更新數據(本頁數據庫, inventoryData).then(新all數據 => { _上傳文到GitHub(帳號數據庫.split('.io/d0/')[1],新all數據 ); }).catch(error => {  console.error('發生錯誤:', error); });
+    // _更新數據( 本頁數據庫, '', '查看數據').then(查看已加密數據 => { ddddd =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);console.log('ddddd',ddddd)}).catch(error => {  console.error('發生錯誤:', error); });
+    return fetch(`${帳號數據庫}`) // 從html 帳號數據庫 = _數據文件() 取得
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('網絡響應不正常');
+          }
+          return response.text(); // 獲取文本內容
+      })
+      .then(原數據 => {
+        // 分割原數據
+        // https://chateverywhere.app?shareable_conversation_id=2e66b13e-39b8-4bff-802d-ce29c0631a50
+  
+        let 要修數據id = `const ${數據id} = '`
+          , all數據
         // 将新数据转换为 JSON 字符串
         // https://chateverywhere.app?shareable_conversation_id=b7515e9b-d513-40c9-a5d6-7e68a2c1b11f
-        , new數據 = JSON.stringify(新數據, null, 2) 
-        , new數據B = CryptoJS.AES.encrypt(new數據, 親老婆).toString()
-
-        // 加上新的數據
-        , all數據 = `${原數據頭B}${new數據B}${原數據尾B}`;
-
-        if(_aki睇錯()){
-          console.log('原數據=', 原數據);
-          console.log('原數據頭=', 原數據頭B);
-          console.log('原數據尾=', 原數據尾B);
-          console.log('all數據=', all數據);
+          , new數據 = JSON.stringify(新數據, null, 2) 
+          , new數據B = CryptoJS.AES.encrypt(new數據, 親老婆).toString()
+          
+        if ((原數據).indexOf(要修數據id) != -1) {
+  
+          let 原數據頭 = 原數據.split(new RegExp(要修數據id))[0].trim() 
+            , 原數據頭B = `${原數據頭}\n${要修數據id}`
+  
+            , 原數據尾 = 原數據.split(new RegExp(要修數據id))[1].split(/'\/\/\$\$.*?\n/)[1]
+            , 原數據尾B = `'//$$$$$$$$$$$$$$$$$$\n${原數據尾}'//$$$$$$$$$$$$$$$$$$\n`
+  
+            // 加上新的數據
+            all數據 = `${原數據頭B}${new數據B}${原數據尾B}`;
         }
-
-
-      if (sel=='查看數據') {
-        查看已加密數據 = 原數據.split(原數據頭B)[1].split(原數據尾B)[0];
-        if(_aki睇錯()) console.log('查看已加密數據=', 查看已加密數據);
-        return 查看已加密數據; // 返回查看數據
-      }
-      
-      return all數據; // 返回所有數據
-    })
-    .catch(error => {
-        console.error('發生錯誤:', error);
-    });
+        else {
+          // 加上新的數據
+            all數據 = `${原數據}\n${要修數據id}${new數據B}'//$$$$$$$$$$$$$$$$$$\n`
+        }
+  
+  
+          if(_aki睇錯()){
+            console.log('原數據=', 原數據);
+            //console.log('原數據頭=', 原數據頭B);
+            //console.log('原數據尾=', 原數據尾B);
+            console.log('all數據=', all數據);
+          }
+  
+  
+        if (sel=='查看數據') {
+          查看已加密數據 = 原數據.split(原數據頭B)[1].split(原數據尾B)[0];
+          if(_aki睇錯()) console.log('查看已加密數據=', 查看已加密數據);
+          return 查看已加密數據; // 返回查看數據
+        }
+        
+        return all數據; // 返回所有數據
+      })
+      .catch(error => {
+          console.error('發生錯誤:', error);
+      });
 }
-
+  
+  
 
 
 
