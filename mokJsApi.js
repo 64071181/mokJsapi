@@ -297,6 +297,9 @@ function _更新數據(數據id, 新數據='',sel='') {
   
   
         if (sel=='查看數據') {
+          console.log('原數據頭=', 原數據頭);
+          console.log('原數據頭B=', 原數據頭B);
+          
           查看已加密數據 = 原數據.split(原數據頭B)[1].split(原數據尾B)[0];
           if(_aki睇錯()) console.log('查看已加密數據=', 查看已加密數據);
           return 查看已加密數據; // 返回查看數據
