@@ -186,15 +186,12 @@ function _數據文件() { return localStorage.getItem('數據文件'); }
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
 function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
 
-
-function 登出莫氏VIP(){
-  localStorage.removeItem('帳戶名稱'); 
-  localStorage.removeItem('數據文件'); 
+function 登出莫氏VIP(退項){
+  for (let i = 0; i < 退項.length; i++) {
+    localStorage.removeItem(退項[i]);
+  }
   window.location.reload();
 }
-
-
-
 
 
 
