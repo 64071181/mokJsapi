@@ -250,13 +250,17 @@ function _取本頁數據庫() {
   }
 
 
-
+  function _更新數據B(數據庫編號, Data, 數據庫位){
+    _更新數據(數據庫編號, Data)
+    .then(新all數據 => { _上傳文到GitHub(帳號數據庫.split(數據庫位)[1],新all數據 ); })
+    .catch(error => {  console.error('發生錯誤:', error); });
+  }
 
 
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
 function _更新數據(數據id, 新數據='',sel='') {
-    // _更新數據(本頁數據庫, inventoryData).then(新all數據 => { _上傳文到GitHub(帳號數據庫.split('.io/d0/')[1],新all數據 ); }).catch(error => {  console.error('發生錯誤:', error); });
-    // _更新數據( 本頁數據庫, '', '查看數據').then(查看已加密數據 => { ddddd =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);console.log('ddddd',ddddd)}).catch(error => {  console.error('發生錯誤:', error); });
+    // _更新數據B(數據庫編號, Data, 數據庫位)
+    // _取本頁數據庫()
     return fetch(`${帳號數據庫}`) // 從html 帳號數據庫 = _數據文件() 取得
       .then(response => {
           if (!response.ok) {
@@ -269,7 +273,6 @@ function _更新數據(數據id, 新數據='',sel='') {
         // https://chateverywhere.app?shareable_conversation_id=2e66b13e-39b8-4bff-802d-ce29c0631a50
   
         let 要修數據id = `const ${數據id} = '`
-          , 原數據尾
           , 原數據尾B
           , all數據
         // 将新数据转换为 JSON 字符串
@@ -293,10 +296,8 @@ function _更新數據(數據id, 新數據='',sel='') {
             all數據 = `${原數據}\n${要修數據id}${new數據B}'//$$$$$$$$$$$$$$$$$$\n`
         }
   
-
         _aki睇錯([`帳號數據庫=${帳號數據庫}`,`原數據=${原數據}`])
         if ((原數據).indexOf(要修數據id) != -1 && 新數據!='') _aki睇錯([`all數據=${all數據}`])
-  
         
         if (sel=='查看數據'){
           if ((原數據).indexOf(要修數據id) != -1) {
@@ -309,7 +310,6 @@ function _更新數據(數據id, 新數據='',sel='') {
             return null 
           }
         }
-        
         return all數據; // 返回所有數據
       })
       .catch(error => {
