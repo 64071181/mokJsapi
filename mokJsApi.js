@@ -127,10 +127,13 @@ function mokJsApi_客戶追蹤(){
   };
 };
 
-
-function _aki睇錯(){ 
+// qqqqqqqqqqqqqqqqq
+function _aki睇錯(顯示說明){ 
   if ((location.href).indexOf('?mokaki') != -1) {
-    console.log(' @@@@@@@@ _aki睇錯 @@@@@@@@ ');
+    console.log(' @@@@@@@@ _aki @@@@@@@@ ');
+    for (let i = 0; i < 顯示說明.length; i++) {
+      console.log(顯示說明[i]);
+    }
     return true;
   } 
 }
@@ -232,11 +235,14 @@ function _取本頁數據庫() {
   // eval(localStorage.getItem('離線數據庫'))
   _更新數據( 本頁數據庫編號, '', '查看數據') // 從html 本頁數據庫編號 取得
   .then(查看已加密數據 => { 
+
+    if(!查看已加密數據) return
+
     已解密數據 =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
     
     // 離線保存解密後的數據
     localStorage.setItem('離線數據庫', 已解密數據)
-    if(_aki睇錯()) console.log('已解密數據',localStorage.getItem('離線數據庫'))
+    _aki睇錯(['已解密數據',localStorage.getItem('離線數據庫')])
     })
     .catch(error => {
         console.error('發生錯誤:', error); 
@@ -263,8 +269,6 @@ function _更新數據(數據id, 新數據='',sel='') {
         // https://chateverywhere.app?shareable_conversation_id=2e66b13e-39b8-4bff-802d-ce29c0631a50
   
         let 要修數據id = `const ${數據id} = '`
-          , 原數據頭
-          , 原數據頭B
           , 原數據尾
           , 原數據尾B
           , all數據
@@ -289,18 +293,21 @@ function _更新數據(數據id, 新數據='',sel='') {
             all數據 = `${原數據}\n${要修數據id}${new數據B}'//$$$$$$$$$$$$$$$$$$\n`
         }
   
+
+        _aki睇錯([`帳號數據庫=${帳號數據庫}`,`原數據=${原數據}`])
+        if ((原數據).indexOf(要修數據id) != -1 && 新數據!='') _aki睇錯([`all數據=${all數據}`])
   
-          if(_aki睇錯()){
-            console.log('帳號數據庫=',帳號數據庫);
-            console.log('原數據=', 原數據);
-            if ((原數據).indexOf(要修數據id) != -1) console.log('all數據=', all數據);
+        
+        if (sel=='查看數據'){
+          if ((原數據).indexOf(要修數據id) != -1) {
+            查看已加密數據 = 原數據.split(要修數據id)[1].split(原數據尾B)[0];
+            _aki睇錯([`查看${要修數據id}已加密數據=${查看已加密數據}`])
+            return 查看已加密數據; // 返回查看數據
           }
-  
-  
-        if (sel=='查看數據') {
-          查看已加密數據 = 原數據.split(原數據頭B)[1].split(原數據尾B)[0];
-          if(_aki睇錯()) console.log('查看已加密數據=', 查看已加密數據);
-          return 查看已加密數據; // 返回查看數據
+          else { 
+            console.log(`${要修數據id}數據庫不存在，請先創建。'`);
+            return null 
+          }
         }
         
         return all數據; // 返回所有數據
