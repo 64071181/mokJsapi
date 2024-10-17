@@ -293,7 +293,7 @@ function _更新數據(數據id, 新數據='',sel='') {
           if(_aki睇錯()){
             console.log('帳號數據庫=',帳號數據庫);
             console.log('原數據=', 原數據);
-            console.log('all數據=', all數據);
+            if ((原數據).indexOf(要修數據id) != -1) console.log('all數據=', all數據);
           }
   
   
