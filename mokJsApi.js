@@ -141,7 +141,7 @@ function _aki睇錯(顯示說明){
 
 
 function 去admin頁(){
-  if ((location.href).indexOf('???') == -1) return
+  //if ((location.href).indexOf('???') == -1) return
   window.location.href = location.href.replace("???","s.html");
 }
 
@@ -152,9 +152,13 @@ function 去admin頁(){
 
 // 檢查VIPac = d0(sha256(創建明文+jp3ev6))
 
+// 網頁分流
 
-
-
+function 網頁分流(){
+  if ((location.href).indexOf('???') != -1) 去admin頁()
+  
+  if ((location.href).indexOf('?0x') != -1) _到VIP網()
+}
 
 
 
@@ -247,7 +251,7 @@ async function _到VIP網(){
   // 找帳號文件的 VIP網版面
   // 比VIP的user入
 
-  if ((location.href).indexOf('?0x') == -1) return;
+  //if ((location.href).indexOf('?0x') == -1) return;
   VIP網頁ID = location.href.split('?0x')[1]
 
   在不 = await _檢查帳號是否存在(VIP網頁ID)
