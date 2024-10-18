@@ -14,7 +14,8 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
-const 親老婆 ="\u0032\u0064\u0032\u0063\u0038\u0062\u0037\u0063\u0036\u0037\u0064\u0030\u0037\u0034\u0061\u0030\u0063\u0032\u0061\u0062\u0035\u0034\u0038\u0037\u0063\u0064\u0034\u0033\u0063\u0032\u0062\u0032\u0035\u0035\u0039\u0061\u0066\u0039\u0034\u0066\u0036\u0039\u0036\u0030\u0035\u0038\u0032\u0064\u0037\u0032\u0039\u0030\u0033\u0037\u0066\u0062\u0034\u0065\u0034\u0066\u0030\u0036\u0037\u0065"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""['split']("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"]('')))['reverse']()['join'](''['split']("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''));
+const 親老婆 ="\u0032\u0064\u0032\u0063\u0038\u0062\u0037\u0063\u0036\u0037\u0064\u0030\u0037\u0034\u0061\u0030\u0063\u0032\u0061\u0062\u0035\u0034\u0038\u0037\u0063\u0064\u0034\u0033\u0063\u0032\u0062\u0032\u0035\u0035\u0039\u0061\u0066\u0039\u0034\u0066\u0036\u0039\u0036\u0030\u0035\u0038\u0032\u0064\u0037\u0032\u0039\u0030\u0033\u0037\u0066\u0062\u0034\u0065\u0034\u0066\u0030\u0036\u0037\u0065"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""['split']("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"]('')))['reverse']()['join'](''['split']("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''))
+  , 總網址 = '64071181.github.io/'
 
 
 function mokJsApi_說明(){
@@ -115,7 +116,7 @@ admin：
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
-
+/*
 function mokJsApi_客戶追蹤(){
   // qqq 轉localStorage
   // 用網址中的?做客戶追蹤
@@ -126,21 +127,22 @@ function mokJsApi_客戶追蹤(){
     mokJsApi_說明();
   };
 };
+*/
 
-// qqqqqqqqqqqqqqqqq
 function _aki睇錯(顯示說明){ 
-  if ((location.href).indexOf('?mokaki') != -1) {
-    console.log(' @@@@@@@@ _aki @@@@@@@@ ');
-    for (let i = 0; i < 顯示說明.length; i++) {
-      console.log(顯示說明[i]);
-    }
-    return true;
-  } 
+  if ((location.href).indexOf('?mokaki') == -1) return
+    
+  console.log(' @@@@@@@@ _aki @@@@@@@@ ');
+  for (let i = 0; i < 顯示說明.length; i++) {
+    console.log(顯示說明[i]);
+  }
+  return true;  
 }
 
 
 function 去admin頁(){
-  if ((location.href).indexOf('???') != -1) window.location.href = location.href.replace("???","s.html");
+  if ((location.href).indexOf('???') == -1) return
+  window.location.href = location.href.replace("???","s.html");
 }
 
 
@@ -148,7 +150,7 @@ function 去admin頁(){
 
 
 
-
+// 檢查VIPac = d0(sha256(創建明文+jp3ev6))
 
 
 
@@ -189,7 +191,9 @@ function _數據文件() { return localStorage.getItem('數據文件'); }
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
 function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
 
+
 function 登出莫氏VIP(退項){
+  // <a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP(['帳戶名稱','數據文件'])">登出</a>
   for (let i = 0; i < 退項.length; i++) {
     localStorage.removeItem(退項[i]);
   }
@@ -197,12 +201,67 @@ function 登出莫氏VIP(退項){
 }
 
 
+function _檢查帳號是否存在(帳號256){
+  // https://chatgpt.com/share/67094770-9110-8002-9310-ce242839a6a2
+
+  console.log('開始檢查帳號...');
+
+  return new Promise((resolve, reject) => {
+
+    let 主="\u0064\u002f\u006f\u0069\u002e\u0062\u0075\u0068\u0074\u0069\u0067\u002e\u0031\u0038\u0031\u0031\u0037\u0030\u0034\u0036\u002f\u002f\u003a\u0073\u0070\u0074\u0074\u0068"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""["\u0073\u0070\u006c\u0069\u0074"]('')["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")))
+      , 臨="\u0030\u0064\u002f\u006f\u0069\u002e\u0062\u0075\u0068\u0074\u0069\u0067\u002e\u0031\u0038\u0031\u0031\u0037\u0030\u0034\u0036\u002f\u002f\u003a\u0073\u0070\u0074\u0074\u0068"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("")["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](''['split']("".split("").reverse().join(""))['reverse']()['join'](""))    
+      , script = document.createElement('script');
+
+    script.src = `${主}/${帳號256}`; // .txt 轉主要刪尾
+    // 嘗試加載主數據庫
+    script.onload = () => {
+      console.log(`VIP帳號已存在，開始登入...`);
+      resolve(主);
+    };
+    // 主數據庫加載失敗後，嘗試臨時數據庫
+    script.onerror = () => {
+      let 臨script = document.createElement('script');
+      臨script.src = `${臨}/${帳號256}`;
+
+      臨script.onload = () => {
+        console.log(`臨時帳號已存在，開始登入...`);
+        resolve(臨);
+      };
+      臨script.onerror = () => {
+        resolve(null);
+      };
+
+      document.head.appendChild(臨script);
+    };
+
+    document.head.appendChild(script);
+  });
+}
 
 
+// qqqqqqqqqqqqqqqqqqqqqqqqq
+/* $$$$$$$$$$ User VIP 網頁檢查 @@@@@@@@@@@@ */
+
+async function _到VIP網(){
+  // 用 0x+ VIP的文件名 = VIP網頁ID
+  // 找帳號文件的 VIP網版面
+  // 比VIP的user入
+
+  if ((location.href).indexOf('?0x') == -1) return;
+  VIP網頁ID = location.href.split('?0x')[1]
+
+  在不 = await _檢查帳號是否存在(VIP網頁ID)
+  if (在不 === null) return;
+
+  // 取由網(VIP網的主題版面)
+  fetch(`${在不}/${VIP網頁ID}`)
+    .then(response => {
+        return response.text(); // 獲取文本內容
+    })
+    .then(VIP網的文本內容 => {console.log('VIP網的文本內容',VIP網的文本內容)}) 
 
 
-
-
+}
 
 
 
@@ -250,11 +309,11 @@ function _取本頁數據庫() {
   }
 
 
-  function _更新數據B(數據庫編號, Data, 數據庫位){
-    _更新數據(數據庫編號, Data)
-    .then(新all數據 => { _上傳文到GitHub(帳號數據庫.split(數據庫位)[1],新all數據 ); })
-    .catch(error => {  console.error('發生錯誤:', error); });
-  }
+function _更新數據B(數據庫編號, Data, 數據庫位){
+  _更新數據(數據庫編號, Data)
+  .then(新all數據 => { _上傳文到GitHub(帳號數據庫.split(數據庫位)[1],新all數據 ); })
+  .catch(error => {  console.error('發生錯誤:', error); });
+}
 
 
 // https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
