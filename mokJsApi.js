@@ -389,7 +389,7 @@ function _檢查帳號是否存在(帳號256){
     // 嘗試加載主數據庫
     script.onload = () => {
       console.log(`VIP帳號已存在，開始登入...`);
-      $('#提示訊息').text(`帳號已存在`);
+      $('.提示訊息').text(`帳號已存在`);
       resolve(主);
     };
     // 主數據庫加載失敗後，嘗試臨時數據庫
@@ -399,7 +399,7 @@ function _檢查帳號是否存在(帳號256){
 
       臨script.onload = () => {
         console.log(`臨時帳號已存在，開始登入...`);
-        $('#提示訊息').text(`帳號已存在`);
+        $('.提示訊息').text(`帳號已存在`);
         resolve(臨);
       };
       臨script.onerror = () => {
@@ -435,7 +435,7 @@ function _檢查VIP的User是否存在(Vu帳號名,Vu真帳密){
 
   // Vu存在
   if(VIP的UserID.indexOf(Vu真帳密) !== -1) _VIP的User登入(Vu帳號名);
-  else $('#提示訊息').text(`帳號或密碼不符`)
+  else $('.提示訊息').text(`帳號或密碼不符`)
 
 }
 
