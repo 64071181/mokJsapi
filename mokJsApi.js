@@ -1,3 +1,24 @@
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+202410201413
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+
+
+
+
+
+
+
+
+
+
+
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
@@ -20,16 +41,15 @@ const 親老婆 ="\u0032\u0064\u0032\u0063\u0038\u0062\u0037\u0063\u0036\u0037\u
 
 function mokJsApi_說明(){
 
-  console.log('\
-    ****** 202408301445 ******\
-    **************************\
-    https://98672794.github.io/mokJsapi/\
-    \
-    **************************\
-    \
-    https://98672794.github.io/\
-    **************************\
-  ');
+  console.log(`
+    ****** 202408301445 ******
+    **************************
+    https://64071181.github.io/mokJsapi/
+    **************************
+    https://64071181.github.io/
+    **************************
+    ****** 202410201051 ******
+  `);
 
 }  
 
@@ -94,6 +114,14 @@ return now.getFullYear() + '-' + _month + '-' + _day + '_' + _hour  + _minute + 
 
 
 
+// 複製功能
+function copyToClipboard(textareaId) {
+    // onclick="copyToClipboard('VipPegaIDInput')"
+    const textarea = document.getElementById(textareaId);
+    textarea.select();
+    document.execCommand('copy');
+    alert(`內容已複製到剪貼簿`);
+}
 
 
 
@@ -130,6 +158,7 @@ function mokJsApi_客戶追蹤(){
 */
 
 function _aki睇錯(顯示說明){ 
+  // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`數據庫位=${數據庫位}`])
   if ((location.href).indexOf('?mokaki') == -1) return
     
   console.log(' @@@@@@@@ _aki @@@@@@@@ ');
@@ -141,7 +170,6 @@ function _aki睇錯(顯示說明){
 
 
 function 去admin頁(){
-  //if ((location.href).indexOf('???') == -1) return
   window.location.href = location.href.replace("???","s.html");
 }
 
@@ -190,10 +218,14 @@ function _帳戶名稱() { return localStorage.getItem('帳戶名稱'); }
 
 function _數據文件() { return localStorage.getItem('數據文件'); }
 
+// qqq 數據驗證碼  檢測號 = sha256(創建明文+jp3ev6) 創建明文 可能重複 qqq
+
+
 
 // 由主網入 onclick="登入莫氏VIP('倉庫管理系統')" localStorage記錄由網
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
 function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
+
 
 
 function 登出莫氏VIP(退項){
@@ -203,6 +235,46 @@ function 登出莫氏VIP(退項){
   }
   window.location.reload();
 }
+
+
+async function _到VIP網(){
+  // 用 0x+ VIP的文件名 = VIP網頁ID
+  // 找文件的 VIP網版面
+  // 比VIP的user入
+
+  console.log(`_到VIP網...`);
+
+  VIP網頁ID = location.href.split('?0x')[1]
+
+  在不 = await _檢查帳號是否存在(VIP網頁ID)
+  if (在不 === null) return;
+
+  // 取VIP網的主題版面
+  fetch(`${在不}/${VIP網頁ID}`)
+    .then(response => {
+        return response.text(); // 獲取數據庫內容
+    })
+    .then(VIP網的數據庫 => {
+      // 去頭尾
+      真VIP模版 = VIP網的數據庫.split(new RegExp(`const VIP的網模版 = '`))[1].trim().split(`'//$$$$$$$$$$$$$$$$$$\n`)[0]
+          
+      if (_aki睇錯([`VIP網頁ID=${VIP網頁ID}`,`真VIP模版=${真VIP模版}`])) prompt('enter轉頁')
+      
+      // 取VIP網的數據文件
+      localStorage.setItem('數據文件', `${在不}/${VIP網頁ID}`);
+
+      // VIP網頁ID轉真VIP模版網址
+      window.location.href = location.href.replace(`?0x${VIP網頁ID}`,真VIP模版);
+    })
+}
+
+
+
+
+
+
+
+
 
 
 function _檢查帳號是否存在(帳號256){
@@ -243,37 +315,50 @@ function _檢查帳號是否存在(帳號256){
 }
 
 
-// qqqqqqqqqqqqqqqqqqqqqqqqq
+
 /* $$$$$$$$$$ User VIP 網頁檢查 @@@@@@@@@@@@ */
 
-async function _到VIP網(){
-  // 用 0x+ VIP的文件名 = VIP網頁ID
-  // 找帳號文件的 VIP網版面
-  // 比VIP的user入
 
-  //if ((location.href).indexOf('?0x') == -1) return;
-  VIP網頁ID = location.href.split('?0x')[1]
 
-  在不 = await _檢查帳號是否存在(VIP網頁ID)
-  if (在不 === null) return;
+function _檢查VIP的User是否存在(Vu帳號名,Vu真帳密){
+  
+  //, 檢測號 = sha256(創建明文+jp3ev6)
 
-  // 取由網(VIP網的主題版面)
-  fetch(`${在不}/${VIP網頁ID}`)
-    .then(response => {
-        return response.text(); // 獲取文本內容
-    })
-    .then(VIP網的文本內容 => {console.log('VIP網的文本內容',VIP網的文本內容)}) 
+  帳號數據庫 = _數據文件() // 入數據文件url 
+  _取本頁數據庫('VIP的UserID','VIP的UserID') // 取 數據文件 內容(const名,getItem名)
+  VIP的UserID = localStorage.getItem('VIP的UserID');
 
+  _aki睇錯([`VIP的UserID: ${VIP的UserID}`]);
+
+
+  // VIP的UserID = '數據庫不存在'
+  if(!VIP的UserID) {
+    document.getElementById('authPanel').style.transform = 'rotateY(180deg)'; 
+    return;
+  }
+
+  // Vu存在
+  if(VIP的UserID.indexOf(Vu真帳密) !== -1) _VIP的User登入(Vu帳號名);
+  else alert('帳號或密碼不符');
 
 }
 
 
 
+function _VIP的User登入(VipUserID){
+  console.log('帳戶驗證成功');
+  // 記錄帳戶名稱
+  localStorage.setItem('帳戶名稱', VipUserID);
+  // 登入成功 轉跳 上一頁
+  window.history.back();
+
+}
 
 
 
+function mmmmmmmmmmmmmmVIP的User註冊(){
 
-
+}
 
 
 
@@ -294,18 +379,26 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
-function _取本頁數據庫() {
+function _取本頁數據庫(數據庫號,離線庫名,sel='') {
+  // _取本頁數據庫(本頁數據庫編號,'離線數據庫')
   // eval(localStorage.getItem('離線數據庫'))
-  _更新數據( 本頁數據庫編號, '', '查看數據') // 從html 本頁數據庫編號 取得
+  _更新數據( 數據庫號, '', '查看數據') // 從html 本頁數據庫編號 取得
   .then(查看已加密數據 => { 
 
     if(!查看已加密數據) return
 
-    已解密數據 =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
-    
-    // 離線保存解密後的數據
-    localStorage.setItem('離線數據庫', 已解密數據)
-    _aki睇錯(['已解密數據',localStorage.getItem('離線數據庫')])
+    if(sel=='不用解謝謝'){
+      // 不用 eval
+      // localStorage.getItem('離線數據庫')
+      localStorage.setItem(離線庫名, 查看已加密數據)
+    }
+    else{
+      已解密數據 =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
+      // 離線保存解密後的數據
+      localStorage.setItem(離線庫名, 已解密數據)
+    }
+
+    _aki睇錯(['已解密數據',localStorage.getItem(離線庫名)])
     })
     .catch(error => {
         console.error('發生錯誤:', error); 
