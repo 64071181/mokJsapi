@@ -389,6 +389,7 @@ function _檢查帳號是否存在(帳號256){
     // 嘗試加載主數據庫
     script.onload = () => {
       console.log(`VIP帳號已存在，開始登入...`);
+      $('#提示訊息').text(`帳號已存在`);
       resolve(主);
     };
     // 主數據庫加載失敗後，嘗試臨時數據庫
@@ -398,6 +399,7 @@ function _檢查帳號是否存在(帳號256){
 
       臨script.onload = () => {
         console.log(`臨時帳號已存在，開始登入...`);
+        $('#提示訊息').text(`帳號已存在`);
         resolve(臨);
       };
       臨script.onerror = () => {
