@@ -28,7 +28,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
  #+#       #+#    #+#    #+#      #+#   #+#        #+#     #+#    #+#   #+#            #+#
 ###       ###     ########       ###    ###       ###     ###    ###    ###       ###########
 
-202410202138                                         mokaki
+202410211001                                         mokaki
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
@@ -165,8 +165,39 @@ function copyToClipboard(textareaId) {
 
 
 
+// 生成QRCode
+// <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js">//QRcode</script>
+function _生成QRCode(圖url,顯示位) {
+  var url = document.getElementById(圖url).value;
+  var qrcodeContainer = document.getElementById(顯示位);
+  qrcodeContainer.innerHTML = "";  // 清空之前的QR Code
+  if (url) {
+      QRCode.toCanvas(qrcodeContainer, url, function (error) {
+          if (error) console.error(error);
+          console.log('QR Code 生成成功');
+      });
+  } else {
+    qrcodeContainer.innerHTML = "請輸入有效的網址！"
+  }
+}
 
+// 下載QRCode
+// https://chatgpt.com/share/67153726-b4d0-8002-9dce-41d16a2a3ad2
+function _下載QRCode(顯示位) {
+  // onclick="_下載QRCode('您的網址qrcode')"
+  // 取得 canvas 元素
+  const canvas = document.getElementById(顯示位);
+  const ctx = canvas.getContext('2d');
 
+  // 將 canvas 轉換為 Data URL
+  const imageUrl = canvas.toDataURL('image/png');
+        
+  // 建立一個隱藏的 a 標籤，用於下載圖片
+  const link = document.createElement('a');
+  link.href = imageUrl;
+  link.download = 'canvas_image.png'; // 下載的檔案名
+  link.click(); // 模擬點擊 a 標籤，觸發下載
+}
 
 
 
