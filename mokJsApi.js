@@ -5,13 +5,26 @@
 
 
 
+/*
+
+qqq 登入 記data 使用說明 
+登入 / 註冊
+login.html
+
+aki 的客登入 / 註冊
+all.html 登入莫氏VIP('系統標題')
+<a onclick="登入莫氏VIP('莫氏倉庫管理系統')" href='../login.html'>免費使用</a>
+註冊或登入：新用戶名+密=戶口文件名，記到d0，已有帳號直接用文件名內資料。
+數據保存於 :
+https://64071181.github.io/d0/asdad...
 
 
+aki 的客的客 登入 / 註冊
+客的網址:
+https://64071181.github.io/?0xasdad...
 
 
-
-
-
+*/
 
 
 
@@ -301,6 +314,8 @@ function 網頁分流(){
   if ((location.href).indexOf('???') != -1) 去admin頁()
   
   if ((location.href).indexOf('?0x') != -1) _到VIP網()
+
+  if ((location.href).indexOf('?=boss?') != -1) window.location.href = "./數碼轉型/?sellIn"
 }
 
 
