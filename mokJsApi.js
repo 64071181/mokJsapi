@@ -315,7 +315,7 @@ function 網頁分流(){
   
   if ((location.href).indexOf('?0x') != -1) _到VIP網()
 
-  if ((location.href).indexOf('?=boss?') != -1) window.location.href = "./數碼轉型/?sellIn"
+  if ((location.href).indexOf('?=boss?') != -1) window.location.href = "./數碼轉型/2index.html?sellIn"
 }
 
 
