@@ -177,7 +177,7 @@ function copyToClipboard(textareaId) {
 
 
 
-
+// qqqqqqqqqqqqqqqqqqq
 // 生成QRCode
 // <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js">//QRcode</script>
 function _生成QRCode(圖url,顯示位) {
@@ -208,7 +208,7 @@ function _下載QRCode(顯示位) {
   // 建立一個隱藏的 a 標籤，用於下載圖片
   const link = document.createElement('a');
   link.href = imageUrl;
-  link.download = 'canvas_image.png'; // 下載的檔案名
+  link.download = `ok${網站標題}.png`; // 下載的檔案名
   link.click(); // 模擬點擊 a 標籤，觸發下載
 }
 
@@ -315,12 +315,47 @@ function 網頁分流(){
   
   if ((location.href).indexOf('?0x') != -1) _到VIP網()
 
+  //自動機器人 sell ulr
   if ((location.href).indexOf('?=boss?') != -1) window.location.href = "./數碼轉型/2index.html?sellIn"
 }
 
 
+
 function 去admin頁(){
   window.location.href = location.href.replace("???","s.html");
+}
+
+
+
+// 202412
+function _vipLogin分流(標,由,去){
+  // 記錄VIP的網模版
+  localStorage.setItem('VIP註冊時的網模版', decodeURIComponent(location.href.split(總網址)[1].split('.html')[0])+'.html');
+  // 登入莫氏VIP
+  if ((location.href).indexOf(標) != -1) {
+    登入莫氏VIP(由)
+    window.location.href = 去
+  }
+  // 是否VIP
+  if(localStorage.getItem('VipAdmin標記')) console.log('*** VIP帳號 ***') 
+}
+
+function _不同分流退出(){
+  _取本頁數據庫('VIP的網模版','數據中VIP的網模版','不用解謝謝')
+  數據模版 = localStorage.getItem('數據中VIP的網模版')
+  現網址 = decodeURIComponent(location.href.split(總網址)[1])
+  if (現網址 != 數據模版) {
+    // 不同分流回到VIP網頁
+    console.log('_不同分流退出')
+    window.location.href = 總網址+數據模版
+  }
+
+    console.log(`
+      已登入帳號=${已登入帳號}
+      帳號數據庫=${帳號數據庫}
+      本頁數據庫編號=${本頁數據庫編號}
+      VIP的網模版=${數據模版}
+    `);
 }
 
 
@@ -401,12 +436,12 @@ function _帳戶名稱() { return localStorage.getItem('帳戶名稱'); }
 
 function _數據文件() { return localStorage.getItem('數據文件'); }
 
-// qqq 數據驗證碼  檢測號 = sha256(創建明文+jp3ev6) 創建明文 可能重複 qqq
 
 
 // 由主網入 onclick="登入莫氏VIP('倉庫管理系統')" localStorage記錄由網
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
 function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
+
 
 
 function 登出莫氏VIP(退項){
@@ -449,12 +484,12 @@ function _檢查帳號是否存在(帳號256){
         resolve(臨);
       };
       臨script.onerror = () => {
+        console.log(`帳號不存在，請註冊...`);
+        $('.提示訊息').text(`帳號不存在，請註冊`);
         resolve(null);
       };
-
       document.head.appendChild(臨script);
     };
-
     document.head.appendChild(script);
   });
 }
@@ -534,26 +569,24 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 function _取本頁數據庫(數據庫號,離線庫名,sel='') {
   // _取本頁數據庫(本頁數據庫編號,'離線數據庫')
   // eval(localStorage.getItem('離線數據庫'))
+
   _更新數據( 數據庫號, '', '查看數據') // 從html 本頁數據庫編號 取得
   .then(查看已加密數據 => { 
-
     if(!查看已加密數據) return
 
-    if(sel=='不用解謝謝'){
+    if(sel=='不用解謝謝') {
       // 不用 eval
       localStorage.setItem(離線庫名, 查看已加密數據)
-    }
-    else{
+    }  
+    else {
       已解密數據 =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
       // 離線保存解密後的數據
       localStorage.setItem(離線庫名, 已解密數據)
     }
-
-    _aki睇錯(['已解密數據',localStorage.getItem(離線庫名)])
-    })
+  })
     .catch(error => {
         console.error('發生錯誤:', error); 
-      });
+    });
   }
 
 
@@ -721,8 +754,43 @@ async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
 
       console.log(fileName, '已成功更新');
   }
+  $('.提示訊息').text(`已成功創建!!
+    更新約需5分鐘，請耐心等待。`);
   alert('更新約需5分鐘，請耐心等待。');
   return fileName
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+       ::::::::       :::::::        ::::::::         :::         :::        ::::::::       :::::::         :::
+     :+:    :+:     :+:   :+:      :+:    :+:       :+:        :+:+:       :+:    :+:     :+:   :+:       :+:
+          +:+      +:+   +:+            +:+       +:+ +:+       +:+             +:+      +:+   +:+      +:+ +:+
+       +#+        +#+   +:+          +#+        +#+  +:+       +#+           +#+        +#+   +:+     +#+  +:+
+    +#+          +#+   +#+        +#+         +#+#+#+#+#+     +#+         +#+          +#+   +#+    +#+#+#+#+#+
+  #+#           #+#   #+#       #+#                #+#       #+#        #+#           #+#   #+#          #+#
+##########      #######       ##########          ###     #######     ##########      #######           ###
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
