@@ -232,10 +232,11 @@ function _顯示聯莫(data) {
   if(data[1]) whatsapp = `<a href="${data[1]}?text=${查詢內容}/" target="_blank"><li><i class="fab fa-whatsapp"></i></li></a>`;
 
 
-  if(data[2]) Wechat = `<li>
-    <i class="fa fa-wechat"></i>
-    <div class="WechatQR圖" style="background-image: url('${data[2]}');background-size: 100%;"></div>
-  </li>`
+  if(data[2]) {
+    Wechat = `<li><i class="fa fa-wechat"></i></li>`
+    WechatQR =`<div class="WechatQR圖" style="background-image: url('${data[2]}');background-size: 100%;"></div>`
+  }
+  
 
 
   if(data[3]) instagram = `<a href="${data[3]}" target="_blank"><li><i class="fa fa-instagram"></i></li></a>`;
@@ -249,9 +250,25 @@ function _顯示聯莫(data) {
   if(data[5]) facebook = `<a href="${data[5]}" target="_blank"><li><i class="fa fa-facebook">  </i></li></a>`
   if(data[6]) telegram = `<a href="${data[6]}" target="_blank"><li><i class="fa fa-telegram">  </i></li></a>`;
 
-  聯卡 = `<ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}</ul>`
+  聯卡 = `
+    <br class="clear-float">
+    <ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}</ul>
+    ${WechatQR}
+    <hr class="clear-float">
+  `
 
 $(`#ContactAKI`).html(聯卡);
+
+document.querySelectorAll('.ContactAKI ul li .fa-wechat').forEach(icon => {
+  const qr = document.querySelector('.WechatQR圖');
+  icon.parentElement.addEventListener('mouseenter', () => {
+    qr.style.display = 'block';
+  });
+  icon.parentElement.addEventListener('mouseleave', () => {
+    qr.style.display = 'none';
+  });
+});
+
 
 }
 

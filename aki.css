@@ -3,9 +3,8 @@
 
 
 /* ContactAKI */
-  .ContactAKI{width: 100%;text-align: center;padding-right: 2%;}
-  .ContactAKI i {font-size: 40px; color: #888;cursor: pointer;}
-  .line-icon {width: 40px;height: 40px;}
+  .ContactAKI i {font-size: 50px; color: #888;cursor: pointer;}
+  .line-icon {width: 50px;height: 50px;}
 
   .fa-envelope:hover{color: #fff;}
   .fa-whatsapp:hover,.fa-wechat:hover{color: #00B900;}
@@ -14,16 +13,15 @@
   .fa-facebook:hover{color: rgb(47, 47, 244);}
   .fa-telegram:hover{color: rgb(126, 157, 242);}
   
-  .ContactAKI li{list-style-type:none; float: left;margin-left: 2%;}
+  .ContactAKI ul{display: flex;justify-content: center; overflow: hidden;margin: 0;padding: 20px;}
+  .ContactAKI li{list-style-type:none; margin: 0 5px -40px 5px;display: block;position: relative;transition: transform 0.3s ease; /* 添加過渡效果 */}
+  
+  .ContactAKI li:hover{transform: translateY(-20px); /* 向上移動 */}
 
-  .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 2; width: 250px;height: 330px;}
-  .fa-wechat:hover ~ .WechatQR圖{display: block;}
+  .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 9; width: 250px;height: 330px;}
 
-
-
-
-
-
+  
 
 
-  .clear-float {clear: both; /* 清除浮動 */}
+
+  .clear-float {clear: both; /* 清除浮動 */height: 1px;margin: 0;padding: 0;}
