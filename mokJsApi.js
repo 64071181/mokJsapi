@@ -7,7 +7,7 @@
 
 /*
 
-qqq 登入 記data 使用說明 
+登入 記data 使用說明 
 登入 / 註冊
 login.html
 
@@ -176,8 +176,6 @@ function copyToClipboard(textareaId) {
 
 
 
-
-// qqqqqqqqqqqqqqqqqqq
 // 生成QRCode
 // <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js">//QRcode</script>
 function _生成QRCode(圖url,顯示位) {
@@ -187,7 +185,7 @@ function _生成QRCode(圖url,顯示位) {
   if (url) {
       QRCode.toCanvas(qrcodeContainer, url, function (error) {
           if (error) console.error(error);
-          console.log('QR Code 生成成功');
+          //console.log('QR Code 生成成功');
       });
   } else {
     qrcodeContainer.innerHTML = "請輸入有效的網址！"
@@ -208,13 +206,52 @@ function _下載QRCode(顯示位) {
   // 建立一個隱藏的 a 標籤，用於下載圖片
   const link = document.createElement('a');
   link.href = imageUrl;
-  link.download = `ok${網站標題}.png`; // 下載的檔案名
+  link.download = `QR_${網站標題}.png`; // 下載的檔案名
   link.click(); // 模擬點擊 a 標籤，觸發下載
 }
 
 
 
 
+
+
+// _顯示聯莫
+function _顯示聯莫(data) {
+  // <samp id="莫生查詢" class="none">莫生我要查詢</samp>
+  // <div id="ContactAKI" class="ContactAKI"><!-- JS _顯示聯莫 --></div>
+
+  // const 聯莫 = [{'mail': ''},{'whatsapp': ''},{'WechatQR': ''},{'instagram': ''},{'line': ''},{'facebook': ''},{'telegram': ''}];
+  查詢內容 = $('#莫生查詢').text()
+
+  mail = whatsapp = WechatQR = instagram = line = facebook = telegram = ''
+
+  if(data[0].mail != '') mail = `<a href="mailto:${data[0].mail}?subject=${查詢內容}&body=${查詢內容}"><li><i class="fa fa-envelope"></i></li></a>`;
+  if(data[0].whatsapp != '') whatsapp = `<a href="${data[0].whatsapp}?text=${查詢內容}/"><li><i class="fab fa-whatsapp"></i></li></a>`;
+  if(data[0].WechatQR != '') WechatQR = `<li><i class="fa fa-wechat ContactQR"><div style="background-image: url(${data[0].WechatQR});background-size: 100%;"></div></i></li>`;
+  if(data[0].instagram != '') instagram = `<a href="${data[0].instagram}"><li><i class="fa fa-instagram"></i></li></a>`;
+  if(data[0].line != '') line = `<a href="${data[0].line}">
+          <li>
+            <svg class="line-icon" viewBox="0 0 24 24">
+              <path fill="#888" d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992zm-18.988-2.595c.129 0 .234.105.234.234v4.153h2.287c.129 0 .233.104.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.119-.025-.161-.065-.043-.043-.072-.1-.072-.169v-5.229c0-.129.104-.233.233-.233h.842zm14.992 0c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.883h2.287c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.884h2.287c.129 0 .233.105.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.12-.025-.162-.065-.043-.043-.071-.1-.071-.169v-5.229c0-.129.104-.233.233-.233h3.363zm-10.442.001c.129 0 .234.105.234.234v5.229c0 .129-.105.234-.234.234h-.842c-.129 0-.234-.105-.234-.234v-5.229c0-.129.105-.234.234-.234h.842zm2.127 0h.891l2.368 3.354v-3.354c0-.129.105-.234.234-.234h.842c.129 0 .234.105.234.234v5.229c0 .129-.105.234-.234.234h-.841l-2.421-3.354v3.354c0 .129-.105.234-.234.234h-.839c-.129 0-.234-.105-.234-.234v-5.229c0-.129.105-.234.234-.234z"/>
+            </svg>
+          </li>
+        </a>`;
+  if(data[0].facebook != '') facebook = `<a href="${data[0].facebook}"><li><i class="fa fa-facebook">  </i></li></a>`
+  if(data[0].telegram != '') telegram = `<a href="${data[0].telegram}"><li><i class="fa fa-telegram">  </i></li></a>`;
+
+  聯卡 = `<ul>${mail}${whatsapp}${WechatQR}${instagram}${line}${facebook}${telegram}</ul>`
+
+$(`#ContactAKI`).append(聯卡);
+}
+
+
+
+
+
+
+
+
+function _返液alert(位) {  信息 = $(位).text();  alert(信息); }
 
 
 
@@ -244,14 +281,7 @@ admin：
 
 /*
 function mokJsApi_客戶追蹤(){
-  // qqq 轉localStorage
-  // 用網址中的?做客戶追蹤
-  // 給客的url加上 ?客名
-  // 再記到github
-  if ((location.href).indexOf('?') != -1) {
-    // 顯示說明
-    mokJsApi_說明();
-  };
+  GMT
 };
 */
 
@@ -328,35 +358,64 @@ function 去admin頁(){
 
 
 // 202412
+let VIP註冊時的網模版
 function _vipLogin分流(標,由,去){
-  // 記錄VIP的網模版
-  localStorage.setItem('VIP註冊時的網模版', decodeURIComponent(location.href.split(總網址)[1].split('.html')[0])+'.html');
+  // 任何網入 如沒數據中VIP的網模版 由網的網模版
+  if(!localStorage.getItem('VIP註冊時的網模版')) {
+    localStorage.setItem('VIP註冊時的網模版', decodeURIComponent(location.href.split(總網址)[1].split('.html')[0])+'.html');
+  }
+
   // 登入莫氏VIP
   if ((location.href).indexOf(標) != -1) {
     登入莫氏VIP(由)
     window.location.href = 去
   }
-  // 是否VIP
-  if(localStorage.getItem('VipAdmin標記')) console.log('*** VIP帳號 ***') 
 }
 
-function _不同分流退出(){
-  _取本頁數據庫('VIP的網模版','數據中VIP的網模版','不用解謝謝')
-  數據模版 = localStorage.getItem('數據中VIP的網模版')
-  現網址 = decodeURIComponent(location.href.split(總網址)[1])
-  if (現網址 != 數據模版) {
+
+
+
+
+// 未登入賦了 數據中VIP的網模版 不能轉其他頁
+async function _不同分流退出(){
+  數據模版 = await _取本頁數據庫('VIP的網模版', '數據中VIP的網模版', '不用解謝謝');
+
+  // 如沒數據中VIP的網模版 用VIP註冊時的網模版
+  if (!數據模版) 數據模版 = VIP註冊時的網模版;
+
+  現網址 = location.href.split(總網址)
+  現網址頭 = 現網址[0]
+  現網址尾 = decodeURIComponent(現網址[1]).split('#')[0]
+
+
+  // 如沒數據中VIP的網模版 用VIP註冊時的網模版
+  if (!數據模版) 數據模版 = VIP註冊時的網模版;
+
+  現網址 = location.href.split(總網址)
+  現網址頭 = 現網址[0]
+  現網址尾 = decodeURIComponent(現網址[1]).split('#')[0]
+
+  if (數據模版 && 現網址尾 != 數據模版) {
     // 不同分流回到VIP網頁
-    console.log('_不同分流退出')
-    window.location.href = 總網址+數據模版
+    _返液alert('#您已登錄其他服務',數據模版)
+    window.location.href = 現網址頭+總網址+數據模版
   }
 
-    console.log(`
-      已登入帳號=${已登入帳號}
-      帳號數據庫=${帳號數據庫}
-      本頁數據庫編號=${本頁數據庫編號}
-      VIP的網模版=${數據模版}
-    `);
+  // 是否VIP
+  v嗎 = ''
+  if(localStorage.getItem('VipAdmin標記')) v嗎 = '!!! VIP帳號 !!!'
+  console.log(`
+    已登入帳號=${已登入帳號}
+    帳號數據庫=${帳號數據庫}
+    VIP的網模版=${數據模版}
+    ${v嗎}
+  `);
+
+
 }
+
+
+
 
 
 async function _到VIP網(){
@@ -449,7 +508,7 @@ function 登出莫氏VIP(退項){
   for (let i = 0; i < 退項.length; i++) {
     localStorage.removeItem(退項[i]);
   }
-  window.location.reload();
+  window.location.reload(); 
 }
 
 
@@ -497,17 +556,15 @@ function _檢查帳號是否存在(帳號256){
 
 
 /* $$$$$$$$$$ User VIP 網頁檢查 @@@@@@@@@@@@ */
-function _檢查VIP的User是否存在(Vu帳號名,Vu真帳密){
+async function _檢查VIP的User是否存在(Vu帳號名,Vu真帳密,數據V庫){
   
-  //, 檢測號 = sha256(創建明文+jp3ev6)
+  帳號數據庫 = 數據V庫 // 入數據文件url 
 
-  帳號數據庫 = _數據文件() // 入數據文件url 
-  _取本頁數據庫('VIP的UserID','VIP的UserID') // 取 數據文件 內容(const名,getItem名)
-  VIP的UserID = localStorage.getItem('VIP的UserID');
+  VIP的UserID = await _取本頁數據庫('VIP的UserID', 'VIP的UserID','html碼');
+
+  console.log('VIP的UserID',VIP的UserID);
 
   _aki睇錯([`VIP的UserID: ${VIP的UserID}`]);
-
-
   // VIP的UserID = '數據庫不存在'
   if(!VIP的UserID) {
     document.getElementById('authPanel').style.transform = 'rotateY(180deg)'; 
@@ -517,7 +574,6 @@ function _檢查VIP的User是否存在(Vu帳號名,Vu真帳密){
   // Vu存在
   if(VIP的UserID.indexOf(Vu真帳密) !== -1) _VIP的User登入(Vu帳號名);
   else $('.提示訊息').text(`帳號或密碼不符`)
-
 }
 
 
@@ -563,99 +619,103 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #########       ###     ###    ###           ###     ###
 
 取數據、更新數據
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
-function _取本頁數據庫(數據庫號,離線庫名,sel='') {
-  // _取本頁數據庫(本頁數據庫編號,'離線數據庫')
-  // eval(localStorage.getItem('離線數據庫'))
+let 已解密數據;
 
-  _更新數據( 數據庫號, '', '查看數據') // 從html 本頁數據庫編號 取得
-  .then(查看已加密數據 => { 
-    if(!查看已加密數據) return
+async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
+  try {
+    const 查看已加密數據 = await _更新數據(數據庫號, '', '查看數據');
+    if (!查看已加密數據) return;
+    //console.log('查看已加密數據...', 查看已加密數據);
 
-    if(sel=='不用解謝謝') {
-      // 不用 eval
-      localStorage.setItem(離線庫名, 查看已加密數據)
-    }  
-    else {
-      已解密數據 =  CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
-      // 離線保存解密後的數據
-      localStorage.setItem(離線庫名, 已解密數據)
+    if (sel == '不用解謝謝') {
+      localStorage.setItem(離線庫名, 查看已加密數據);
+      return localStorage.getItem(離線庫名);
+    } 
+    if (sel == 'js碼') {
+      已解密數據 = CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
     }
-  })
-    .catch(error => {
-        console.error('發生錯誤:', error); 
-    });
+    if (sel == 'html碼'){
+      已解密數據 = eval(CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
+    }
+
+    if (sel == 'JSON'){
+      已解密數據 = (CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
+    }
+    else { 
+      console.log('您好的');
+      //已解密數據 = eval(CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
+    }
+
+    localStorage.setItem(離線庫名, 已解密數據);
+    return 已解密數據; // 返回解密後的數據
+  } catch (error) {
+    console.error('發生錯誤:', error);
   }
-
-
-function _更新數據B(數據庫編號, Data, 數據庫位){
-  _更新數據(數據庫編號, Data)
-  .then(新all數據 => { _上傳文到GitHub(帳號數據庫.split(數據庫位)[1],新all數據 ); })
-  .catch(error => {  console.error('發生錯誤:', error); });
 }
 
 
-// https://chateverywhere.app?shareable_conversation_id=c67808a5-4dc2-46f7-8633-e0eceda21ab5
-function _更新數據(數據id, 新數據='',sel='') { // 這是整段數據更新,要加尾先另外加再來!!!
-    // _更新數據B(數據庫編號, Data, 數據庫位)
-    // _取本頁數據庫()
-    return fetch(`${帳號數據庫}`) // 從html 帳號數據庫 = _數據文件() 取得
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('網絡響應不正常');
-          }
-          return response.text(); // 獲取文本內容
-      })
-      .then(原數據 => {
-        // 分割原數據
-        // https://chateverywhere.app?shareable_conversation_id=2e66b13e-39b8-4bff-802d-ce29c0631a50
-  
-        let 要修數據id = `const ${數據id} = '`
-          , 原數據尾B
-          , all數據
-        // 将新数据转换为 JSON 字符串
-        // https://chateverywhere.app?shareable_conversation_id=b7515e9b-d513-40c9-a5d6-7e68a2c1b11f
-          , new數據 = JSON.stringify(新數據, null, 2) 
-          , new數據B = CryptoJS.AES.encrypt(new數據, 親老婆).toString()
-          
-        if ((原數據).indexOf(要修數據id) != -1) {
-          // 更新原數據
-          原數據頭 = 原數據.split(new RegExp(要修數據id))[0].trim() 
-          原數據頭B = `${原數據頭}\n${要修數據id}`
-  
-          原數據尾 = 原數據.split(new RegExp(要修數據id))[1].split(/'\/\/\$\$.*?\n/)[1]
-          原數據尾B = `'//$$$$$$$$$$$$$$$$$$\n${原數據尾}`
-          
-          all數據 = `${原數據頭B}${new數據B}${原數據尾B}`;
-        }
-        else {
-          // 加上新的數據
-            all數據 = `${原數據}\n${要修數據id}${new數據B}'//$$$$$$$$$$$$$$$$$$\n`
-        }
-  
-        _aki睇錯([`帳號數據庫=${帳號數據庫}`,`原數據=${原數據}`])
-        if ((原數據).indexOf(要修數據id) != -1 && 新數據!='') _aki睇錯([`all數據=${all數據}`])
-        
-        if (sel=='查看數據'){
-          if ((原數據).indexOf(要修數據id) != -1) {
-            查看已加密數據 = 原數據.split(要修數據id)[1].split(原數據尾B)[0];
-            _aki睇錯([`查看${要修數據id}已加密數據=${查看已加密數據}`])
-            return 查看已加密數據; // 返回查看數據
-          }
-          else { 
-            console.log(`${要修數據id}數據庫不存在，請先創建。'`);
-            return null 
-          }
-        }
-        return all數據; // 返回所有數據
-      })
-      .catch(error => {
-          console.error('發生錯誤:', error);
-      });
+
+
+
+
+async function _更新數據B(數據庫編號, Data, 數據庫位) {
+  try {
+    const 新all數據 = await _更新數據(數據庫編號, Data);
+    await _上傳文到GitHub(帳號數據庫.split(數據庫位)[1], 新all數據);
+  } catch (error) {
+    console.error('發生錯誤:', error);
+  }
 }
-  
+
+async function _更新數據(數據id, 新數據 = '', sel = '') {
+  try {
+    const response = await fetch(`${帳號數據庫}`);
+    if (!response.ok) {
+      throw new Error('網絡響應不正常');
+    }
+
+    const 原數據 = await response.text();
+    let 要修數據id = `const ${數據id} = '`,
+      原數據尾B,
+      all數據,
+      new數據 = JSON.stringify(新數據, null, 2),
+      new數據B = CryptoJS.AES.encrypt(new數據, 親老婆).toString();
+
+    if (原數據.indexOf(要修數據id) !== -1) {
+      const 原數據頭 = 原數據.split(new RegExp(要修數據id))[0].trim();
+      const 原數據頭B = `${原數據頭}\n${要修數據id}`;
+      const 原數據尾 = 原數據.split(new RegExp(要修數據id))[1].split(/'\/\/\$\$.*?\n/)[1];
+      原數據尾B = `'//$$$$$$$$$$$$$$$$$$\n${原數據尾}`;
+      all數據 = `${原數據頭B}${new數據B}${原數據尾B}`;
+    } else {
+      all數據 = `${原數據}\n${要修數據id}${new數據B}'//$$$$$$$$$$$$$$$$$$\n`;
+    }
+
+    _aki睇錯([`帳號數據庫=${帳號數據庫}`, `原數據=${原數據}`]);
+    if (原數據.indexOf(要修數據id) !== -1 && 新數據 !== '') _aki睇錯([`all數據=${all數據}`]);
+
+    if (sel === '查看數據') {
+      if (原數據.indexOf(要修數據id) !== -1) {
+        const 查看已加密數據 = 原數據.split(要修數據id)[1].split(原數據尾B)[0];
+        _aki睇錯([`查看${要修數據id}已加密數據=${查看已加密數據}`]);
+        return 查看已加密數據;
+      } else {
+        console.log(`${要修數據id}數據庫不存在，請先創建。`);
+        return null;
+      }
+    }
+
+    return all數據;
+  } catch (error) {
+    console.error('發生錯誤:', error);
+  }
+}
+
+
   
 
 
@@ -756,7 +816,9 @@ async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
   }
   $('.提示訊息').text(`已成功創建!!
     更新約需5分鐘，請耐心等待。`);
-  alert('更新約需5分鐘，請耐心等待。');
+
+  等5分Pls = $('#更新約需5分鐘').text();
+  alert(等5分Pls);
   return fileName
 }
 
