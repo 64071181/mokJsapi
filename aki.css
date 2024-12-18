@@ -13,7 +13,7 @@
   .fa-facebook:hover{color: rgb(47, 47, 244);}
   .fa-telegram:hover{color: rgb(126, 157, 242);}
   
-  .ContactAKI li{list-style-type:none; float: left;margin-left: 5%;}
+  .ContactAKI li{list-style-type:none; float: left;margin: 2%;}
 
   .ContactQR{cursor: pointer;}
   .ContactQR div{display: none;position: fixed;top: 33%;left: 33%;width: 200px;height: 200px;}
