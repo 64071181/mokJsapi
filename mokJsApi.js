@@ -249,7 +249,7 @@ function _顯示聯莫(data) {
   if(data[5]) facebook = `<a href="${data[5]}"><li><i class="fa fa-facebook">  </i></li></a>`
   if(data[6]) telegram = `<a href="${data[6]}"><li><i class="fa fa-telegram">  </i></li></a>`;
 
-  聯卡 = `<ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}</ul>`
+  聯卡 = `<ul style="text-align: center;">${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}</ul>`
 
 $(`#ContactAKI`).html(聯卡);
 
