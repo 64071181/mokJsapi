@@ -228,8 +228,8 @@ function _顯示聯莫(data) {
 
   // ${data[0].WechatQR}
   
-  if(data[0]) mail = `<a href="mailto:${data[0]}?subject=${查詢內容}&body=${查詢內容}"><li><i class="fa fa-envelope"></i></li></a>`;
-  if(data[1]) whatsapp = `<a href="${data[1]}?text=${查詢內容}/"><li><i class="fab fa-whatsapp"></i></li></a>`;
+  if(data[0]) mail = `<a href="mailto:${data[0]}?subject=${查詢內容}&body=${查詢內容}" target="_blank"><li><i class="fa fa-envelope"></i></li></a>`;
+  if(data[1]) whatsapp = `<a href="${data[1]}?text=${查詢內容}/" target="_blank"><li><i class="fab fa-whatsapp"></i></li></a>`;
 
 
   if(data[2]) Wechat = `<li>
@@ -238,16 +238,16 @@ function _顯示聯莫(data) {
   </li>`
 
 
-  if(data[3]) instagram = `<a href="${data[3]}"><li><i class="fa fa-instagram"></i></li></a>`;
-  if(data[4]) line = `<a href="${data[4]}">
+  if(data[3]) instagram = `<a href="${data[3]}" target="_blank"><li><i class="fa fa-instagram"></i></li></a>`;
+  if(data[4]) line = `<a href="${data[4]}" target="_blank">
           <li>
             <svg class="line-icon" viewBox="0 0 24 24">
               <path fill="#888" d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992zm-18.988-2.595c.129 0 .234.105.234.234v4.153h2.287c.129 0 .233.104.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.119-.025-.161-.065-.043-.043-.072-.1-.072-.169v-5.229c0-.129.104-.233.233-.233h.842zm14.992 0c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.883h2.287c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.884h2.287c.129 0 .233.105.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.12-.025-.162-.065-.043-.043-.071-.1-.071-.169v-5.229c0-.129.104-.233.233-.233h3.363zm-10.442.001c.129 0 .234.105.234.234v5.229c0 .129-.105.234-.234.234h-.842c-.129 0-.234-.105-.234-.234v-5.229c0-.129.105-.234.234-.234h.842zm2.127 0h.891l2.368 3.354v-3.354c0-.129.105-.234.234-.234h.842c.129 0 .234.105.234.234v5.229c0 .129-.105.234-.234.234h-.841l-2.421-3.354v3.354c0 .129-.105.234-.234.234h-.839c-.129 0-.234-.105-.234-.234v-5.229c0-.129.105-.234.234-.234z"/>
             </svg>
           </li>
         </a>`;
-  if(data[5]) facebook = `<a href="${data[5]}"><li><i class="fa fa-facebook">  </i></li></a>`
-  if(data[6]) telegram = `<a href="${data[6]}"><li><i class="fa fa-telegram">  </i></li></a>`;
+  if(data[5]) facebook = `<a href="${data[5]}" target="_blank"><li><i class="fa fa-facebook">  </i></li></a>`
+  if(data[6]) telegram = `<a href="${data[6]}" target="_blank"><li><i class="fa fa-telegram">  </i></li></a>`;
 
   聯卡 = `<ul style="text-align: center;">${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}</ul>`
 
