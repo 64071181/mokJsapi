@@ -3,6 +3,7 @@
 
 
 /* ContactAKI */
+  .ContactAKI{width: 100%;clear: both; /* 清除浮動 */text-align: center;}
   .ContactAKI i {font-size: 40px; color: #888;cursor: pointer;}
   .line-icon {width: 40px;height: 40px;}
 
@@ -13,6 +14,7 @@
   .fa-facebook:hover{color: rgb(47, 47, 244);}
   .fa-telegram:hover{color: rgb(126, 157, 242);}
   
+
   .ContactAKI li{list-style-type:none; float: left;margin: 2%;}
 
   .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 2; width: 250px;height: 330px;}
