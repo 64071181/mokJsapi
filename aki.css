@@ -1,0 +1,18 @@
+
+
+/* ContactAKI */
+  .ContactAKI i {font-size: 40px; color: #888;}
+  .line-icon {width: 40px;height: 40px;}
+
+  .fa-envelope:hover{color: #fff;}
+  .fa-whatsapp:hover,.fa-wechat:hover{color: #00B900;}
+  .fa-instagram:hover{color: #e8469a;}
+  .line-icon:hover > path{fill: #00B900;}
+  .fa-facebook:hover{color: rgb(47, 47, 244);}
+  .fa-telegram:hover{color: rgb(126, 157, 242);}
+  
+  .ContactAKI li{list-style-type:none; float: left;margin-left: 5%;}
+
+  .ContactQR{cursor: pointer;}
+  .ContactQR div{display: none;position: fixed;top: 33%;left: 33%;width: 100px;height: 100px;}
+  .ContactQR:hover div{display: block;}
