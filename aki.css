@@ -1,5 +1,7 @@
 
 
+
+
 /* ContactAKI */
   .ContactAKI i {font-size: 40px; color: #888;}
   .line-icon {width: 40px;height: 40px;}
@@ -14,5 +16,5 @@
   .ContactAKI li{list-style-type:none; float: left;margin-left: 5%;}
 
   .ContactQR{cursor: pointer;}
-  .ContactQR div{display: none;position: fixed;top: 33%;left: 33%;width: 100px;height: 100px;}
+  .ContactQR div{display: none;position: fixed;top: 33%;left: 33%;width: 200px;height: 200px;}
   .ContactQR:hover div{display: block;}
