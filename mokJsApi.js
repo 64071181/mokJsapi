@@ -220,29 +220,42 @@ function _顯示聯莫(data) {
   // <samp id="莫生查詢" class="none">莫生我要查詢</samp>
   // <div id="ContactAKI" class="ContactAKI"><!-- JS _顯示聯莫 --></div>
 
-  // const 聯莫 = [{'mail': ''},{'whatsapp': ''},{'WechatQR': ''},{'instagram': ''},{'line': ''},{'facebook': ''},{'telegram': ''}];
+  // const 聯莫 = ['moksurky@gmail.com','https://wa.me/85264071181/','https://i.meee.com.tw/atcX6QM.png','https://www.instagram.com/moksurky2025/','https://line.me/ti/p/UlSPd7p9zh/','https://www.facebook.com/aki.mok.10/','http://t.me/mokaki/'
+
   查詢內容 = $('#莫生查詢').text()
 
-  mail = whatsapp = WechatQR = instagram = line = facebook = telegram = ''
+  let mail = whatsapp = Wechat = WechatQR = instagram = line = facebook = telegram = ''
 
-  if(data[0].mail != '') mail = `<a href="mailto:${data[0].mail}?subject=${查詢內容}&body=${查詢內容}"><li><i class="fa fa-envelope"></i></li></a>`;
-  if(data[0].whatsapp != '') whatsapp = `<a href="${data[0].whatsapp}?text=${查詢內容}/"><li><i class="fab fa-whatsapp"></i></li></a>`;
-  if(data[0].WechatQR != '') WechatQR = `<li><i class="fa fa-wechat ContactQR"><div style="background-image: url(${data[0].WechatQR});background-size: 100%;"></div></i></li>`;
-  if(data[0].instagram != '') instagram = `<a href="${data[0].instagram}"><li><i class="fa fa-instagram"></i></li></a>`;
-  if(data[0].line != '') line = `<a href="${data[0].line}">
+  // ${data[0].WechatQR}
+  
+  if(data[0]) mail = `<a href="mailto:${data[0]}?subject=${查詢內容}&body=${查詢內容}"><li><i class="fa fa-envelope"></i></li></a>`;
+  if(data[1]) whatsapp = `<a href="${data[1]}?text=${查詢內容}/"><li><i class="fab fa-whatsapp"></i></li></a>`;
+
+
+  if(data[2]) Wechat = `<li>
+    <i class="fa fa-wechat"></i>
+    <div class="WechatQR圖" style="background-image: url('${data[2]}');background-size: 100%;"></div>
+  </li>`
+
+
+  if(data[3]) instagram = `<a href="${data[3]}"><li><i class="fa fa-instagram"></i></li></a>`;
+  if(data[4]) line = `<a href="${data[4]}">
           <li>
             <svg class="line-icon" viewBox="0 0 24 24">
               <path fill="#888" d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-5.992zm-18.988-2.595c.129 0 .234.105.234.234v4.153h2.287c.129 0 .233.104.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.119-.025-.161-.065-.043-.043-.072-.1-.072-.169v-5.229c0-.129.104-.233.233-.233h.842zm14.992 0c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.883h2.287c.129 0 .233.105.233.234v.842c0 .129-.104.234-.233.234h-2.287v.884h2.287c.129 0 .233.105.233.233v.842c0 .129-.104.234-.233.234h-3.363c-.063 0-.12-.025-.162-.065-.043-.043-.071-.1-.071-.169v-5.229c0-.129.104-.233.233-.233h3.363zm-10.442.001c.129 0 .234.105.234.234v5.229c0 .129-.105.234-.234.234h-.842c-.129 0-.234-.105-.234-.234v-5.229c0-.129.105-.234.234-.234h.842zm2.127 0h.891l2.368 3.354v-3.354c0-.129.105-.234.234-.234h.842c.129 0 .234.105.234.234v5.229c0 .129-.105.234-.234.234h-.841l-2.421-3.354v3.354c0 .129-.105.234-.234.234h-.839c-.129 0-.234-.105-.234-.234v-5.229c0-.129.105-.234.234-.234z"/>
             </svg>
           </li>
         </a>`;
-  if(data[0].facebook != '') facebook = `<a href="${data[0].facebook}"><li><i class="fa fa-facebook">  </i></li></a>`
-  if(data[0].telegram != '') telegram = `<a href="${data[0].telegram}"><li><i class="fa fa-telegram">  </i></li></a>`;
+  if(data[5]) facebook = `<a href="${data[5]}"><li><i class="fa fa-facebook">  </i></li></a>`
+  if(data[6]) telegram = `<a href="${data[6]}"><li><i class="fa fa-telegram">  </i></li></a>`;
 
-  聯卡 = `<ul>${mail}${whatsapp}${WechatQR}${instagram}${line}${facebook}${telegram}</ul>`
+  聯卡 = `<ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}</ul>`
 
-$(`#ContactAKI`).append(聯卡);
+$(`#ContactAKI`).html(聯卡);
+
 }
+
+
 
 
 
