@@ -665,23 +665,15 @@ async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
       localStorage.setItem(離線庫名, 查看已加密數據);
       return localStorage.getItem(離線庫名);
     } 
-    if (sel == 'js碼') {
-      已解密數據 = CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
-    }
-    if (sel == 'html碼'){
-      已解密數據 = eval(CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
-    }
+    if (sel == 'js碼')   已解密數據 = CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8);
 
-    if (sel == 'JSON'){
-      已解密數據 = (CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
-    }
-    else { 
-      console.log('您好的');
-      //已解密數據 = eval(CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
-    }
+    if (sel == 'html碼') 已解密數據 = eval(CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
+
+    if (sel == 'JSON')   已解密數據 = (CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
 
     localStorage.setItem(離線庫名, 已解密數據);
     return 已解密數據; // 返回解密後的數據
+    
   } catch (error) {
     console.error('發生錯誤:', error);
   }
