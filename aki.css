@@ -4,12 +4,16 @@
 
 /* ContactAKI */
   .ContactAKI i {font-size: 50px; color: #888;cursor: pointer;}
-  .ContactAKI .line-icon {width: 50px;height: 50px;}
 
   .ContactAKI .fa-envelope:hover{color: #fff;}
   .ContactAKI .fa-whatsapp:hover,.fa-wechat:hover{color: #00B900;}
   .ContactAKI .fa-instagram:hover{color: #e8469a;}
-  .ContactAKI .line-icon:hover > path{fill: #00B900;}
+
+
+  .ContactAKI .lineB {display: block; width: 40px;height: 40px; background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line0.png);background-size: 100%;background-repeat: no-repeat;}
+  .ContactAKI .lineB:hover{background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line.png);}
+
+
   .ContactAKI .fa-facebook:hover{color: rgb(47, 47, 244);}
   .ContactAKI .fa-telegram:hover{color: rgb(126, 157, 242);}
   
