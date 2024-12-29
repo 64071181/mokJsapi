@@ -2,6 +2,22 @@
 
 
 
+
+
+
+
+
+/* 碑食 */
+  .none{display:none;}
+  .clear-float {clear: both; /* 清除浮動 */height: 1px;margin: 0;padding: 0;}
+
+
+
+
+
+
+
+
 /* ContactAKI */
   .ContactAKI i {font-size: 50px; color: #888;cursor: pointer;}
 
@@ -26,6 +42,3 @@
 
   
 
-
-
-  .clear-float {clear: both; /* 清除浮動 */height: 1px;margin: 0;padding: 0;}

@@ -240,11 +240,7 @@ function _顯示聯莫(data) {
 
 
   if(data[3]) instagram = `<a href="${data[3]}" target="_blank"><li><i class="fa fa-instagram"></i></li></a>`;
-  if(data[4]) line = `<a href="${data[4]}" target="_blank">
-          <li>
-            <i class="lineB">  </i>
-          </li>
-        </a>`;
+  if(data[4]) line = `<a href="${data[4]}" target="_blank"><li><i class="lineB">  </i></li></a>`;
   if(data[5]) facebook = `<a href="${data[5]}" target="_blank"><li><i class="fa fa-facebook">  </i></li></a>`
   if(data[6]) telegram = `<a href="${data[6]}" target="_blank"><li><i class="fa fa-telegram">  </i></li></a>`;
 
@@ -681,11 +677,13 @@ async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
 
 
 
-
-async function _更新數據B(數據庫編號, Data, 數據庫位,repoName='',token='') {
+// 數據庫編號 = 數據id
+// 數據庫位 = 將 帳號數據庫 cut網址成文件名用 ,因 帳號數據庫 前台要用整個ulr = '/data222 '= '/'
+// _上傳文到GitHub(1文件名,2文件內容,3gh帳號名,4庫名,5tk)
+async function _更新數據B(數據庫編號, Data, 數據庫位,repoOwner='',repoName='',token='') {
   try {
     const 新all數據 = await _更新數據(數據庫編號, Data);
-    await _上傳文到GitHub(帳號數據庫.split(數據庫位)[1], 新all數據);
+    await _上傳文到GitHub(帳號數據庫.split(數據庫位)[1], 新all數據,repoOwner,repoName,token);
   } catch (error) {
     console.error('發生錯誤:', error);
   }
@@ -776,18 +774,20 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 /* $$$$$$$$$$ GitHub @@@@@@@@@@@@ */
 
 // 上傳文到GitHub
-async function _上傳文到GitHub(fileName,fileContent,repoName='',token='') {
+async function _上傳文到GitHub(fileName,fileContent,repoOwner='',repoName='',token='') {
+  // fileName = a1b1e6e9ee6414c5da7d6a57ff260426b32bd33130f58d15cd0353aedaac154f
 
-  let repoOwner="\u0031\u0038\u0031\u0031\u0037\u0030\u0034\u0036"["\u0073\u0070\u006c\u0069\u0074"]("")["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join(""))
+  let repoOwnerB="\u0031\u0038\u0031\u0031\u0037\u0030\u0034\u0036"["\u0073\u0070\u006c\u0069\u0074"]("")["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join(""))
     , repoNameB="\u0030\u0064"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))['reverse']()["\u006a\u006f\u0069\u006e"](""))
     //  20250109d0
     , token0="\u0051\u0050\u0035\u0039\u0042\u0057\u0070\u0032\u0059\u0033\u0050\u0042\u0050\u0055\u0048\u0053\u0066\u0077\u0055\u0063\u0062\u0068\u0050\u0033\u0062\u0041\u0076\u0041\u004d\u0048\u0075\u0045\u0053\u0058\u0057\u0066\u0044\u0074\u0074\u0032\u006e\u0057\u0038\u0036\u004a\u0045\u0074\u0051\u0057\u0070\u0076\u0030\u0035\u006b\u0072\u006e\u006e\u006f\u004f\u005f\u0044\u006c\u0059\u007a\u0034\u004b\u0044\u007a\u0047\u0039\u0070\u004a\u0030\u0041\u0034\u004b\u0054\u004d\u0043\u0042\u0031\u0031\u005f\u0074\u0061\u0070\u005f\u0062\u0075\u0068\u0074\u0069\u0067"["\u0073\u0070\u006c\u0069\u0074"](""["\u0073\u0070\u006c\u0069\u0074"]("".split("").reverse().join(""))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join("")))["\u0072\u0065\u0076\u0065\u0072\u0073\u0065"]()["\u006a\u006f\u0069\u006e"]("".split("").reverse().join(""));
 
   // 設定參數
-  if (repoName != '') repoNameB = repoName
-  if (token != '') token0 = token
+  if (repoOwner !== '') repoOwnerB = repoOwner
+  if (repoName !== '') repoNameB = repoName
+  if (token !== '') token0 = token
 
-  let G_Url     = `https://api.github.com/repos/${repoOwner}/${repoNameB}/contents/`
+  let G_Url     = `https://api.github.com/repos/${repoOwnerB}/${repoNameB}/contents/`
   // fine-grained personal access token > only repositories > Contents  
   // https://chat.openai.com/share/0013f2d3-9ca1-45c0-b0dc-5b1ad79a24aa
   // https://docs.github.com/zh/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#personal-access-token-%E7%9A%84%E7%B1%BB%E5%9E%8B
