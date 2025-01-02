@@ -527,6 +527,12 @@ function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流
 
 
 
+function 登出再登入ViPBtn(系統='',sel='') {
+  // if sel == '#???' // 去Login頁
+  window.location.href=`${location.href}${sel}`;
+  if(系統 && sel) _vipLogin分流(`${sel}`,系統,'../login.html');
+}
+
 function 登出莫氏VIP(退項){
   // <a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP(['帳戶名稱','數據文件'])">登出</a>
   for (let i = 0; i < 退項.length; i++) {
@@ -683,13 +689,17 @@ async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
 async function _更新數據B(數據庫編號, Data, 數據庫位,repoOwner='',repoName='',token='') {
   try {
     const 新all數據 = await _更新數據(數據庫編號, Data);
+    //console.log(`新all數據=${新all數據}!!!`);
     await _上傳文到GitHub(帳號數據庫.split(數據庫位)[1], 新all數據,repoOwner,repoName,token);
   } catch (error) {
     console.error('發生錯誤:', error);
   }
 }
 
+// GitHub Pages => Settings => Pages => Branch => main => Save
 async function _更新數據(數據id, 新數據 = '', sel = '') {
+  //console.log(`_更新數據99=${數據id}==@@ ${新數據} @@!!!`);
+  //console.log(`帳號數據庫=${帳號數據庫}!!!`);
   try {
     const response = await fetch(`${帳號數據庫}`);
     if (!response.ok) {

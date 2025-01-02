@@ -10,7 +10,7 @@
 /* 碑食 */
   .none{display:none;}
   .clear-float {clear: both; /* 清除浮動 */height: 1px;margin: 0;padding: 0;}
-
+  a{text-decoration: none;color: var(--標題色);}
 
 
 
@@ -20,25 +20,30 @@
 
 /* ContactAKI */
   .ContactAKI i {font-size: 50px; color: #888;cursor: pointer;}
-
   .ContactAKI .fa-envelope:hover{color: #fff;}
   .ContactAKI .fa-whatsapp:hover,.fa-wechat:hover{color: #00B900;}
   .ContactAKI .fa-instagram:hover{color: #e8469a;}
-
-
   .ContactAKI .lineB {display: block; width: 40px;height: 40px; background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line0.png);background-size: 100%;background-repeat: no-repeat;}
   .ContactAKI .lineB:hover{background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line.png);}
-
-
   .ContactAKI .fa-facebook:hover{color: rgb(47, 47, 244);}
   .ContactAKI .fa-telegram:hover{color: rgb(126, 157, 242);}
-  
   .ContactAKI ul{display: flex;justify-content: center; overflow: hidden;margin: 0;padding: 20px;}
   .ContactAKI li{list-style-type:none; margin: 0 5px -40px 5px;display: block;position: relative;transition: transform 0.3s ease; /* 添加過渡效果 */}
-  
   .ContactAKI li:hover{transform: translateY(-20px); /* 向上移動 */}
-
   .ContactAKI .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 9; width: 250px;height: 330px;}
 
   
 
+
+/* input */
+  .toggle-狀態開關 {position: relative;margin: 2%;width: 84px;height: 50px;text-align: center;font-size: 20px;line-height: 40px;}
+  /* 隱藏原始 checkbox */
+  .toggle-狀態開關 input {opacity: 0;width: 0;height: 0;}
+  /* 滑動條樣式 */
+  .slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #ccc;border-radius: 25px;transition: background-color 0.4s;}
+  /* 滑動按鈕樣式 */
+  .slider::before {position: absolute;content: "";height: 42px;width: 42px;left: -1px;background-color: #888;border-radius: 42px;transition: transform 0.4s;}
+  /* 選擇 On 狀態的樣式 */
+  input:checked + .slider {background-color: #5d53e2;}
+  input:checked + .slider::before {transform: translateX(43px);}
+  button.delete {background-color: #f44336;}
