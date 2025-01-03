@@ -206,7 +206,8 @@ function _下載QRCode(顯示位) {
   // 建立一個隱藏的 a 標籤，用於下載圖片
   const link = document.createElement('a');
   link.href = imageUrl;
-  link.download = `QR_${網站標題}.png`; // 下載的檔案名
+  QR檔案名 = 本公司名稱 = 本公司名稱.replace(' ','_')
+  link.download = `QR_${QR檔案名}.png`; // 下載的檔案名
   link.click(); // 模擬點擊 a 標籤，觸發下載
 }
 
@@ -311,8 +312,8 @@ function mokJsApi_客戶追蹤(){
 
 function _aki睇錯(顯示說明){ 
   // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`數據庫位=${數據庫位}`])
+  //if (!akiADMIN) return
   if ((location.href).indexOf('?mokaki') == -1) return
-    
   console.log(' @@@@@@@@ _aki @@@@@@@@ ');
   for (let i = 0; i < 顯示說明.length; i++) {
     console.log(顯示說明[i]);
@@ -320,7 +321,14 @@ function _aki睇錯(顯示說明){
   return true;  
 }
 
-
+function 琪琪修改(aki){ 
+  if (aki === turn) {
+    $('script[src="https://64071181.github.io/mokJsapi/mokJsApi.js"]').remove();
+    $('link[rel="stylesheet"][href="https://64071181.github.io/mokJsapi/aki.css"]').remove();
+    $('head').append('<link rel="stylesheet" href="../../mokJsapi/aki.css">');
+    $('head').append('<script src="../../mokJsapi/mokJsApi.js"></script>');
+  }
+}
 
 
 
