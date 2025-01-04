@@ -320,7 +320,6 @@ function _aki睇錯(顯示說明){
 }
 
 function 琪琪修改(){ 
-  return;
   if ((location.href).indexOf('?mokaki') == -1) return
   console.log(`
     ${'*'.repeat(22)}
@@ -352,7 +351,9 @@ function 琪琪修改(){
 
 
 
-
+function 琪琪修444改(){ 
+  console.log('琪琪修444改 琪琪修444改.js 琪琪修444改');
+}
 
 
 
