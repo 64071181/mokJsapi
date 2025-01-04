@@ -331,17 +331,10 @@ function 琪琪修改(){
   $('link[rel="stylesheet"][href="https://64071181.github.io/mokJsapi/aki.css"]').remove();
 
   $('head').append('<link rel="stylesheet" href="../../mokJsapi/aki.css">');
+  $('head').append('<script src="../../mokJsapi/mokJsApi.js"></script>');
 
-  // 動態加載並執行新的腳本
-  $.getScript('../../mokJsapi/mokJsApi.js')
-    .done(function() {
-      console.log('新的 mokJsApi.js 已成功加載並執行');
-    })
-    .fail(function(jqxhr, settings, exception) {
-      console.error('加載新的 mokJsApi.js 失敗:', exception);
-    });
 
-  return;
+  
 }
 
 
@@ -352,7 +345,7 @@ function 琪琪修改(){
 
 
 function 琪琪修444改(){ 
-  console.log('琪琪修444改 琪琪修444改.js 琪琪修444改');
+  console.log('rgegregree 琪琪修444改.js 琪琪修444改');
 }
 
 
