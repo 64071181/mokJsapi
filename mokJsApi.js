@@ -289,61 +289,6 @@ function _返液alert(位) {  信息 = $(位).text();  alert(信息); }
 
 
 
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-          :::        :::::::::         :::   :::       :::::::::::       ::::    :::
-       :+: :+:      :+:    :+:       :+:+: :+:+:          :+:           :+:+:   :+:
-     +:+   +:+     +:+    +:+      +:+ +:+:+ +:+         +:+           :+:+:+  +:+
-   +#++:++#++:    +#+    +:+      +#+  +:+  +#+         +#+           +#+ +:+ +#+
-  +#+     +#+    +#+    +#+      +#+       +#+         +#+           +#+  +#+#+#
- #+#     #+#    #+#    #+#      #+#       #+#         #+#           #+#   #+#+#
-###     ###    #########       ###       ###     ###########       ###    ####
-
-admin：
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-
-/*
-*/
-
-
-function _aki睇錯(顯示說明){ 
-  // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`數據庫位=${數據庫位}`])
-  return
-  //if ((location.href).indexOf('?mokaki') == -1) return
-  console.log(' @@@@@@@@ _aki @@@@@@@@ ');
-  for (let i = 0; i < 顯示說明.length; i++) {
-    console.log(顯示說明[i]);
-  }
-  return true;  
-}
-
-function 琪琪修改(){ 
-  if ((location.href).indexOf('?mokaki') == -1) return
-  console.log(`
-    ${'*'.repeat(22)}
-        琪琪修sds改
-    ${'*'.repeat(22)}
-  `);
-
-  $('script[src="https://64071181.github.io/mokJsapi/mokJsApi.js"]').remove();
-  $('link[rel="stylesheet"][href="https://64071181.github.io/mokJsapi/aki.css"]').remove();
-
-  $('head').append('<link rel="stylesheet" href="../../mokJsapi/aki.css">');
-
-  // 動態加載並執行新的腳本
-  $.getScript('../../mokJsapi/mokJsApi.js')
-    .done(function() {
-      console.log('新的 mokJsApi.js 已成功加載並執行');
-    })
-    .fail(function(jqxhr, settings, exception) {
-      console.error('加載新的 mokJsApi.js 失敗:', exception);
-    });
-
-  return;
-}
-
 
 
 
@@ -449,13 +394,11 @@ async function _不同分流退出(){
 
   // 是否VIP
   v嗎 = ''
-
-  console.log('fdsfsfs',localStorage.getItem('VipAdmin標記')); // 查看返回值
   if (!localStorage.getItem('VipAdmin標記')?.trim()) return;
     
   v嗎 = '!!! VIP帳號 !!!'
   console.log(`
-    已登入32帳號=${已登入帳號}
+    已登入帳號=${已登入帳號}
     帳號數據庫=${帳號數據庫}
     VIP的網模版=${數據模版}
     ${v嗎}
