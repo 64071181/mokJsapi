@@ -319,23 +319,6 @@ function _aki睇錯(顯示說明){
   return true;  
 }
 
-function 琪琪修改(){ 
-  if ((location.href).indexOf('?mokaki') == -1) return
-  console.log(`
-    ${'*'.repeat(22)}
-        琪琪修sds改
-    ${'*'.repeat(22)}
-  `);
-
-  $('script[src="https://64071181.github.io/mokJsapi/mokJsApi.js"]').remove();
-  $('link[rel="stylesheet"][href="https://64071181.github.io/mokJsapi/aki.css"]').remove();
-
-  $('head').append('<link rel="stylesheet" href="../../mokJsapi/aki.css">');
-  $('head').append('<script src="../../mokJsapi/mokJsApi.js"></script>');
-
-
-  
-}
 
 
 
@@ -343,10 +326,6 @@ function 琪琪修改(){
 
 
 
-
-function 琪琪修444改(){ 
-  console.log('rgegregree 琪琪修444改.js 琪琪修444改');
-}
 
 
 
