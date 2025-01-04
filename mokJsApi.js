@@ -323,15 +323,25 @@ function 琪琪修改(){
   if ((location.href).indexOf('?mokaki') == -1) return
   console.log(`
     ${'*'.repeat(22)}
-        琪琪修改
+        琪琪修sds改
     ${'*'.repeat(22)}
   `);
-  
 
-  $('head').append('<link rel="stylesheet" href="../../mokJsapi/aki.css">');
-  $('head').append('<script src="../../mokJsapi/mokJsApi.js"></script>');
   $('script[src="https://64071181.github.io/mokJsapi/mokJsApi.js"]').remove();
   $('link[rel="stylesheet"][href="https://64071181.github.io/mokJsapi/aki.css"]').remove();
+
+  $('head').append('<link rel="stylesheet" href="../../mokJsapi/aki.css">');
+
+  // 動態加載並執行新的腳本
+  $.getScript('../../mokJsapi/mokJsApi.js')
+    .done(function() {
+      console.log('新的 mokJsApi.js 已成功加載並執行');
+    })
+    .fail(function(jqxhr, settings, exception) {
+      console.error('加載新的 mokJsApi.js 失敗:', exception);
+    });
+
+  return;
 }
 
 
@@ -439,9 +449,13 @@ async function _不同分流退出(){
 
   // 是否VIP
   v嗎 = ''
-  if(localStorage.getItem('VipAdmin標記')) v嗎 = '!!! VIP帳號 !!!'
+
+  console.log('fdsfsfs',localStorage.getItem('VipAdmin標記')); // 查看返回值
+  if (!localStorage.getItem('VipAdmin標記')?.trim()) return;
+    
+  v嗎 = '!!! VIP帳號 !!!'
   console.log(`
-    已登入帳號=${已登入帳號}
+    已登入32帳號=${已登入帳號}
     帳號數據庫=${帳號數據庫}
     VIP的網模版=${數據模版}
     ${v嗎}
