@@ -305,14 +305,12 @@ admin：
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 /*
-function mokJsApi_客戶追蹤(){
-  GMT
-};
 */
+
 
 function _aki睇錯(顯示說明){ 
   // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`數據庫位=${數據庫位}`])
-  if (!akiADMIN) return
+  return
   //if ((location.href).indexOf('?mokaki') == -1) return
   console.log(' @@@@@@@@ _aki @@@@@@@@ ');
   for (let i = 0; i < 顯示說明.length; i++) {
@@ -321,8 +319,8 @@ function _aki睇錯(顯示說明){
   return true;  
 }
 
-function 琪琪修改(){ 
-  if ((location.href).indexOf('?mokaki') == -1) return
+function 琪琪修改(akiADMIN){ 
+  if (!akiADMIN) return
   console.log('琪琪修改');
   
 
