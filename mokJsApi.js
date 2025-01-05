@@ -317,7 +317,7 @@ admin：
 
 
 function _aki睇錯(顯示說明){ 
-  // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`數據庫位=${數據庫位}`])
+  // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`cut文件前綴=${cut文件前綴}`])
   return
   //if ((location.href).indexOf('?mokaki') == -1) return
   console.log(' @@@@@@@@ _aki @@@@@@@@ ');
@@ -687,13 +687,13 @@ async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
 
 
 // 數據庫編號 = 數據id
-// 數據庫位 = 將 帳號數據庫 cut網址成文件名用 ,因 帳號數據庫 前台要用整個ulr = '/data222 '= '/'
+// cut文件前綴 = 將 帳號數據庫 cut網址成文件名用 ,因 帳號數據庫 前台要用整個ulr = '/data222 '= '/'
 // _上傳文到GitHub(1文件名,2文件內容,3gh帳號名,4庫名,5tk)
-async function _更新數據B(數據庫編號, Data, 數據庫位,repoOwner='',repoName='',token='') {
+async function _更新數據B(數據庫編號, Data, cut文件前綴,repoOwner='',repoName='',token='') {
   try {
     const 新all數據 = await _更新數據(數據庫編號, Data);
     //console.log(`新all數據=${新all數據}!!!`);
-    await _上傳文到GitHub(帳號數據庫.split(數據庫位)[1], 新all數據,repoOwner,repoName,token);
+    await _上傳文到GitHub(帳號數據庫.split(cut文件前綴)[1], 新all數據,repoOwner,repoName,token);
   } catch (error) {
     console.error('發生錯誤:', error);
   }
