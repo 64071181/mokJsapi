@@ -42,3 +42,5 @@ function 琪琪修改(){
   // 執行本頁功能
   始script.onload = function () {Start();};
 }
+
+

@@ -376,27 +376,11 @@ function 去admin頁(){
 
 
 
-// 202412
-let VIP註冊時的網模版
-function _vipLogin分流(標,由,去){
-  // 任何網入 如沒數據中VIP的網模版 由網的網模版
-  if(!localStorage.getItem('VIP註冊時的網模版')) {
-    localStorage.setItem('VIP註冊時的網模版', decodeURIComponent(location.href.split(總網址)[1].split('.html')[0])+'.html');
-  }
-
-  // 登入莫氏VIP
-  if ((location.href).indexOf(標) != -1) {
-    登入莫氏VIP(由)
-    window.location.href = 去
-  }
-}
-
-
 
 
 
 // 未登入賦了 數據中VIP的網模版 不能轉其他頁
-async function _不同分流退出(){
+async function _不同分流退出(){ // 
 
   // 加入返液要的字
   $("body").prepend(`
@@ -424,6 +408,13 @@ async function _不同分流退出(){
   現網址 = location.href.split(總網址)
   現網址頭 = 現網址[0]
   現網址尾 = decodeURIComponent(現網址[1]).split('#')[0].split('?')[0] // qqq aki admin
+
+  console.log(`
+    _不同分流退出
+    現網址尾=${現網址尾}
+    數據模版=${數據模版}
+  `);
+
 
   // 只vip執行下邊
   if (!localStorage.getItem('VipAdmin標記')?.trim()) return;
@@ -523,28 +514,56 @@ function _帳戶名稱() { return localStorage.getItem('帳戶名稱'); }
 function _數據文件() { return localStorage.getItem('數據文件'); }
 
 
+function Vip登入莫氏系統2025(系統,sel=''){
+  //console.log(`系統=${系統},sel=${sel}`)
 
+  // 清空 localStorage 的內容
+  localStorage.clear();
+  // @login  用
+  localStorage.setItem('VIP註冊時的網模版', decodeURIComponent(location.href.split(總網址)[1].split('.html')[0])+'.html');
+  localStorage.setItem('莫氏VIP分流', 系統); 
+
+  // vip的user登出入 保留 數據文件
+  if(sel) localStorage.setItem('數據文件', 帳號數據庫);
+
+  if(sel == '出') {
+    location.reload(true);
+    return;
+  }
+
+  window.location.href = '../login.html';
+}
+
+/* Vip登入莫氏系統2025
 // 由主網入 onclick="登入莫氏VIP('倉庫管理系統')" localStorage記錄由網
 // 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
-function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
-
-
-
-function 登出再登入ViPBtn(系統='',sel='') {
+qqq4 function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
+2 function 登出再登入ViPBtn(系統='',sel='') {
   // if sel == '#???' // 去Login頁
   window.location.href=`${location.href}${sel}`;
   if(系統 && sel) _vipLogin分流(`${sel}`,系統,'../login.html');
 }
-
-function 登出莫氏VIP(退項){
+qqq1 function 登出莫氏VIP(退項){
   // <a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP(['帳戶名稱','數據文件'])">登出</a>
   for (let i = 0; i < 退項.length; i++) {
     localStorage.removeItem(退項[i]);
   }
   window.location.reload(); 
 }
+let VIP註冊時的網模版
+3 function _vipLogin分流(標,由,去){
+  // 任何網入 如沒數據中VIP的網模版 由網的網模版
+  if(!localStorage.getItem('VIP註冊時的網模版')) {
+    localStorage.setItem('VIP註冊時的網模版', decodeURIComponent(location.href.split(總網址)[1].split('.html')[0])+'.html');
+  }
 
-
+  // 登入莫氏VIP
+  if ((location.href).indexOf(標) != -1) {
+    登入莫氏VIP(由)
+    window.location.href = 去
+  }
+}
+*/
 
 
 function _檢查帳號是否存在(帳號256){
@@ -756,6 +775,12 @@ async function _更新數據(數據id, 新數據 = '', sel = '') {
 
 
 
+function _特別字處理(文字) {
+  文字 = 文字.replace(/script/g, '哩咖食友朋'); // 精確匹配完整的 "script"
+  文字 = 文字.replace(/哩咖食友朋/g, 'script'); // 精確匹配完整的 "哩咖食友朋"
+  文字 = 文字.replace(/'/g,'"').replace(/<br>/g,'')
+  return 文字;
+}
 
 
 
