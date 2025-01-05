@@ -282,6 +282,14 @@ function _返液alert(位) {  信息 = $(位).text();  alert(信息); }
 
 
 
+function _導航換頁(page) {
+  // <section id="預約page" class="section active"> 
+  // <button onclick="_導航換頁('預約')" ></button>
+  // 隱頁 - .active
+  $('.section').removeClass('active');
+  // 顯頁 + .active
+  $(`#${page}page`).addClass('active');
+}
 
 
 
@@ -318,15 +326,6 @@ function _aki睇錯(顯示說明){
   }
   return true;  
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -398,6 +397,17 @@ function _vipLogin分流(標,由,去){
 
 // 未登入賦了 數據中VIP的網模版 不能轉其他頁
 async function _不同分流退出(){
+
+  // 加入返液要的字
+  $("body").prepend(`
+    <samp id="更新約需5分鐘" class="none">更新約需5分鐘，請耐心等待。</samp>
+    <samp id="您已登錄其他服務" class="none">您已登錄服務! 請先登出並清除記錄再使用其他服務!</samp>
+    <samp id="填必要料" class="none">請填寫所有必要資料!</samp>
+    <samp id="莫生查詢" class="none">莫生我要查詢${本公司名稱}</samp>
+    `);
+
+
+  
   數據模版 = await _取本頁數據庫('VIP的網模版', '數據中VIP的網模版', '不用解謝謝');
 
   // 如沒數據中VIP的網模版 用VIP註冊時的網模版
@@ -415,25 +425,20 @@ async function _不同分流退出(){
   現網址頭 = 現網址[0]
   現網址尾 = decodeURIComponent(現網址[1]).split('#')[0].split('?')[0] // qqq aki admin
 
-  if (數據模版 && 現網址尾 != 數據模版) {
-    // 不同分流回到VIP網頁
-    _返液alert('#您已登錄其他服務',數據模版)
-    window.location.href = 現網址頭+總網址+數據模版
-  }
-
-  // 是否VIP
-  v嗎 = ''
+  // 只vip執行下邊
   if (!localStorage.getItem('VipAdmin標記')?.trim()) return;
-    
-  v嗎 = '!!! VIP帳號 !!!'
   console.log(`
     已登入帳號=${已登入帳號}
     帳號數據庫=${帳號數據庫}
     VIP的網模版=${數據模版}
-    ${v嗎}
+    '!!! VIP帳號 !!!'
   `);
 
-
+  // 當VIP已登入時又去不同系統 回到VIP自己系統
+  if (數據模版 && 現網址尾 != 數據模版) {
+    _返液alert('#您已登錄其他服務',數據模版)
+    window.location.href = 現網址頭+總網址+數據模版
+  }
 }
 
 
