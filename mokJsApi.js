@@ -318,8 +318,8 @@ admin：
 
 function _aki睇錯(顯示說明){ 
   // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`cut文件前綴=${cut文件前綴}`])
-  return
-  //if ((location.href).indexOf('?mokaki') == -1) return
+  //return
+  if ((location.href).indexOf('?mokaki') == -1) return
   console.log(' @@@@@@@@ _aki @@@@@@@@ ');
   for (let i = 0; i < 顯示說明.length; i++) {
     console.log(顯示說明[i]);
@@ -407,14 +407,7 @@ async function _不同分流退出(){ //
 
   現網址 = location.href.split(總網址)
   現網址頭 = 現網址[0]
-  現網址尾 = decodeURIComponent(現網址[1]).split('#')[0].split('?')[0] // qqq aki admin
-
-  console.log(`
-    _不同分流退出
-    現網址尾=${現網址尾}
-    數據模版=${數據模版}
-  `);
-
+  現網址尾 = decodeURIComponent(現網址[1]).split('#')[0].split('?')[0]
 
   // 只vip執行下邊
   if (!localStorage.getItem('VipAdmin標記')?.trim()) return;
@@ -534,36 +527,10 @@ function Vip登入莫氏系統2025(系統,sel=''){
   window.location.href = '../login.html';
 }
 
-/* Vip登入莫氏系統2025
-// 由主網入 onclick="登入莫氏VIP('倉庫管理系統')" localStorage記錄由網
-// 入時 localStorage.getItem('莫氏VIP分流') ,用於分流登入 ,localStorage.removeItem
-qqq4 function 登入莫氏VIP(分流){ localStorage.setItem('莫氏VIP分流', 分流); }
-2 function 登出再登入ViPBtn(系統='',sel='') {
-  // if sel == '#???' // 去Login頁
-  window.location.href=`${location.href}${sel}`;
-  if(系統 && sel) _vipLogin分流(`${sel}`,系統,'../login.html');
-}
-qqq1 function 登出莫氏VIP(退項){
-  // <a id="登入Btn" href="javascript:void(0);" onclick="登出莫氏VIP(['帳戶名稱','數據文件'])">登出</a>
-  for (let i = 0; i < 退項.length; i++) {
-    localStorage.removeItem(退項[i]);
-  }
-  window.location.reload(); 
-}
-let VIP註冊時的網模版
-3 function _vipLogin分流(標,由,去){
-  // 任何網入 如沒數據中VIP的網模版 由網的網模版
-  if(!localStorage.getItem('VIP註冊時的網模版')) {
-    localStorage.setItem('VIP註冊時的網模版', decodeURIComponent(location.href.split(總網址)[1].split('.html')[0])+'.html');
-  }
 
-  // 登入莫氏VIP
-  if ((location.href).indexOf(標) != -1) {
-    登入莫氏VIP(由)
-    window.location.href = 去
-  }
-}
-*/
+
+
+
 
 
 function _檢查帳號是否存在(帳號256){
@@ -613,8 +580,6 @@ async function _檢查VIP的User是否存在(Vu帳號名,Vu真帳密,數據V庫)
   帳號數據庫 = 數據V庫 // 入數據文件url 
 
   VIP的UserID = await _取本頁數據庫('VIP的UserID', 'VIP的UserID','html碼');
-
-  console.log('VIP的UserID',VIP的UserID);
 
   _aki睇錯([`VIP的UserID: ${VIP的UserID}`]);
   // VIP的UserID = '數據庫不存在'
@@ -675,11 +640,13 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
+
+// qqq 3段合併 加轉pw
 let 已解密數據;
 
 async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
   try {
-    const 查看已加密數據 = await _更新數據(數據庫號, '', '查看數據');
+    const 查看已加密數據 = await 整合數據庫資料(數據庫號, '', '查看數據');
     if (!查看已加密數據) return;
     //console.log('查看已加密數據...', 查看已加密數據);
 
@@ -710,7 +677,7 @@ async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
 // _上傳文到GitHub(1文件名,2文件內容,3gh帳號名,4庫名,5tk)
 async function _更新數據B(數據庫編號, Data, cut文件前綴,repoOwner='',repoName='',token='') {
   try {
-    const 新all數據 = await _更新數據(數據庫編號, Data);
+    const 新all數據 = await 整合數據庫資料(數據庫編號, Data);
     //console.log(`新all數據=${新all數據}!!!`);
     await _上傳文到GitHub(帳號數據庫.split(cut文件前綴)[1], 新all數據,repoOwner,repoName,token);
   } catch (error) {
@@ -719,7 +686,7 @@ async function _更新數據B(數據庫編號, Data, cut文件前綴,repoOwner='
 }
 
 // GitHub Pages => Settings => Pages => Branch => main => Save
-async function _更新數據(數據id, 新數據 = '', sel = '') {
+async function 整合數據庫資料(數據id, 新數據 = '', sel = '') {
   //console.log(`_更新數據99=${數據id}==@@ ${新數據} @@!!!`);
   //console.log(`帳號數據庫=${帳號數據庫}!!!`);
   try {
@@ -729,6 +696,17 @@ async function _更新數據(數據id, 新數據 = '', sel = '') {
     }
 
     const 原數據 = await response.text();
+
+    if (sel === '更新密碼') {
+      if (!原數據.includes(數據id)) return ;
+      let [密碼頭,密碼尾] = 原數據.split(數據id);
+      console.log(`密碼頭=${密碼頭},,密碼尾==${密碼尾}`);
+      //return `${密碼頭}${新數據}${密碼尾}`; // 這是轉了新pw的allData
+
+      // qqq 這要配合更新其他數據,不能只回alldata
+      
+    }
+
     let 要修數據id = `const ${數據id} = '`,
       原數據尾B,
       all數據,
@@ -744,20 +722,17 @@ async function _更新數據(數據id, 新數據 = '', sel = '') {
     } else {
       all數據 = `${原數據}\n${要修數據id}${new數據B}'//$$$$$$$$$$$$$$$$$$\n`;
     }
-
-    _aki睇錯([`帳號數據庫=${帳號數據庫}`, `原數據=${原數據}`]);
-    if (原數據.indexOf(要修數據id) !== -1 && 新數據 !== '') _aki睇錯([`all數據=${all數據}`]);
-
     if (sel === '查看數據') {
       if (原數據.indexOf(要修數據id) !== -1) {
         const 查看已加密數據 = 原數據.split(要修數據id)[1].split(原數據尾B)[0];
-        _aki睇錯([`查看${要修數據id}已加密數據=${查看已加密數據}`]);
         return 查看已加密數據;
       } else {
         console.log(`${要修數據id}數據庫不存在，請先創建。`);
         return null;
       }
     }
+
+
 
     return all數據;
   } catch (error) {
@@ -766,9 +741,31 @@ async function _更新數據(數據id, 新數據 = '', sel = '') {
 }
 
 
-  
 
 
+
+function _修改密碼(公司名) { // 公司名 = 版模 / vip公司名
+  //let OVG256 = 公司資料[0].管理員密碼
+  let 原密碼明文 = $('#管理員密碼OUT').val()
+    , 原密碼輸入256 = sha256(原密碼明文)
+
+    , 新密碼明文 = $('#管理員密碼Input').val()
+
+    , 新密碼256 = sha256(新密碼明文)
+    , 確認新密碼256 = sha256($('#管理員密碼BBB').val());
+
+  if (!新密碼明文 || 新密碼明文.length < 8) return ; // 新密碼為空 
+  //if (原密碼輸入256 !== OVG256) return OVG256; // 原密碼錯
+  if (新密碼256 !== 確認新密碼256) return ; // 新密碼不一致
+
+  舊真密碼 = sha256(`${原密碼輸入256}0mo${sha256(已登入帳號)}kL${公司名}V0`)
+  新真密碼 = sha256(`${新密碼256}0mo${sha256(已登入帳號)}kL${公司名}V0`)
+  //console.log(`舊真密碼=${舊真密碼}`);
+
+  新密特朗 = 整合數據庫資料(舊真密碼, 新真密碼, '更新密碼')
+
+  return 新密特朗;
+}
 
 
 
