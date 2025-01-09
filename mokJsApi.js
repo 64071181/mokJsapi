@@ -641,7 +641,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 
-// qqq 3段合併 加轉pw
 let 已解密數據;
 
 async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
@@ -661,6 +660,8 @@ async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
     if (sel == 'JSON')   已解密數據 = (CryptoJS.AES.decrypt(查看已加密數據, 親老婆).toString(CryptoJS.enc.Utf8));
 
     localStorage.setItem(離線庫名, 已解密數據);
+
+    _aki睇錯([`已解密數據=${已解密數據}`])
     return 已解密數據; // 返回解密後的數據
     
   } catch (error) {
@@ -702,7 +703,6 @@ async function 整合數據庫資料(數據id, 新數據 = '', sel = '') {
       let [密碼頭,密碼尾] = 原數據.split(數據id);
       console.log(`密碼頭=${密碼頭},,密碼尾==${密碼尾}`);
       //return `${密碼頭}${新數據}${密碼尾}`; // 這是轉了新pw的allData
-
       // qqq 這要配合更新其他數據,不能只回alldata
       
     }
