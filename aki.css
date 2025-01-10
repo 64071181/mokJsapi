@@ -27,7 +27,7 @@
   .ContactAKI .fa-envelope:hover{color: #fff;}
   .ContactAKI .fa-whatsapp:hover,.fa-wechat:hover{color: #00B900;}
   .ContactAKI .fa-instagram:hover{color: #e8469a;}
-  .ContactAKI .lineB {display: block; width: 40px;height: 40px; background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line0.png);background-size: 100%;background-repeat: no-repeat;}
+  .ContactAKI .lineB {display: block; width: 40px;height: 40px; background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line_.png);background-size: 100%;background-repeat: no-repeat;}
   .ContactAKI .lineB:hover{background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line.png);}
   .ContactAKI .fa-facebook:hover{color: rgb(47, 47, 244);}
   .ContactAKI .fa-telegram:hover{color: rgb(126, 157, 242);}
