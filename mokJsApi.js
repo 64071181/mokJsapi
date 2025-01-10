@@ -332,8 +332,7 @@ admin：
 
 
 function _aki睇錯(顯示說明){ 
-  // _aki睇錯([`帳號數據庫=${帳號數據庫}`,`cut文件前綴=${cut文件前綴}`])
-  //return
+  // _aki睇錯([`@@=帳號數據庫=${帳號數據庫}`,`@@=cut文件前綴=${cut文件前綴}`])
   if ((location.href).indexOf('?mokaki') == -1) return
   console.log(' @@@@@@@@ _aki @@@@@@@@ ');
   for (let i = 0; i < 顯示說明.length; i++) {
