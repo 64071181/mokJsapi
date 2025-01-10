@@ -602,10 +602,8 @@ function _檢查帳號是否存在(帳號256){
 async function _檢查VIP的User是否存在(Vu帳號名,Vu真帳密,數據V庫){
   
   帳號數據庫 = 數據V庫 // 入數據文件url 
-
   VIP的UserID = await _取本頁數據庫('VIP的UserID', 'VIP的UserID','html碼');
 
-  _aki睇錯([`VIP的UserID: ${VIP的UserID}`]);
   // VIP的UserID = '數據庫不存在'
   if(!VIP的UserID) {
     document.getElementById('authPanel').style.transform = 'rotateY(180deg)'; 
@@ -624,8 +622,7 @@ function _VIP的User登入(VipUserID){
   // 記錄帳戶名稱
   localStorage.setItem('帳戶名稱', VipUserID);
   // 登入成功 轉跳 上一頁
-  window.history.back();
-
+  window.location.href = 註冊時的網模版
 }
 
 
@@ -685,7 +682,7 @@ async function _取本頁數據庫(數據庫號, 離線庫名, sel = '') {
 
     localStorage.setItem(離線庫名, 已解密數據);
 
-    _aki睇錯([`已解密數據=${已解密數據}`])
+    _aki睇錯([`@@=${數據庫號}=${已解密數據}`])
     return 已解密數據; // 返回解密後的數據
     
   } catch (error) {
