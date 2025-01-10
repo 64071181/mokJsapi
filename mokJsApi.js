@@ -128,6 +128,12 @@ function 防止複製及禁用滑鼠右鍵() {
 
 
 
+
+
+
+
+
+
 // 搜索功能實現 
 function _Aki搜尋(keyword,內容class,ai搜=false) {
   //<input type="text" id="searchInput" placeholder="搜索商戶、系統、描述或關鍵字..." title="搜索商戶、系統、描述或關鍵字...">
