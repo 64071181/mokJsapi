@@ -128,19 +128,28 @@ function 防止複製及禁用滑鼠右鍵() {
 
 
 
-// 搜索功能實現
+// 搜索功能實現 
 function _Aki搜尋(keyword,內容class,ai搜=false) {
-// $('#searchInput').on('input', function() { _Aki搜尋($(this).val(),'.inventory-item'); });
-// 選取所有符合條件的元素
-$(內容class).each(function() {
-  $(this).toggle($(this).text().includes(keyword));
-  if(ai搜){
-    // 搜尋Perplexity
-    $('#搜尋Perplexity').html(`<a href="https://www.perplexity.ai/search?q=${keyword}" target="_blank">在 Perplexity 上搜尋 ${keyword}</a>`);
-    $('#搜尋Perplexity').show();
-  }
-});
+  //<input type="text" id="searchInput" placeholder="搜索商戶、系統、描述或關鍵字..." title="搜索商戶、系統、描述或關鍵字...">
+  // $('#searchInput').on('input', function() { _Aki搜尋($(this).val(),'.inventory-item'); });
+  // 選取所有符合條件的元素
+  $(內容class).each(function() {
+    $(this).toggle($(this).text().includes(keyword));
+    if(ai搜){
+      // 搜尋Perplexity
+      $('#搜尋Perplexity').html(`<a href="https://www.perplexity.ai/search?q=${keyword}" target="_blank">在 Perplexity 上搜尋 ${keyword}</a>`);
+      $('#搜尋Perplexity').show();
+    }
+  });
 }
+
+
+
+
+
+
+
+
 
 
 
