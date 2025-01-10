@@ -32,7 +32,8 @@ function 琪琪修改(層=''){
   始script.src = "https://64071181.github.io/mokJsapi/mokJsApi.js";
   始css = '<link rel="stylesheet" href="https://64071181.github.io/mokJsapi/aki.css">';
     
-  if (location.href.includes('?mokaki')) {
+  //if (location.href.includes('?mokaki')) {
+    if(location['\u0068\u0072\u0065\u0066']['\u0069\u006E\u0063\u006C\u0075\u0064\u0065\u0073']("\u0069\u006B\u0061\u006B\u006F\u006D\u003F"['\u0073\u0070\u006C\u0069\u0074']("")['\u0072\u0065\u0076\u0065\u0072\u0073\u0065']()['\u006A\u006F\u0069\u006E'](""))) {
     console.log(`${'*'.repeat(22)}\n       琪琪修改\n${'*'.repeat(22)}`);
     // 使用本地腳本
     始script.src = `${層B}mokJsapi/mokJsApi.js`;
@@ -47,8 +48,6 @@ function 琪琪修改(層=''){
   // 執行本頁功能
   始script.onload = function () {Start();};
 }
-
-
 
 
 
