@@ -373,21 +373,60 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 
 
+
+
 function 網頁分流(){
-  if ((location.href).indexOf('???') != -1) 去admin頁()
-  
-  if ((location.href).indexOf('?0x') != -1) _到VIP網()
-
+  if ((location.href).indexOf('???') != -1) 去admin頁();
+  if ((location.href).indexOf('?0x') != -1) _到VIP網();
   //自動機器人 sell ulr
-  if ((location.href).indexOf('?=boss?') != -1) window.location.href = "./數碼轉型/2index.html?sellIn"
+  if ((location.href).indexOf('?=boss?') != -1) window.location.href = "./數碼轉型/2index.html?sellIn";
 }
 
 
 
-function 去admin頁(){
-  window.location.href = location.href.replace("???","s.html");
-}
 
+function 去admin頁(){  window.location.href = location.href.replace("???","s.html");}
+
+
+
+
+
+
+async function _客戶追蹤() {
+  if (location.href.includes('?!')) {
+    // 折分網址
+    let [去, 標題] = location.href.split("?!"),
+        結果 = `無法取得資訊 xxx `,
+        flow庫 = 'https://raw.githubusercontent.com/64071181/flow/main/flow',
+        flow料 = '',
+        舊真料 = '',
+        key = "\u0062\u004B\u006B\u004D\u0065\u0042\u0068\u006D\u0053\u0036\u0032\u0041\u0057\u0055\u0055\u004E\u0043\u0030\u0055\u0063\u0047\u0078\u0046\u0044\u0033\u0032\u0050\u0068\u0064\u0078\u0033\u0059\u0070\u0050\u0045\u004B\u0073\u0041\u0057\u0042\u0041\u0077\u004C\u006F\u0072\u0035\u0074\u0065\u004F\u0057\u006F\u0079\u0068\u0065\u006F\u0030\u006C\u005A\u0049\u005F\u0079\u0042\u0059\u0071\u004C\u0041\u007A\u0031\u0064\u0068\u006E\u0042\u0030\u0041\u0034\u004B\u0054\u004D\u0043\u0042\u0031\u0031\u005F\u0074\u0061\u0070\u005F\u0062\u0075\u0068\u0074\u0069\u0067"['\u0073\u0070\u006C\u0069\u0074']("")['\u0072\u0065\u0076\u0065\u0072\u0073\u0065']()['\u006A\u006F\u0069\u006E']("");
+
+    去 = decodeURIComponent(去);
+    標題 = decodeURIComponent(標題);
+    結果 = 結果 + 標題;
+
+    睇 = await fetch(flow庫);
+    all睇 = await 睇.text()
+    try{
+      標題的舊料 = all睇.split(`const ${標題} = '`)[1].split(`'//$$$$$$$$$$$$$$$$$$\n`)[0]
+      舊真料 = eval(CryptoJS.AES.decrypt(標題的舊料, 親老婆).toString(CryptoJS.enc.Utf8))
+    }
+    catch (error) {console.error( error);}
+
+    // 使用 ip-api 獲取來訪者 IP 和地區資訊
+    $.get("http://ip-api.com/json/", function (data) {
+      if (data.status === "success") {
+        結果 = `${舊真料}IP:${data.query}=${nowTime()}=[${data.country}-${data.regionName}-${data.city}] ---\n`;
+      }
+    }).always(async function () {
+      // 確保無論成功或失敗都執行
+      flow料 = await 整合數據庫資料(標題, 結果, '',flow庫);
+      _aki睇錯([`@@=flow料=${flow料}`])
+      _上傳文到GitHub('flow',flow料,'64071181','flow',key);
+    });
+  }
+}
 
 
 
@@ -403,8 +442,6 @@ async function _不同分流退出(){ //
     <samp id="填必要料" class="none">請填寫所有必要資料!</samp>
     <samp id="莫生查詢" class="none">莫生我要查詢${本公司名稱}</samp>
     `);
-
-
   
   數據模版 = await _取本頁數據庫('VIP的網模版', '數據中VIP的網模版', '不用解謝謝');
 
@@ -707,9 +744,10 @@ async function _更新數據B(數據庫編號, Data, cut文件前綴,repoOwner='
 }
 
 // GitHub Pages => Settings => Pages => Branch => main => Save
-async function 整合數據庫資料(數據id, 新數據 = '', sel = '') {
+async function 整合數據庫資料(數據id, 新數據 = '', sel = '', 數庫='') {
   //console.log(`_更新數據99=${數據id}==@@ ${新數據} @@!!!`);
   //console.log(`帳號數據庫=${帳號數據庫}!!!`);
+  if (數庫) 帳號數據庫 = 數庫;
   try {
     const response = await fetch(`${帳號數據庫}`);
     if (!response.ok) {
@@ -724,8 +762,9 @@ async function 整合數據庫資料(數據id, 新數據 = '', sel = '') {
       console.log(`密碼頭=${密碼頭},,密碼尾==${密碼尾}`);
       //return `${密碼頭}${新數據}${密碼尾}`; // 這是轉了新pw的allData
       // qqq 這要配合更新其他數據,不能只回alldata
-      
     }
+
+    
 
     let 要修數據id = `const ${數據id} = '`,
       原數據尾B,
@@ -889,11 +928,14 @@ async function _上傳文到GitHub(fileName,fileContent,repoOwner='',repoName=''
 
       console.log(fileName, '已成功更新');
   }
-  $('.提示訊息').text(`已成功創建!!
-    更新約需5分鐘，請耐心等待。`);
 
-  等5分Pls = $('#更新約需5分鐘').text();
-  alert(等5分Pls);
+  if (token == '') {
+    $('.提示訊息').text(`已成功創建!!
+      更新約需5分鐘，請耐心等待。`);
+    等5分Pls = $('#更新約需5分鐘').text();
+    alert(等5分Pls);
+  }
+
   return fileName
 }
 
