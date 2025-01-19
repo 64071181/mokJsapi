@@ -8,7 +8,8 @@
 
 
 /* 碑食 */
-  .translateSelectLanguage{position: absolute;top:0px;left: 0;right: 0;}
+  .translateSelectLanguage{position: absolute;top:0px;left: 0;right: 0;height: 50px;border-radius: 5px;}
+  .mokJsApi_copyright{text-align: center;}
   body{margin-top: 50px;}
   .fa,.fab,.fas {font-size: 2rem;height: 2rem;}
   a{text-decoration: none;color: var(--標題色);}
