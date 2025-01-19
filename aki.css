@@ -8,9 +8,35 @@
 
 
 /* 碑食 */
+  .translateSelectLanguage{position: absolute;top:0px;left: 0;right: 0;}
+  body{margin-top: 50px;}
+  .fa,.fab,.fas {font-size: 2rem;height: 2rem;}
+  a{text-decoration: none;color: var(--標題色);}
+  * { scrollbar-width: none; /* 滾動條美化 */}
+  .主題色{color: var(--主題色); } 
+  .按鈕色{color: var(--按鈕色); }
+  .標題色{color: var(--標題色); }
+  .文字色,p {color: var(--文字色); }
+
+
   .none{display:none;}
   .clear-float {clear: both; /* 清除浮動 */height: 1px;margin: 0;padding: 0;}
   a{text-decoration: none;color: var(--標題色);}
+
+
+
+/* logo 滾回頂 */
+    .logo-container {height: 60px;padding: 5px; width: 100%;background-color: var(--主題色); display: flex;justify-content: center;align-items: center;
+      position: fixed;top: 50px; z-index: 11;transition: .5s ;}
+    .logo {color: white;font-size: 24px;font-weight: bold;height: 100%;}
+    .logo img {height: 100%;width: auto;}
+    /* 回頂鍵 */
+    .scroll-top {position: fixed;bottom: 20px;right: 20px;background: var(--主題色); color: white;width: 40px;height: 40px;border-radius: 50%;display: none;justify-content: center;align-items: center;cursor: pointer;box-shadow: 0 2px 5px rgba(0,0,0,0.2);z-index: 12;}
+    /* 平滑滾動效果 */
+    .header {margin-top: 90px; background: var(--主題色);padding: 1rem;text-align: center;box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+    .container {max-width: 1000px;margin: 2rem auto;padding: 0 1rem;}
+    
+
 
 
 /* 搜索 */

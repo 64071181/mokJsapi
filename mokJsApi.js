@@ -312,6 +312,81 @@ function _導航換頁(page) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// 回頁頂  
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+/* 回頂鍵 */
+let lastScrollTop = 0;
+let isScrollingUp = false;
+window.addEventListener('scroll', function() {
+    // 獲取當前滾動位置
+    let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // 判斷滾動方向
+    if (currentScrollTop < lastScrollTop) {
+        isScrollingUp = true;
+    } else {
+        isScrollingUp = false;
+    }
+    // 更新上一次的滾動位置
+    lastScrollTop = currentScrollTop;
+    // 顯示或隱藏「回到頂部」按鈕
+    toggleScrollTopButton();
+});
+function toggleScrollTopButton() {
+    const scrollTopButton = document.getElementById('scrollTop');
+    const displayThreshold = 200; // 設定需要滾動多少距離後才考慮顯示按鈕
+    if (isScrollingUp && lastScrollTop > displayThreshold) {
+        scrollTopButton.style.display = 'flex';
+        $('.logo-container').css('top', '0px'); // 顯示logo位
+    } else {
+        scrollTopButton.style.display = 'none';
+        $('.logo-container').css('top', '-70px'); // 隱藏logo位
+    }
+    // 顯示logo位
+    if (lastScrollTop < 20) $('.logo-container').css('top', '50px');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
