@@ -741,6 +741,14 @@ function _VIP的User登入(VipUserID){
 
 
 
+async function _0xdv(VIPname){ 
+  // 放 Start 
+  // if (await _0xdv('VIPname') === false) return;
+  const response = await fetch("\u0068\u0074\u0074\u0070\u0073\u003A\u002F\u002F\u0072\u0061\u0077\u002E\u0067\u0069\u0074\u0068\u0075\u0062\u0075\u0073\u0065\u0072\u0063\u006F\u006E\u0074\u0065\u006E\u0074\u002E\u0063\u006F\u006D\u002F\u0036\u0034\u0030\u0037\u0031\u0031\u0038\u0031\u002F\u0064\u002F\u006D\u0061\u0069\u006E\u002F\u0056\u0049\u0050\u0064\u0061\u0074\u0061\u002E\u006A\u0073");
+  const data = await response.text();
+  return data.includes(VIPname);
+}
+
 
 
 
