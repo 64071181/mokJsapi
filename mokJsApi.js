@@ -107,6 +107,27 @@ $(document).ready(function() {
   // <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   // 版權
   $('.mokJsApi_copyright').text('© ' + new Date().getFullYear() + ' All rights reserved by ' + location.hostname).css({'font-size': 'medium'});    
+
+  // 上傳圖片教學
+  $('.All上傳圖片教學').html(`
+    <a class="btn" href='https://meee.com.tw/' target="_blank" ><i class="fa fa-upload" ></i></a>
+    <i class="fa fa-info-circle 上傳圖片教學" ></i>
+    <img id="上傳圖片教學" src="https://i.meee.com.tw/IEwP5Jg.gif" alt="上傳圖片教學">
+  `)
+  const $icon = $(".上傳圖片教學");
+  const $image = $("#上傳圖片教學");
+  // 滑鼠進入時顯示圖片
+  $icon.hover(
+      function (e) {
+          $image.css({
+              display: "block",
+          });
+      },
+      function () {
+          $image.css("display", "none");
+      }
+  );
+
 });
 
 

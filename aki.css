@@ -39,6 +39,16 @@
     
 
 
+/* 上傳圖片教學 */
+#上傳圖片教學 {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  height: 80vh;
+}
+
+
 
 /* 搜索 */
   .搜索的框 {position: relative;height: 50px;}
