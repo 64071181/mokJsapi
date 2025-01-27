@@ -488,7 +488,7 @@ function 去admin頁(){  window.location.href = location.href.replace("???","s.h
 
 
 
-async function _客戶追蹤() {
+async function _客戶追蹤() { // qqq 無法取得資訊
   if (location.href.includes('?!')) {
     // 折分網址
     let [去, 標題] = location.href.split("?!"),
@@ -868,8 +868,6 @@ async function 整合數據庫資料(數據id, 新數據 = '', sel = '', 數庫=
       // qqq 這要配合更新其他數據,不能只回alldata
     }
 
-    
-
     let 要修數據id = `const ${數據id} = '`,
       原數據尾B,
       all數據,
@@ -894,10 +892,8 @@ async function 整合數據庫資料(數據id, 新數據 = '', sel = '', 數庫=
         return null;
       }
     }
-
-
-
     return all數據;
+    
   } catch (error) {
     console.error('發生錯誤:', error);
   }
