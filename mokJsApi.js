@@ -496,30 +496,45 @@ async function _客戶追蹤() { // qqq 無法取得資訊
         flow庫 = 'https://raw.githubusercontent.com/64071181/flow/main/flow',
         flow料 = '',
         舊真料 = '',
+
         key = "\u0062\u004B\u006B\u004D\u0065\u0042\u0068\u006D\u0053\u0036\u0032\u0041\u0057\u0055\u0055\u004E\u0043\u0030\u0055\u0063\u0047\u0078\u0046\u0044\u0033\u0032\u0050\u0068\u0064\u0078\u0033\u0059\u0070\u0050\u0045\u004B\u0073\u0041\u0057\u0042\u0041\u0077\u004C\u006F\u0072\u0035\u0074\u0065\u004F\u0057\u006F\u0079\u0068\u0065\u006F\u0030\u006C\u005A\u0049\u005F\u0079\u0042\u0059\u0071\u004C\u0041\u007A\u0031\u0064\u0068\u006E\u0042\u0030\u0041\u0034\u004B\u0054\u004D\u0043\u0042\u0031\u0031\u005F\u0074\u0061\u0070\u005F\u0062\u0075\u0068\u0074\u0069\u0067"['\u0073\u0070\u006C\u0069\u0074']("")['\u0072\u0065\u0076\u0065\u0072\u0073\u0065']()['\u006A\u006F\u0069\u006E']("");
 
-    去 = decodeURIComponent(去);
+    去 = '@@@'+decodeURIComponent(去).split("github.io/")[1].split("?")[0];
     標題 = decodeURIComponent(標題);
-    結果 = 結果 + 標題;
+    結果 = `${結果} = ${標題}`;
 
     睇 = await fetch(flow庫);
-    all睇 = await 睇.text()
+    all睇 = await 睇.text() 
+
+    // 獲取整個已加密的flow數據內容
+    all睇 = all睇.split("const flow料 = '")[1].split("'//$$$$$$$$$$$$$$$$$$")[0]
+    
     try{
-      標題的舊料 = all睇.split(`const ${標題} = '`)[1].split(`'//$$$$$$$$$$$$$$$$$$\n`)[0]
-      舊真料 = eval(CryptoJS.AES.decrypt(標題的舊料, 親老婆).toString(CryptoJS.enc.Utf8))
+      // 解密整個flow數據內容
+      舊真料 = (CryptoJS.AES.decrypt(all睇, 親老婆).toString(CryptoJS.enc.Utf8))
     }
     catch (error) {console.error( error);}
 
+    //分割每個目標網址
+    let flow頭 = 舊真料
+      , flow尾 = '';
+    if (舊真料.includes(去)) [flow頭, flow尾] = 舊真料.split(去);
+
+    // qqqqqqqqqqqqqq cut 去
+
+    
     // 使用 ip-api 獲取來訪者 IP 和地區資訊
     $.get("http://ip-api.com/json/", function (data) {
       if (data.status === "success") {
-        結果 = `${舊真料}IP:${data.query}=${nowTime()}=[${data.country}-${data.regionName}-${data.city}] ---\n`;
+        結果 = `${去}IP:${data.query}[${data.country}-${data.regionName}-${data.city}][${nowTime()}]-${標題}-%%`;
       }
     }).always(async function () {
       // 確保無論成功或失敗都執行
-      flow料 = await 整合數據庫資料(標題, 結果, '',flow庫);
+      flow料 = `${flow頭}${結果}${flow尾}`
       _aki睇錯([`@@=flow料=${flow料}`])
-      _上傳文到GitHub('flow',flow料,'64071181','flow',key);
+      flow料ALL = await 整合數據庫資料('flow料', flow料, '',flow庫);
+
+      _上傳文到GitHub('flow',flow料ALL,'64071181','flow',key);
     });
   }
 }
@@ -893,7 +908,7 @@ async function 整合數據庫資料(數據id, 新數據 = '', sel = '', 數庫=
       }
     }
     return all數據;
-    
+
   } catch (error) {
     console.error('發生錯誤:', error);
   }
