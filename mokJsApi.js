@@ -402,8 +402,60 @@ function toggleScrollTopButton() {
 
 
 
+`
+  <script> 
+  
+    // https://run.aicado.ai/llm?audi=1742732471496x145489461348033100&raid=1742732361893x798073184842389400&e=true&dom_id=1742732466833x655464756489748500&domains=64071181.github.io
+    window.greetings = ["hihi! 👋🏻","我是ai客服😃"];
+    window.chatPosition = "right-bottom";
+    window.chatBalloonImg = '//a821d63e790a2b70ddeb996bbc284b53.cdn.bubble.io/f1742732657320x407713372944441800/WhatsApp%20Image%202025-03-17%20at%2021.32.13.jpeg';
+    window.chatbotIframeSrc = 'https://go.aicado.ai/1xNLkoD';
+
+  </script>
+  
+  <style>
+      :root {
+              --aicado-greetings-bg: #000;
+              --aicado-greetings-color: #999;
+              --aicado-greetings-font-family: Roboto Slab, serif;
+      }
+  
+  
+      
+  </style>
+`
 
 
+
+// ai客服
+
+function _ai客服(){ 
+    // https://run.aicado.ai/llm?audi=1742732471496x145489461348033100&raid=1742732361893x798073184842389400&e=true&dom_id=1742732466833x655464756489748500&domains=64071181.github.io
+    // 创建并插入script元素
+    $('<script>')
+    .html(`
+        window.greetings = ["hihi! 👋🏻","我是ai客服😃"];
+        window.chatPosition = "right-bottom";
+        window.chatBalloonImg = '//a821d63e790a2b70ddeb996bbc284b53.cdn.bubble.io/f1742732657320x407713372944441800/WhatsApp%20Image%202025-03-17%20at%2021.32.13.jpeg';
+        window.chatbotIframeSrc = 'https://go.aicado.ai/1xNLkoD';
+    `)
+    .appendTo('head');
+
+    // 创建并插入style元素
+    $('<style>')
+    .html(`
+        :root {
+            --aicado-greetings-bg: #000;
+            --aicado-greetings-color: #999;
+            --aicado-greetings-font-family: Roboto Slab, serif;
+        }
+    `)
+    .appendTo('head');
+
+    $('#_ai客服').html(`<script src="https://cdn.jsdelivr.net/gh/efesener/aicado/aicado-llm.js"></script>`)
+
+
+  }
 
 
 
