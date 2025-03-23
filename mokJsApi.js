@@ -452,8 +452,7 @@ function _ai客服(){
     `)
     .appendTo('head');
 
-    $('#_ai客服').html(`<script src="https://cdn.jsdelivr.net/gh/efesener/aicado/aicado-llm.js"></script>`)
-
+    $("body").prepend(`<script src="https://cdn.jsdelivr.net/gh/efesener/aicado/aicado-llm.js"></script>`)
 
   }
 
