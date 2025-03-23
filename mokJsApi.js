@@ -435,10 +435,8 @@ function _ai客服(){
     $("body").prepend(`<script src="https://cdn.jsdelivr.net/gh/efesener/aicado/aicado-llm.js"></script>`)
 
     // 隱藏logo
-    $(".bubble-element.CustomElement").removeAttr("style").hide();
+    $(".bubble-element.CustomElement.baTraHaL.bubble-r-container.flex.row").removeAttr("style").hide();
   }
-
-
 
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
