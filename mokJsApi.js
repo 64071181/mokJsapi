@@ -472,7 +472,7 @@ function _aki睇錯(顯示說明){
 
 
 
-function _25統一我司名(){
+function _統一我司名(){
 
     // 修改 title
     const originalTitle = document.title;
