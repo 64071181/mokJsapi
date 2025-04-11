@@ -472,14 +472,21 @@ function _aki睇錯(顯示說明){
 
 
 
-function _統一我司名(){
-  // 修改标题的代码
-  const originalTitle = document.title;
-  const newTitle = originalTitle.replace(/^[^|]*/, 我公司名);
-  document.title = newTitle;
+function _25統一我司名(){
 
-  _我司名
-  $('#_我司名').text(我公司名)
+    // 修改 title
+    const originalTitle = document.title;
+    const newTitle = originalTitle.replace("莫氏金流商匯", 我公司名);
+    document.title = newTitle;
+
+    // 修改 <meta name="description">
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+        metaDescription.content = metaDescription.content.replace("莫氏金流商匯", 我公司名);
+    }
+
+    // 修改 頁內我司名
+    $('#_我司名').text(我公司名)
 };
 
 
