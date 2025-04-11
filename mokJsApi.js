@@ -477,6 +477,9 @@ function _統一我司名(){
   const originalTitle = document.title;
   const newTitle = originalTitle.replace(/^[^|]*/, 我公司名);
   document.title = newTitle;
+
+  _我司名
+  $('#_我司名').text(我公司名)
 };
 
 
