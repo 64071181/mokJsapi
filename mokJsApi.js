@@ -105,8 +105,20 @@ function mokJsApi_說明(){
 
 $(document).ready(function() {
   // <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-  // 版權
-  $('.mokJsApi_copyright').text('© ' + new Date().getFullYear() + ' All rights reserved by ' + location.hostname).css({'font-size': 'medium'});    
+  // 版權 + 隱私權政策
+
+  //$('.mokJsApi_copyright').text('© ' + new Date().getFullYear() + ' All rights reserved by ' + location.hostname).css({'font-size': 'medium'});    
+
+
+  $('.mokJsApi_copyright').html(
+    `©${new Date().getFullYear()}All rights reserved by ${location.hostname}
+    <br>
+    <a class="btn" href='https://raw.githubusercontent.com/64071181/64071181.github.io/refs/heads/main/PrivacyPolicy.md' target="_blank" >隱私權政策</a>
+    `
+  );    
+
+
+
 
   // 上傳圖片教學
   $('.All上傳圖片教學').html(`
