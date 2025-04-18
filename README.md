@@ -50,10 +50,31 @@ mokaki all js api 2024
 github page 綁定 godaddy dns
 
 
-步驟	            GoDaddy 操作	                                GitHub 操作
-DNS 設定	        新增 4 個 A 紀錄指向 GitHub IP	
-                  新增 CNAME 紀錄指向 username.github.io	
-自訂域名設定		                                                  在 Pages 設定中輸入自訂域名
-HTTPS 啟用	      可選，使用 Cloudflare 或 GitHub 預設	          勾選「Enforce HTTPS」
-
+<table border="1">
+  <tr>
+    <td >步驟</td>
+    <td >GoDaddy 操作</td>
+    <td >GitHub 操作</td>
+  </tr>
+  <tr>
+    <td>DNS 設定</td>
+    <td>新增 4 個 A 紀錄指向 GitHub IP</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>新增 CNAME 紀錄指向 username.github.io</td>
+    <td></td>
+  </tr>
+    <tr>s
+    <td>自訂域名設定</td>
+    <td></td>
+    <td>在 Pages 設定中輸入自訂域名</td>
+  </tr>
+    <tr>
+    <td>HTTPS 啟用</td>
+    <td>可選，使用 Cloudflare 或 GitHub 預設</td>
+    <td>勾選「Enforce HTTPS」</td>
+  </tr>
+</table>
 
