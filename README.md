@@ -66,7 +66,7 @@ github page 綁定 godaddy dns
   </tr>
   <tr>
     <td></td>
-    <td>新增 CNAME 紀錄指向 username.github.io</td>
+    <td>新增 CNAME 紀錄 www  指向 username.github.io</td>
     <td></td>
   </tr>
     <tr>s
