@@ -43,3 +43,17 @@ mokaki all js api 2024
 
     GitHub Pages 需要一些時間來生成網站。如果設置後無法立即訪問網站，請稍等幾分鐘再嘗試。
     如果你在設置 GitHub Pages 或使用過程中遇到問題，可以在 repository 的「Settings」頁面檢查「Pages」部分，確保配置正確。
+
+---
+
+
+github page 綁定 godaddy dns
+
+
+步驟	            GoDaddy 操作	                                GitHub 操作
+DNS 設定	        新增 4 個 A 紀錄指向 GitHub IP	
+                  新增 CNAME 紀錄指向 username.github.io	
+自訂域名設定		                                                  在 Pages 設定中輸入自訂域名
+HTTPS 啟用	      可選，使用 Cloudflare 或 GitHub 預設	          勾選「Enforce HTTPS」
+
+
