@@ -58,7 +58,10 @@ github page 綁定 godaddy dns
   </tr>
   <tr>
     <td>DNS 設定</td>
-    <td>新增 4 個 A 紀錄指向 GitHub IP</td>
+    <td>新增 4 個 A 紀錄指向 GitHub IP
+    <br>
+      A @ 	185.199.108.153 ->  ~.~.111.~
+    </td>
     <td></td>
   </tr>
   <tr>
