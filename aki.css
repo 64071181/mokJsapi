@@ -32,7 +32,7 @@
     .logo {color: white;font-size: 24px;font-weight: bold;height: 100%;}
     .logo img {height: 100%;width: auto;}
     /* 回頂鍵 */
-    .scroll-top {position: fixed;bottom: 20px;right: 20px;background: var(--主題色); color: white;width: 40px;height: 40px;border-radius: 50%;display: none;justify-content: center;align-items: center;cursor: pointer;box-shadow: 0 2px 5px rgba(0,0,0,0.2);z-index: 12;}
+    .scroll-top {position: fixed;bottom: 20px;left: 20px;background: var(--主題色); color: white;width: 40px;height: 40px;border-radius: 50%;display: none;justify-content: center;align-items: center;cursor: pointer;box-shadow: 0 2px 5px rgba(0,0,0,0.2);z-index: 12;}
     /* 平滑滾動效果 */
     .header {margin-top: 90px; background: var(--主題色);padding: 1rem;text-align: center;box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
     .container {max-width: 1000px;margin: 2rem auto;padding: 0 1rem;}
