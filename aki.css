@@ -14,14 +14,17 @@
   .fa,.fab,.fas {font-size: 2rem;height: 2rem;}
   a{text-decoration: none;color: var(--標題色);}
   * { scrollbar-width: none; /* 滾動條美化 */}
-  .主題色{color: var(gold); } 
+  .主題色{color: var(--主題色); } 
   .按鈕色{color: var(--按鈕色); }
   .標題色{color: var(--標題色); }
   .文字色,p {color: var(--文字色); }
 
+
   .none{display:none;}
   .clear-float {clear: both; /* 清除浮動 */height: 1px;margin: 0;padding: 0;}
   a{text-decoration: none;color: var(--標題色);}
+
+
 
 /* logo 滾回頂 */
     .logo-container {height: 60px;padding: 5px; width: 100%;background-color: var(--主題色); display: flex;justify-content: center;align-items: center;
@@ -29,7 +32,7 @@
     .logo {color: white;font-size: 24px;font-weight: bold;height: 100%;}
     .logo img {height: 100%;width: auto;}
     /* 回頂鍵 */
-    .scroll-top {position: fixed;bottom: 20px;left: 20px;background: white; color: gold;width: 40px;height: 40px;border-radius: 50%;display: none;justify-content: center;align-items: center;cursor: pointer;box-shadow: 0 2px 5px rgba(0,0,0,0.2);z-index: 12;}
+    .scroll-top {position: fixed;bottom: 40%;left: 20px;background: var(--主題色); color: white;width: 40px;height: 40px;border-radius: 50%;display: none;justify-content: center;align-items: center;cursor: pointer;box-shadow: 0 2px 5px rgba(0,0,0,0.2);z-index: 12;}
     /* 平滑滾動效果 */
     .header {margin-top: 90px; background: var(--主題色);padding: 1rem;text-align: center;box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
     .container {max-width: 1000px;margin: 2rem auto;padding: 0 1rem;}
@@ -69,10 +72,14 @@
   .ContactAKI ul{display: flex;justify-content: center; overflow: hidden;margin: 0;padding: 20px;}
   .ContactAKI li{list-style-type:none; margin: 0 5px -40px 5px;display: block;position: relative;transition: transform 0.3s ease; /* 添加過渡效果 */}
   .ContactAKI li:hover{transform: translateY(-20px); /* 向上移動 */}
-  .ContactAKI .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 9; width: 250px;height: 330px; background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/WechatQR.png);background-size: 100%;background-repeat: no-repeat;cursor: pointer;}
-  .WechatQR圖:hover{display: block}
+  .ContactAKI .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 9; width: 250px;height: 330px;}
 
 
+
+  .ContactAKI .小紅書 {display: block; width: 40px;height: 40px; background-image: url(https://i.meee.com.tw/jAkFtwg.png);background-size: 100%;background-repeat: no-repeat;}
+  .ContactAKI .小紅書:hover{background-image: url(https://i.meee.com.tw/MjJOMjd.png);}
+  .ContactAKI .抖音 {display: block; width: 40px;height: 40px; background-image: url(https://i.meee.com.tw/24aHs0N.png);background-size: 100%;background-repeat: no-repeat;}
+  .ContactAKI .抖音:hover{background-image: url(https://i.meee.com.tw/ltDHmdt.png);}
 
   
   .廣告位 {transition: all 0.3s ease;background: rgb(63, 223, 255);background-size: auto;background-repeat: no-repeat;display: none;height: 0px;width: 0px;max-width: 300px;margin: auto;}

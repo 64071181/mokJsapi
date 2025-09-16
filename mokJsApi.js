@@ -106,10 +106,12 @@ function mokJsApi_說明(){
 $(document).ready(function() {
   // <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   // 版權 + 隱私權政策
-    網站名是版權人 = location.hostname
-    if (網站名是版權人 == 'xn--come-p35m.com') 網站名是版權人 = '金come.com'
+
+  //$('.mokJsApi_copyright').text('© ' + new Date().getFullYear() + ' All rights reserved by ' + location.hostname).css({'font-size': 'medium'});    
+
+
   $('.mokJsApi_copyright').html(
-    `© ${new Date().getFullYear()} All rights reserved by ${網站名是版權人}
+    `©${new Date().getFullYear()}All rights reserved by ${location.hostname}
     <br>
     <a class="btn" href='https://raw.githubusercontent.com/64071181/64071181.github.io/refs/heads/main/PrivacyPolicy.md' target="_blank" >隱私權政策</a>
     `
@@ -271,7 +273,7 @@ function _顯示聯莫(data) {
 
   查詢內容 = $('#莫生查詢').text()
 
-  let mail = whatsapp = Wechat = WechatQR = instagram = line = facebook = telegram = ''
+  let mail = whatsapp = Wechat = WechatQR = instagram = line = facebook = telegram = github = 小紅書 = 抖音 = ''
 
   // ${data[0].WechatQR}
   
@@ -289,12 +291,15 @@ function _顯示聯莫(data) {
   if(data[3]) instagram = `<a href="${data[3]}" target="_blank"><li><i class="fa fa-instagram"></i></li></a>`;
   if(data[4]) line = `<a href="${data[4]}" target="_blank"><li><i class="lineB">  </i></li></a>`;
   if(data[5]) facebook = `<a href="${data[5]}" target="_blank"><li><i class="fa fa-facebook">  </i></li></a>`
-  if(data[6]) telegram = `<a href="${data[6]}" target="_blank"><li><i class="fa fa-telegram">  </i></li></a>`
+  if(data[6]) telegram = `<a href="${data[6]}" target="_blank"><li><i class="fa fa-telegram">  </i></li></a>`;
   if(data[7]) github = `<a href="${data[7]}" target="_blank"><li><i class="fa fa-github">  </i></li></a>`;
+  
+  if(data[8]) 小紅書 = `<a href="${data[8]}" target="_blank"><li><i class="小紅書">  </i></li></a>`;
+  if(data[9]) 抖音 = `<a href="${data[9]}" target="_blank"><li><i class="抖音">  </i></li></a>`;
 
   聯卡 = `
     <br class="clear-float">
-    <ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}${github}</ul>
+    <ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}${github}${小紅書}${抖音}</ul>
     ${WechatQR}
     <hr class="clear-float">
   `
@@ -307,7 +312,7 @@ document.querySelectorAll('.ContactAKI ul li .fa-wechat').forEach(icon => {
     qr.style.display = 'block';
   });
   icon.parentElement.addEventListener('mouseleave', () => {
-    setTimeout(() => {qr.style.display = 'none';}, 200)
+    qr.style.display = 'none';
   });
 });
 
@@ -424,10 +429,10 @@ function _ai客服(){
     // 创建并插入script元素
     $('<script>')
     .html(`
-        window.greetings = ["Hello, I'm your assistant! 👋🏻","Ask me anything."];
+        window.greetings = ["hihi! 👋🏻","我是ai客服😃"];
         window.chatPosition = "right-bottom";
-        window.chatBalloonImg = '//a821d63e790a2b70ddeb996bbc284b53.cdn.bubble.io/f1744998350815x265120218675150900/WhatsApp%20Image%202025-03-17%20at%2021.32.13.jpeg';
-        window.chatbotIframeSrc = 'https://go.aicado.ai/XXb39oH';
+        window.chatBalloonImg = '//a821d63e790a2b70ddeb996bbc284b53.cdn.bubble.io/f1742732657320x407713372944441800/WhatsApp%20Image%202025-03-17%20at%2021.32.13.jpeg';
+        window.chatbotIframeSrc = 'https://go.aicado.ai/1xNLkoD';
     `)
     .appendTo('head');
 
@@ -435,8 +440,8 @@ function _ai客服(){
     $('<style>')
     .html(`
         :root {
-            --aicado-greetings-bg: #A4F589;
-            --aicado-greetings-color: #1A1A1A;
+            --aicado-greetings-bg: #000;
+            --aicado-greetings-color: #999;
             --aicado-greetings-font-family: Roboto Slab, serif;
         }
     `)
@@ -445,7 +450,7 @@ function _ai客服(){
     // 插入客服iframe元素
     $("body").prepend(`<script src="https://cdn.jsdelivr.net/gh/efesener/aicado/aicado-llm.js"></script>`)
 
-    // 隱藏logo qqq
+    // 隱藏logo
     $(".bubble-element.CustomElement.baTraHaL.bubble-r-container.flex.row").removeAttr("style").hide();
   }
 
@@ -497,7 +502,7 @@ function _統一我司名(){
     }
 
     // 修改 頁內我司名
-    $('._我司名').text(我公司名)
+    $('#_我司名').text(我公司名)
 };
 
 
@@ -1191,4 +1196,4 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 // 202504112318
-我公司名 = '金come' 
+我公司名 = '莫氏金流商匯' 
