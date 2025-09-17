@@ -74,12 +74,11 @@
   .ContactAKI li:hover{transform: translateY(-20px); /* 向上移動 */}
   .ContactAKI .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 9; width: 250px;height: 330px;}
 
-
-
   .ContactAKI .小紅書 {display: block; width: 40px;height: 40px; background-image: url(https://i.meee.com.tw/jAkFtwg.png);background-size: 100%;background-repeat: no-repeat;}
   .ContactAKI .小紅書:hover{background-image: url(https://i.meee.com.tw/MjJOMjd.png);}
-  .ContactAKI .抖音 {display: block; width: 40px;height: 40px; background-image: url(https://i.meee.com.tw/24aHs0N.png);background-size: 100%;background-repeat: no-repeat;}
-  .ContactAKI .抖音:hover{background-image: url(https://i.meee.com.tw/ltDHmdt.png);}
+
+  .ContactAKI .fa-tiktok:hover{color: #fff;}
+  .ContactAKI .fa-threads:hover{color: #fff;}
 
   
   .廣告位 {transition: all 0.3s ease;background: rgb(63, 223, 255);background-size: auto;background-repeat: no-repeat;display: none;height: 0px;width: 0px;max-width: 300px;margin: auto;}
