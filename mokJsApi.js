@@ -273,7 +273,7 @@ function _顯示聯莫(data) {
 
   查詢內容 = $('#莫生查詢').text()
 
-  let mail = whatsapp = Wechat = WechatQR = instagram = line = facebook = telegram = github = 小紅書 = 抖音 = ''
+  let mail = whatsapp = Wechat = WechatQR = instagram = line = facebook = telegram = github = 小紅書 = 抖音 = threads = ''
 
   // ${data[0].WechatQR}
   
@@ -295,11 +295,12 @@ function _顯示聯莫(data) {
   if(data[7]) github = `<a href="${data[7]}" target="_blank"><li><i class="fa fa-github">  </i></li></a>`;
   
   if(data[8]) 小紅書 = `<a href="${data[8]}" target="_blank"><li><i class="小紅書">  </i></li></a>`;
-  if(data[9]) 抖音 = `<a href="${data[9]}" target="_blank"><li><i class="抖音">  </i></li></a>`;
+  if(data[9]) 抖音 = `<a href="${data[9]}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>`;
+  if(data[10]) threads = `<a href="${data[10]}" target="_blank"><i class="fa-brands fa-threads"></i></a>`;
 
   聯卡 = `
     <br class="clear-float">
-    <ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}${github}${小紅書}${抖音}</ul>
+    <ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}${github}${小紅書}${抖音}${threads}</ul>
     ${WechatQR}
     <hr class="clear-float">
   `
