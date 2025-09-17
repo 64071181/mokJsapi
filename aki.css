@@ -79,7 +79,7 @@
 
   .ContactAKI .fa-tiktok:hover{color: #fff;}
   .ContactAKI .fa-threads:hover{color: #fff;}
-  .ContactAKI .fa-youtube:hover{color: #d71f1f;}
+  .ContactAKI .fa-youtube:hover{color: red;}
 
   
   .廣告位 {transition: all 0.3s ease;background: rgb(63, 223, 255);background-size: auto;background-repeat: no-repeat;display: none;height: 0px;width: 0px;max-width: 300px;margin: auto;}

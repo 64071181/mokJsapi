@@ -295,9 +295,9 @@ function _顯示聯莫(data) {
   if(data[7]) github = `<a href="${data[7]}" target="_blank"><li><i class="fa fa-github">  </i></li></a>`;
   
   if(data[8]) 小紅書 = `<a href="${data[8]}" target="_blank"><li><i class="小紅書">  </i></li></a>`;
-  if(data[9]) 抖音 = `<a href="${data[9]}" target="_blank"><i class="fa-brands fa-tiktok"></i></a>`;
-  if(data[10]) threads = `<a href="${data[10]}" target="_blank"><i class="fa-brands fa-threads"></i></a>`;
-  if(data[11]) youtube = `<a href="${data[11]}" target="_blank"><i class="fa-brands fa-youtube"></i></a>`;
+  if(data[9]) 抖音 = `<a href="${data[9]}" target="_blank"><li><i class="fa-brands fa-tiktok"></i></li></a>`;
+  if(data[10]) threads = `<a href="${data[10]}" target="_blank"><li><i class="fa-brands fa-threads"></i></li></a>`;
+  if(data[11]) youtube = `<a href="${data[11]}" target="_blank"><li><i class="fa-brands fa-youtube"></i></li></a>`;
 
   聯卡 = `
     <br class="clear-float">
