@@ -70,7 +70,7 @@
   .ContactAKI .fa-facebook:hover{color: rgb(47, 47, 244);}
   .ContactAKI .fa-telegram:hover{color: rgb(126, 157, 242);}
   .ContactAKI ul{display: flex;justify-content: center; overflow: hidden;margin: 0;padding: 20px;}
-  .ContactAKI li{list-style-type:none; margin: 0 5px -40px 5px;display: block;position: relative;transition: transform 0.3s ease; /* 添加過渡效果 */}
+  .ContactAKI li{list-style-type:none; margin: 0 5px 0px/*-40px*/ 5px;display: block;position: relative;transition: transform 0.3s ease; /* 添加過渡效果 */}
   .ContactAKI li:hover{transform: translateY(-20px); /* 向上移動 */}
   .ContactAKI .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 9; width: 250px;height: 330px;}
 
