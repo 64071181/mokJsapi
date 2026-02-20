@@ -494,13 +494,13 @@ function _統一我司名(){
 
     // 修改 title
     const originalTitle = document.title;
-    const newTitle = originalTitle.replace("莫氏金流商匯", 我公司名);
+    const newTitle = originalTitle.replace("莫氏集團", 我公司名);
     document.title = newTitle;
 
     // 修改 <meta name="description">
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-        metaDescription.content = metaDescription.content.replace("莫氏金流商匯", 我公司名);
+        metaDescription.content = metaDescription.content.replace("莫氏集團", 我公司名);
     }
 
     // 修改 頁內我司名
@@ -1198,4 +1198,4 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 
 // 202504112318
-我公司名 = '莫氏金流商匯' 
+我公司名 = '莫氏集團' 
