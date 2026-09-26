@@ -96,3 +96,8 @@
   input:checked + .slider {background-color: #5d53e2;}
   input:checked + .slider::before {transform: translateX(43px);}
   button.delete {background-color: #f44336;}
+/* 新增：LinkedIn / X 圖示（20260926 mokagi說明） */
+.ContactAKI .mokLinkedin,.ContactAKI .mokX{display:inline-block;vertical-align:middle;}
+.ContactAKI .mokLinkedin svg,.ContactAKI .mokX svg{display:block;width:1em;height:1em;}
+.ContactAKI .mokLinkedin:hover{color:#0A66C2;}
+.ContactAKI .mokX:hover{color:#ffffff;}
