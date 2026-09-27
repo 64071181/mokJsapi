@@ -69,7 +69,7 @@
   .ContactAKI .lineB:hover{background-image: url(https://raw.githubusercontent.com/64071181/mokJsapi/refs/heads/main/line.png);}
   .ContactAKI .fa-facebook:hover{color: rgb(47, 47, 244);}
   .ContactAKI .fa-telegram:hover{color: rgb(126, 157, 242);}
-  .ContactAKI ul{display: flex;justify-content: center; overflow: hidden;margin: 0;padding: 20px;}
+  .ContactAKI ul{display: flex;flex-wrap: wrap;justify-content: center;gap: 10px 5px;overflow: visible;margin: 0;padding: 20px;}
   .ContactAKI li{list-style-type:none; margin: 0 5px 0px/*-40px*/ 5px;display: block;position: relative;transition: transform 0.3s ease; /* 添加過渡效果 */}
   .ContactAKI li:hover{transform: translateY(-20px); /* 向上移動 */}
   .ContactAKI .WechatQR圖 {display: none;position: fixed;top: 33%;left: 33%;z-index: 9; width: 250px;height: 330px;}
@@ -101,3 +101,23 @@
 .ContactAKI .mokLinkedin svg,.ContactAKI .mokX svg{display:block;width:1em;height:1em;}
 .ContactAKI .mokLinkedin:hover{color:#0A66C2;}
 .ContactAKI .mokX:hover{color:#ffffff;}
+
+/* ===== 新增：抖音 / Threads / YouTube 改用 inline SVG 圖示（20260927 mokagi說明）=====
+   原因：原本用 <i class="fa-brands fa-..."> 需 Font Awesome 6 brands 字型，若頁面只載入 FA4/FA5 則不會顯示。 */
+.ContactAKI .mokDouyin,.ContactAKI .mokThreads,.ContactAKI .mokYoutube{display:inline-block;vertical-align:middle;}
+.ContactAKI .mokDouyin svg,.ContactAKI .mokThreads svg,.ContactAKI .mokYoutube svg{display:block;width:1em;height:1em;}
+.ContactAKI .mokDouyin:hover{color:#FE2C55;}
+.ContactAKI .mokThreads:hover{color:#ffffff;}
+.ContactAKI .mokYoutube:hover{color:#ff0000;}
+
+/* ===== 修正：聯絡列換行（手機版不再出界）+ 圖示連結不要外框（20260927 mokagi說明）===== */
+.ContactAKI a,.ContactAKI a:link,.ContactAKI a:visited,.ContactAKI a:hover,.ContactAKI a:focus,.ContactAKI a:active{
+  display:block;border:0;outline:none;box-shadow:none;background:transparent;text-decoration:none;-webkit-tap-highlight-color:transparent;
+}
+.ContactAKI ul{flex-wrap:wrap;overflow:visible;gap:10px 5px;}
+.ContactAKI li{margin:0 4px;}
+@media (max-width:600px){
+  .ContactAKI ul{padding:14px 6px;gap:10px 2px;}
+  .ContactAKI li{margin:0 2px;}
+  .ContactAKI i{font-size:clamp(26px,8vw,38px);}
+}
