@@ -273,7 +273,7 @@ function _顯示聯莫(data) {
 
   查詢內容 = $('#莫生查詢').text()
 
-  let mail = whatsapp = Wechat = WechatQR = instagram = line = facebook = telegram = github = 小紅書 = 抖音 = threads = youtube = ''
+  let mail = whatsapp = Wechat = WechatQR = instagram = line = facebook = telegram = linkedin = twitter = github = 小紅書 = 抖音 = threads = youtube = ''
 
   // ${data[0].WechatQR}
   
@@ -291,17 +291,19 @@ function _顯示聯莫(data) {
   if(data[3]) instagram = `<a href="${data[3]}" target="_blank"><li><i class="fa fa-instagram"></i></li></a>`;
   if(data[4]) line = `<a href="${data[4]}" target="_blank"><li><i class="lineB">  </i></li></a>`;
   if(data[5]) facebook = `<a href="${data[5]}" target="_blank"><li><i class="fa fa-facebook">  </i></li></a>`
-  if(data[6]) telegram = `<a href="${data[6]}" target="_blank"><li><i class="fa fa-telegram">  </i></li></a>`;
+  if(data[6] && /linkedin/i.test(data[6])) linkedin = `<a href="${data[6]}" target="_blank"><li><i class="mokLinkedin" aria-label="LinkedIn"><svg viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.79 0 24.09 24.09 0 53.79 0s53.79 24.09 53.79 53.79c0 29.71-24.1 54.31-53.79 54.31zM447.9 448h-92.68V302.4c0-34.71-.74-79.2-48.29-79.2-48.29 0-55.69 37.71-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></i></li></a>`;
+  else if(data[6]) telegram = `<a href="${data[6]}" target="_blank"><li><i class="fa fa-telegram">  </i></li></a>`;
   if(data[7]) github = `<a href="${data[7]}" target="_blank"><li><i class="fa fa-github">  </i></li></a>`;
   
   if(data[8]) 小紅書 = `<a href="${data[8]}" target="_blank"><li><i class="小紅書">  </i></li></a>`;
   if(data[9]) 抖音 = `<a href="${data[9]}" target="_blank"><li><i class="fa-brands fa-tiktok"></i></li></a>`;
   if(data[10]) threads = `<a href="${data[10]}" target="_blank"><li><i class="fa-brands fa-threads"></i></li></a>`;
   if(data[11]) youtube = `<a href="${data[11]}" target="_blank"><li><i class="fa-brands fa-youtube"></i></li></a>`;
+  if(data[12]) twitter = `<a href="${data[12]}" target="_blank"><li><i class="mokX" aria-label="X"><svg viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></i></li></a>`;
 
   聯卡 = `
     <br class="clear-float">
-    <ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}${github}${小紅書}${抖音}${threads}${youtube}</ul>
+    <ul>${mail}${whatsapp}${Wechat}${instagram}${line}${facebook}${telegram}${linkedin}${github}${小紅書}${抖音}${threads}${youtube}${twitter}</ul>
     ${WechatQR}
     <hr class="clear-float">
   `
